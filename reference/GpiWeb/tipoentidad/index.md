@@ -1,0 +1,4 @@
+---
+title: TipoEntidad
+hidden: false
+---

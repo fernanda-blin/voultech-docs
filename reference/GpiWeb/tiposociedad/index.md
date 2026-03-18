@@ -1,0 +1,4 @@
+---
+title: TipoSociedad
+hidden: false
+---
