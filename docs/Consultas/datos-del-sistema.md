@@ -1,5 +1,5 @@
 ---
-title: Datos del Sistema
+title: Listados del Sistema
 deprecated: false
 hidden: false
 metadata:
