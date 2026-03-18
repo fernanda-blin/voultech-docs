@@ -1,209 +1,92 @@
 ---
-title: Introducción
+title: Introducción a la API de Voultech
 excerpt: >-
-  Tu primera integración en 5 pasos: autenticarte, crear cliente, abrir cuenta y
-  registrar tu primer aporte.
+  Solución Investment-as-a-Service para fintechs: onboarding, cuentas,
+  operaciones y eventos en tiempo real.
 hidden: false
 ---
-Realiza tu primera integración con la API de Voultech: autentícate, consulta parámetros, crea un cliente, abre su cuenta y registra su primer aporte.
+La API de Voultech ofrece una solución **Investment-as-a-Service** que permite a fintechs y empresas integrar funcionalidades clave para ofrecer productos de inversión: onboarding digital (KYC/compliance), apertura de cuentas, gestión de caja en múltiples divisas, compra/venta de instrumentos financieros y seguimiento de eventos en tiempo real.
 
-<Callout icon="📋" theme="info">
-  **Antes de empezar**, solicita tus credenciales al equipo de Voultech: `userName`, `password` y `abrAsesor` (código de asesor). Estas credenciales te darán acceso al entorno **Sandbox**.
+<Callout icon="📧" theme="info">
+  ¿Necesitas ayuda? Escríbenos a **soporte@voultech.com**
 </Callout>
 
-## Paso 1: Autentícate
-
-Envía tus credenciales al endpoint `SignIn` para obtener un **Bearer Token** que incluirás en todas las llamadas posteriores.
-
-**→ POST** `/api/publicapi/shared/auth/SignIn`
-
-```json title="Request Body"
-{
-  "userName": "tu_usuario_sandbox",
-  "password": "tu_contraseña_sandbox"
-}
-```
-
-```json title="Respuesta exitosa"
-{
-  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
-  "expiration": "2025-10-21T18:00:00Z"
-}
-```
-
-Agrega el token en **todas** las solicitudes siguientes con este header:
-
-```
-Authorization: Bearer {tu_token}
-```
-
-<Callout icon="🔄" theme="info">
-  Si tu token está por expirar, renuévalo con **GET** `/api/publicapi/shared/auth/RefreshToken` sin necesidad de volver a iniciar sesión.
-</Callout>
-
-<br />
-
-## Paso 2: Consulta los parámetros del sistema
-
-Antes de crear clientes o cuentas, necesitas los **códigos válidos** que el sistema espera. No puedes enviar `"Santiago"` como texto libre — debes enviar el `idComunaCiudad` correspondiente.
-
-Usa los endpoints `GET` de listados para obtener estos códigos:
-
-| Endpoint | Uso principal | Dato clave |
-|---|---|---|
-| `GET /api/publicapi/creasys/Moneda` | Crear cuentas y movimientos | `codMoneda` (ej: `CLP`, `USD`) |
-| `GET /api/publicapi/creasys/Comuna` | Definir dirección del cliente | `idComunaCiudad` |
-| `GET /api/publicapi/creasys/Pais` | Asignar nacionalidad | `codPais` |
-| `GET /api/publicapi/creasys/PerfilRiesgo` | Crear cuenta de inversión | `dscPerfilRiesgo` |
-| `GET /api/publicapi/creasys/Banco` | Asociar cuentas bancarias | `dscBanco` |
-
-**Ejemplo: Obtener monedas disponibles**
-
-**→ GET** `/api/publicapi/creasys/Moneda`
-
-```json title="Respuesta"
-[
-  { "codMoneda": "CLP", "dscMoneda": "PESO CHILENO" },
-  { "codMoneda": "USD", "dscMoneda": "DÓLAR USA" }
-]
-```
-
-<br />
-
-## Paso 3: Onboarding de tu primer cliente
-
-Con los códigos obtenidos, registra un cliente nuevo en el sistema.
-
-### 3.1 Crear el cliente
-
-**→ POST** `/api/publicapi/creasys/Clientes`
-
-```json title="Request Body"
-{
-  "persona": {
-    "identificador": "11111111-1",
-    "tipoIdentificador": "R",
-    "tipoEntidad": "N",
-    "nombre": "Ana",
-    "paterno": "Prueba",
-    "email": "ana.prueba@email.com",
-    "direccionPersona": [
-      {
-        "direccion": "Av. Siempre Viva 123",
-        "idComunaCiudadNavigation": {
-          "dscComunaCiudad": "Santiago",
-          "idRegionNavigation": {
-            "dscRegion": "Metropolitana",
-            "codPaisNavigation": {
-              "dscPais": "CHILE"
-            }
-          }
-        }
-      }
-    ]
-  },
-  "asesor": [
-    { "abrNombre": "TU_CODIGO_ASESOR" }
-  ]
-}
-```
-
-Si la creación fue exitosa, recibirás una respuesta **`201 Created`**.
-
-### 3.2 Subir documentos
-
-Sube la documentación requerida (cédula, contrato) codificada en **Base64**.
-
-**→ POST** `/api/publicapi/creasys/Documentos`
-
-```json title="Request Body"
-{
-  "Identificador": "11111111-1",
-  "TipoDocumento": ".pdf",
-  "NombreDocumento": "TuFintech_ciFrontal",
-  "ContenidoBase64": "JVBERi0xLjQKJ...",
-  "codTipo": "ciFrontal"
-}
-```
-
-Tipos de documento admitidos:
-
-| `codTipo` | Descripción |
-|---|---|
-| `ciFrontal` | Cédula de identidad (frente) |
-| `ciReverso` | Cédula de identidad (reverso) |
-| `contrato` | Contrato firmado |
-
-### 3.3 Crear la cuenta de inversión
-
-**→ POST** `/api/publicapi/creasys/Cuentas`
-
-```json title="Request Body"
-{
-  "numCuenta": "11111111/1",
-  "dscCuenta": "Ana Prueba Inversiones",
-  "identificador": "11111111-1",
-  "codMoneda": "CLP",
-  "codTipoAdministracion": "NF",
-  "dscPerfilRiesgo": "MODERADO",
-  "dscTipoCuenta": "NACIONAL",
-  "abrAsesor": "TU_CODIGO_ASESOR"
-}
-```
-
-<br />
-
-## Paso 4: Registra un aporte inicial
-
-Simula el primer aporte de fondos del cliente.
-
-**→ POST** `/api/publicapi/creasys/Movimientos/IngresoAporteRetiro`
-
-```json title="Request Body"
-{
-  "Uuid": "gen-un-uuid-unico-aqui",
-  "CodTipoMovimiento": "APO_PAT",
-  "NumCuenta": "11111111/1",
-  "Monto": "100000",
-  "CodMoneda": "CLP",
-  "DscMedioPagoCobro": "TRANSFERENCIA",
-  "ObsMovimiento": "Aporte inicial de prueba"
-}
-```
-
-<Callout icon="⚠️" theme="warning">
-  El `Uuid` debe ser **único por operación**. Si reintentas el mismo request con el mismo UUID, el sistema detectará que ya fue procesado y no lo duplicará.
-</Callout>
-
-<br />
-
-## Paso 5: Verifica el saldo
-
-Confirma que el aporte se reflejó correctamente en la cuenta del cliente.
-
-**→ GET** `/api/publicapi/creasys/Cajas?NumCuenta=11111111/1`
-
-```json title="Respuesta esperada"
-{
-  "codMoneda": "CLP",
-  "saldoDisponible": 100000
-}
-```
-
-<br />
-
-## 🎉 ¡Felicitaciones!
-
-Has completado tu primera integración con la API de Voultech.
-
-### Próximos pasos
+## ¿Qué puedes hacer con nuestra API?
 
 <Cards>
-  <Card title="Ejecutar una orden de mercado" href="#" icon="fa-duotone fa-chart-line">Compra tu primer instrumento con POST /Ordenes/IngresarOrdenesMercado</Card>
+  <Card title="Onboarding de clientes" icon="fa-duotone fa-user-plus">Registra usuarios, carga documentos de identidad y ejecuta validación KYC/Compliance.</Card>
 
-  <Card title="Consultar la cartera" href="#" icon="fa-duotone fa-briefcase">Revisa el portafolio del cliente con GET /Cartera</Card>
+  <Card title="Apertura de cuentas" icon="fa-duotone fa-wallet">Crea cuentas de inversión en distintas divisas y perfiles de riesgo.</Card>
 
-  <Card title="Sistema de Eventos" href="#" icon="fa-duotone fa-bell">Suscríbete para monitorear movimientos en tiempo real</Card>
+  <Card title="Gestión de caja y fondos" icon="fa-duotone fa-money-bill-transfer">Recibe abonos en CLP, realiza retiros automáticos y opera en múltiples monedas.</Card>
 
-  <Card title="Errores comunes" href="#" icon="fa-duotone fa-circle-exclamation">Aprende a manejar los códigos de error de la API</Card>
+  <Card title="Compra/venta de instrumentos" icon="fa-duotone fa-chart-line">Ejecuta órdenes de mercado directamente desde tu plataforma.</Card>
+
+  <Card title="Cartera y movimientos" icon="fa-duotone fa-briefcase">Consulta portafolio, saldos, movimientos históricos y certificados de custodia.</Card>
+
+  <Card title="Eventos en tiempo real" icon="fa-duotone fa-bell">Recibe notificaciones automáticas sobre KYC, movimientos de caja y precios.</Card>
+</Cards>
+
+<br />
+
+## Requisitos previos
+
+| Requisito | Detalle |
+|---|---|
+| **Credenciales** | Solicita `userName`, `password` y `abrAsesor` (código de asesor) al equipo de Voultech |
+| **Autenticación** | `POST /api/publicapi/shared/auth/SignIn` para obtener tu Bearer token |
+| **Sandbox** | `https://apiwebcbvoultechcertificacion.azurewebsites.net` |
+| **Producción** | Acceso bajo coordinación directa con el equipo de Voultech |
+| **Formato** | API RESTful, JSON, OpenAPI 3.0.1, vía HTTPS |
+
+<Callout icon="⚠️" theme="warning">
+  Las credenciales de Sandbox y Producción son independientes. Un token de un entorno **no funciona** en el otro.
+</Callout>
+
+<br />
+
+## Empieza aquí
+
+<Cards>
+  <Card title="Guía de Inicio Rápido" href="#" icon="fa-duotone fa-rocket-launch">Tu primera integración en 5 pasos: autenticarte, crear cliente, abrir cuenta y hacer tu primer aporte.</Card>
+
+  <Card title="Autenticación" href="#" icon="fa-duotone fa-key">Cómo obtener y renovar tu Bearer token para acceder a la API.</Card>
+
+  <Card title="API Reference" href="#" icon="fa-duotone fa-code">Explora todos los endpoints disponibles con ejemplos interactivos.</Card>
+</Cards>
+
+<br />
+
+## Guías de integración
+
+<Cards>
+  <Card kind="tile" title="Enrolamiento de Clientes" href="#" icon="fa-duotone fa-user-check">Crea clientes, sube documentos y completa el KYC</Card>
+
+  <Card kind="tile" title="Gestión de Cuentas" href="#" icon="fa-duotone fa-building-columns">Cuentas de inversión, cuentas bancarias y comisiones</Card>
+
+  <Card kind="tile" title="Movimientos y Operaciones" href="#" icon="fa-duotone fa-arrow-right-arrow-left">Aportes, retiros, órdenes y operaciones spot</Card>
+
+  <Card kind="tile" title="Sistema de Eventos" href="#" icon="fa-duotone fa-bell">Notificaciones en tiempo real vía Service Bus</Card>
+
+  <Card kind="tile" title="Cuentas Internacionales (Alpaca)" href="#" icon="fa-duotone fa-globe">Opera instrumentos en mercados internacionales</Card>
+
+  <Card kind="tile" title="Cartola y Reportes" href="#" icon="fa-duotone fa-file-pdf">Genera cartolas y reportes en PDF</Card>
+</Cards>
+
+<br />
+
+## Referencia
+
+<Cards>
+  <Card kind="tile" title="Listados del Sistema" href="#" icon="fa-duotone fa-list">Catálogos de bancos, comunas, monedas, perfiles y más</Card>
+
+  <Card kind="tile" title="Respuestas y Errores" href="#" icon="fa-duotone fa-circle-exclamation">Códigos HTTP, paginación y catálogos de errores</Card>
+
+  <Card kind="tile" title="Preguntas Frecuentes" href="#" icon="fa-duotone fa-circle-question">Respuestas a las dudas más comunes de integración</Card>
+
+  <Card kind="tile" title="Rate Limits" href="#" icon="fa-duotone fa-gauge-high">Límites de carga, horarios y restricciones</Card>
+
+  <Card kind="tile" title="Glosario" href="#" icon="fa-duotone fa-book">Términos técnicos y financieros</Card>
+
+  <Card kind="tile" title="Entidades Principales" href="#" icon="fa-duotone fa-diagram-project">Cliente, Cuenta, Caja, Orden, Cartera y más</Card>
 </Cards>
