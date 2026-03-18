@@ -1,5 +1,5 @@
 ---
-title: Movimientos
+title: Movimientos y Operaciones
 excerpt: >-
   Aportes, retiros, retiros Shinkansen, órdenes de compra/venta de instrumentos
   y operaciones de divisas (spot).
