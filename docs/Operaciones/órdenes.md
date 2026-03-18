@@ -1,5 +1,5 @@
 ---
-title: Órdenes
+title: Órdenes e Instrumentos
 deprecated: false
 hidden: false
 metadata:
