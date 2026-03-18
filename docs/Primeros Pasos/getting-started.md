@@ -1,5 +1,5 @@
 ---
-title: Introducción a la API de Voultech
+title: Introducción
 excerpt: >-
   Tu primera integración en 5 pasos: autenticarte, crear cliente, abrir cuenta y
   registrar tu primer aporte.
