@@ -1,93 +1,32 @@
 ---
 title: Enrolamiento de Clientes
 excerpt: >-
-  Flujo completo de onboarding: crear cliente, subir documentos de identidad y
-  contratos, y gestionar datos de personas.
+  Crea cuentas de inversión, asocia cuentas bancarias, configura comisiones y
+  gestiona cajas en múltiples divisas.
 deprecated: false
 hidden: false
 metadata:
   robots: index
 ---
-Registra clientes en la plataforma de Voultech completando el flujo de onboarding: crear el cliente, subir documentos de identidad y asociar un asesor.
+Crea y administra cuentas de inversión, asocia cuentas bancarias, configura comisiones y gestiona cajas en múltiples divisas.
 
-## Flujo de enrolamiento
+## Crear cuenta de inversión
 
-El proceso para enrolar a una persona como cliente incluye estos pasos:
+**→ POST** `/api/publicapi/creasys/Cuentas`
 
-1. **Crear el cliente** con sus datos personales
-2. **Subir documentos requeridos**: cédula de identidad y contratos
-3. **Crear una cuenta de inversión** asociada a tu fintech
-4. **Asociar una cuenta bancaria** al cliente
-
-Una vez completados estos pasos, el cliente queda habilitado para operar en el sistema.
-
-<Callout icon="💡" theme="info">
-  Es posible que el cliente ya exista en la corredora. En ese caso, igualmente debes subir sus documentos y crear su cuenta. Si la cuenta bancaria ya está asociada, no representa un problema.
-</Callout>
-
-<br />
-
-## Crear cliente
-
-**→ POST** `/api/publicapi/creasys/Clientes`
-
-Crea un nuevo cliente persona natural o jurídica asociado a tu fintech.
-
-**Campos clave:**
-
-| Campo | Descripción |
-|---|---|
-| `identificador` | RUT o Pasaporte del cliente |
-| `tipoIdentificador` | `"R"` (RUT) o `"P"` (Pasaporte) |
-| `tipoEntidad` | `"N"` (Natural) o `"J"` (Jurídica) |
-| `sexo` | `"M"` o `"F"` |
-| `pep`, `fatca` | `"Si"` o `null` |
-| `relacionado` | Objeto con `relacion`, `observacion`, `informacionPrivilegiada` |
-| `direccionPersona` | Lista de direcciones con comuna, región y país |
-| `asesor` | Abreviación de nombre de asesor (`abrNombre`) |
+Crea una cuenta individual de inversión para un cliente existente, asociada a tu fintech como asesor.
 
 ```json title="Request Body"
 {
-  "persona": {
-    "identificador": "12345678-K",
-    "tipoIdentificador": "R",
-    "tipoEntidad": "N",
-    "nombre": "Juan",
-    "paterno": "Soto",
-    "materno": "Perez",
-    "sexo": "M",
-    "fechaNacimiento": "1999-01-19",
-    "profesion": "developer",
-    "telefono": "99999999",
-    "email": "juan@ejemplo.com",
-    "direccionPersona": [
-      {
-        "direccion": "calle 24",
-        "numero": "1",
-        "adicional": "5A",
-        "idComunaCiudadNavigation": {
-          "dscComunaCiudad": "Santiago",
-          "idRegionNavigation": {
-            "dscRegion": "Metropolitana",
-            "codPaisNavigation": {
-              "dscPais": "CHILE"
-            }
-          }
-        }
-      }
-    ]
-  },
-  "pep": "Si",
-  "relacionado": {
-    "relacion": "Cliente",
-    "observacion": "sin observaciones",
-    "informacionPrivilegiada": true
-  },
-  "asesor": [
-    {
-      "abrNombre": "nombreasesor"
-    }
-  ]
+  "numCuenta": "12345678/17",
+  "dscCuenta": "Javiera Río Casanova",
+  "abrCuenta": "12345678/17",
+  "identificador": "12345678-K",
+  "codMoneda": "CLP",
+  "codTipoAdministracion": "NF",
+  "dscPerfilRiesgo": "AGRESIVO",
+  "dscTipoCuenta": "NACIONAL",
+  "abrAsesor": "codigo_asesor"
 }
 ```
 
@@ -95,111 +34,108 @@ Respuesta exitosa: **`201 Created`**
 
 <br />
 
-## Consultar clientes
+## Consultar cuentas de inversión
 
-**→ GET** `/api/publicapi/creasys/Clientes?Identificador={identificador}`
+**→ GET** `/api/publicapi/creasys/Cuentas?Identificador={identificador}`
 
-Obtiene la información registrada de un cliente según su identificador (RUT o pasaporte).
+Retorna todas las cuentas asociadas al cliente identificado.
 
-**→ GET** `/api/publicapi/creasys/Personas`
+**Campos de la respuesta:**
 
-Devuelve la lista de personas registradas en el sistema.
+| Campo | Descripción |
+|---|---|
+| `numCuenta` | Identificador único de cuenta |
+| `dscCuenta` | Nombre completo del cliente |
+| `abrCuenta` | Abreviatura, usualmente igual a `numCuenta` |
+| `identificador` | RUT del cliente asociado |
+| `codMoneda` | Moneda de la cuenta: `CLP`, `USD`, `EUR` |
+| `codTipoAdministracion` | Tipo de administración (`NF` por defecto) |
+| `dscPerfilRiesgo` | Perfil: `CONSERVADOR`, `MODERADO`, `ARRIESGADO`, `AGRESIVO`, `CALIFICADO` |
+| `dscTipoCuenta` | Tipo: `NACIONAL`, `FIP`, `EXTRANJERA`, `PERSHING` |
+| `abrAsesor` | Código del asesor/fintech asociado |
 
-<Callout icon="💡" theme="info">
-  Puedes verificar si un cliente ya existe antes de crearlo con `GET /Clientes?Identificador={rut}`.
-</Callout>
-
-<br />
-
-## Cliente casado
-
-Si el cliente está casado, debes registrar también los datos de su cónyuge en dos pasos:
-
-### 1. Crear persona (cónyuge)
-
-**→ POST** `/api/publicapi/creasys/Personas`
-
-Registra a la pareja del cliente con los mismos campos de persona (`identificador`, `tipoIdentificador`, `tipoEntidad`, `nombre`, `direccionPersona`, etc.).
-
-### 2. Relacionar las personas
-
-**→ POST** `/api/publicapi/creasys/Contactos`
-
-Vincula al cliente con su cónyuge.
-
-```json title="Request Body"
+```json title="Respuesta"
 {
-  "identificadorCliente": "12345678-K",
-  "tipoContacto": "CONYUGE",
-  "identificadorContacto": "98765432-1"
+  "numCuenta": "12345678/17",
+  "dscCuenta": "Javiera Río Casanova",
+  "abrCuenta": "12345678/17",
+  "identificador": "12345678-K",
+  "codMoneda": "CLP",
+  "codTipoAdministracion": "NF",
+  "dscPerfilRiesgo": "AGRESIVO",
+  "dscTipoCuenta": "NACIONAL",
+  "abrAsesor": "codigo_asesor"
 }
 ```
 
 <br />
 
-## Actualizar un cliente
+## Actualizar una cuenta
 
-**→ PUT** `/api/publicapi/creasys/Clientes/{identificador}`
+**→ PUT** `/api/publicapi/creasys/Cuentas/{numCuenta}`
 
-**→ PUT** `/api/publicapi/creasys/Personas/{identificador}`
-
-Permite actualizar la información de un cliente o persona existente, identificándolo mediante su RUT, pasaporte u otro identificador único.
+Actualiza la información de una cuenta existente, identificándola mediante su número de cuenta (`numCuenta`).
 
 <Callout icon="⚠️" theme="warning">
-  El acceso a esta funcionalidad requiere **autorización previa** del equipo de Voultech.
+  El acceso a este endpoint es limitado y requiere **autorización directa** del equipo de Voultech.
 </Callout>
 
 <br />
 
-## Subir documentos
+## Asociar cuenta bancaria
 
-**→ POST** `/api/publicapi/creasys/Documentos`
+**→ POST** `/api/publicapi/creasys/CuentaCorriente`
 
-Sube archivos en formato `.pdf` o `.jpg`, codificados en **Base64**. El nombre del archivo debe seguir la nomenclatura: `{{NombreFintech}}_tipoDocumento`.
+Crea el vínculo entre un cliente y su cuenta bancaria. Esta cuenta se utiliza para recibir abonos y ejecutar retiros.
 
 **Campos clave:**
 
 | Campo | Descripción |
 |---|---|
-| `Identificador` | ID del cliente (ej. RUT) |
-| `TipoDocumento` | `.pdf` o `.jpg` |
-| `NombreDocumento` | Nombre con formato requerido |
-| `ContenidoBase64` | Archivo codificado a Base64 |
-| `codTipo` | Tipo de documento (ver tabla abajo) |
-| `Observacion` | Comentario opcional |
-
-**Tipos de documento admitidos:**
-
-| `codTipo` | Descripción |
-|---|---|
-| `ciFrontal` | Cédula de identidad (frente) |
-| `ciReverso` | Cédula de identidad (reverso) |
-| `contrato` | Contrato firmado |
-| `mandato` | Mandato de operación |
+| `Identificador` | ID del cliente (RUT) |
+| `NumeroCuentaCte` | Número de la cuenta bancaria |
+| `CodMoneda` | Moneda: `CLP`, `USD`, `EUR` |
+| `DscBanco` | Nombre del banco (ej. `BANCO BICE`) |
+| `tipoCuenta` | `Cuenta Corriente`, `Cuenta Vista`, `Cuenta de Ahorro`, `Chequera`, `Electrónica`, etc. |
 
 ```json title="Request Body"
 {
-  "Identificador": "17931004-K",
-  "TipoDocumento": ".pdf",
-  "NombreDocumento": "Voultech_contrato",
-  "ContenidoBase64": "JVBERi0xLjQKJ...",
-  "Observacion": "probando API Voultech",
-  "codTipo": "ciFrontal"
+  "Identificador": "18737322-0",
+  "NumeroCuentaCte": "11111111112",
+  "CodMoneda": "CLP",
+  "DscBanco": "BANCO BICE",
+  "tipoCuenta": "Cuenta Corriente"
 }
 ```
 
-<Callout icon="⚠️" theme="warning">
-  El archivo Base64 debe ser **puro**, sin encabezados como `data:application/pdf;base64,`. Formatos admitidos: PDF y JPG (no PNG).
+<Callout icon="💡" theme="info">
+  Consulta los valores válidos de bancos con `GET /Banco` y los tipos de cuenta con `GET /TipoCuentaBanco`.
 </Callout>
 
 <br />
 
-## Consultar documentos
+## Consultar cuenta bancaria
 
-**→ GET** `/api/publicapi/creasys/Documentos?Identificador={identificador}`
+**→ GET** `/api/publicapi/creasys/CuentaCorriente?numCuenta={numCuenta}`
 
-Devuelve los documentos asociados al cliente.
+Devuelve la información de la cuenta bancaria asociada al número especificado.
+
+<br />
+
+## Crear comisión en una cuenta
+
+**→ POST** `/api/publicapi/creasys/Comision`
+
+Asigna una comisión específica a una cuenta existente dentro del sistema.
+
+<br />
+
+## Crear una caja para una cuenta
+
+**→ POST** `/api/publicapi/creasys/Cajas`
+
+Crea una nueva caja para un cliente en una moneda específica. Las cajas representan los fondos disponibles por divisa en una cuenta.
 
 <Callout icon="💡" theme="info">
-  Si envías un `codTipo` inválido, el endpoint no devuelve error explícito pero el documento **no será procesado internamente**. Usa siempre los códigos de la tabla anterior.
+  Un cliente puede tener múltiples cajas en distintas monedas (CLP, USD, EUR) dentro de la misma cuenta de inversión.
 </Callout>
