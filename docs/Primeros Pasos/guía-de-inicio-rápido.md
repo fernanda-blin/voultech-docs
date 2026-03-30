@@ -1,18 +1,35 @@
 ---
 title: Guía de Inicio Rápido
 excerpt: >-
-  Tu primera integración en 5 pasos: autenticarte, crear cliente, abrir cuenta y
-  registrar tu primer aporte.
+  Completa tu primera integración en 5 pasos: autentícate, consulta parámetros,
+  crea un cliente, abre una cuenta y registra un aporte inicial.
 deprecated: false
 hidden: false
 metadata:
   robots: index
 ---
-Realiza tu primera integración con la API de Voultech: autentícate, consulta parámetros, crea un cliente, abre su cuenta y registra su primer aporte.
+Completa tu primera integración con la API de Voultech: autentícate, consulta parámetros válidos, registra un cliente, crea su cuenta y confirma el primer aporte.
 
-<Callout icon="📋" theme="info">
-  **Antes de empezar**, solicita tus credenciales al equipo de Voultech: `userName`, `password` y `abrAsesor` (código de asesor). Estas credenciales te darán acceso al entorno **Sandbox**.
-</Callout>
+## Antes de empezar
+
+1. Solicita al equipo de Voultech tus credenciales de Sandbox: `userName`, `password` y `abrAsesor` (código de asesor).
+2. Guarda `abrAsesor`, porque lo usarás al crear el cliente y la cuenta.
+3. Ejecuta los pasos en este orden para validar el flujo completo de punta a punta.
+
+<Columns layout="auto">
+  <Column>
+    <Callout icon="🔐" theme="info">
+      Usa estas credenciales en el entorno **Sandbox** para esta primera integración.
+    </Callout>
+  </Column>
+  <Column>
+    <Callout icon="🧭" theme="success">
+      Flujo recomendado: autenticación → parámetros → cliente → cuenta → aporte → saldo.
+    </Callout>
+  </Column>
+</Columns>
+
+<br />
 
 ## Paso 1: Autentícate
 
@@ -33,6 +50,8 @@ Envía tus credenciales al endpoint `SignIn` para obtener un **Bearer Token** qu
   "expiration": "2025-10-21T18:00:00Z"
 }
 ```
+
+**Resultado:** ya puedes autenticar las llamadas siguientes con `Authorization: Bearer {tu_token}`.
 
 Agrega el token en **todas** las solicitudes siguientes con este header:
 
@@ -71,11 +90,13 @@ Usa los endpoints `GET` de listados para obtener estos códigos:
 ]
 ```
 
+**Resultado:** ya tienes los códigos válidos que necesitas para crear el cliente, la cuenta y los movimientos.
+
 <br />
 
-## Paso 3: Onboarding de tu primer cliente
+## Paso 3: Registra tu primer cliente
 
-Con los códigos obtenidos, registra un cliente nuevo en el sistema.
+Con los códigos obtenidos, registra el cliente en el sistema, carga sus documentos y crea su cuenta de inversión.
 
 ### 3.1 Crear el cliente
 
@@ -113,6 +134,8 @@ Con los códigos obtenidos, registra un cliente nuevo en el sistema.
 
 Si la creación fue exitosa, recibirás una respuesta **`201 Created`**.
 
+**Resultado:** el cliente queda registrado para continuar con la carga de documentos y la apertura de cuenta.
+
 ### 3.2 Subir documentos
 
 Sube la documentación requerida (cédula, contrato) codificada en **Base64**.
@@ -137,6 +160,8 @@ Tipos de documento admitidos:
 | `ciReverso` | Cédula de identidad (reverso) |
 | `contrato` | Contrato firmado |
 
+**Resultado:** ya cargaste la documentación solicitada para este ejemplo de integración.
+
 ### 3.3 Crear la cuenta de inversión
 
 **→ POST** `/api/publicapi/creasys/Cuentas`
@@ -153,6 +178,8 @@ Tipos de documento admitidos:
   "abrAsesor": "TU_CODIGO_ASESOR"
 }
 ```
+
+**Resultado:** ya tienes una cuenta de inversión lista para registrar el aporte inicial.
 
 <br />
 
@@ -178,6 +205,8 @@ Simula el primer aporte de fondos del cliente.
   El `Uuid` debe ser **único por operación**. Si reintentas el mismo request con el mismo UUID, el sistema detectará que ya fue procesado y no lo duplicará.
 </Callout>
 
+**Resultado:** el sistema procesará el aporte una sola vez por cada `Uuid` único.
+
 <br />
 
 ## Paso 5: Verifica el saldo
@@ -193,11 +222,15 @@ Confirma que el aporte se reflejó correctamente en la cuenta del cliente.
 }
 ```
 
+Si `saldoDisponible` refleja `100000`, completaste el flujo básico de esta integración.
+
 <br />
 
-## 🎉 ¡Felicitaciones!
+## Integración completada
 
-Has completado tu primera integración con la API de Voultech.
+<Callout icon="✅" theme="success">
+  Completaste el flujo básico: autenticación, consulta de parámetros, creación de cliente, apertura de cuenta y registro de aporte.
+</Callout>
 
 ### Próximos pasos
 
