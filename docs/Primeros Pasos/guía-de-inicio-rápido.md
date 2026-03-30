@@ -69,6 +69,8 @@ Authorization: Bearer {tu_token}
 
 Antes de crear clientes o cuentas, necesitas los **códigos válidos** que el sistema espera. No puedes enviar `"Santiago"` como texto libre — debes enviar el `idComunaCiudad` correspondiente.
 
+<Accordion title="Ver endpoints de parámetros recomendados" icon="fa-list">
+
 Usa los endpoints `GET` de listados para obtener estos códigos:
 
 | Endpoint | Uso principal | Dato clave |
@@ -78,6 +80,8 @@ Usa los endpoints `GET` de listados para obtener estos códigos:
 | `GET /api/publicapi/creasys/Pais` | Asignar nacionalidad | `codPais` |
 | `GET /api/publicapi/creasys/PerfilRiesgo` | Crear cuenta de inversión | `dscPerfilRiesgo` |
 | `GET /api/publicapi/creasys/Banco` | Asociar cuentas bancarias | `dscBanco` |
+
+</Accordion>
 
 **Ejemplo: Obtener monedas disponibles**
 
@@ -152,6 +156,8 @@ Sube la documentación requerida (cédula, contrato) codificada en **Base64**.
 }
 ```
 
+<Accordion title="Ver tipos de documento admitidos" icon="fa-file-lines">
+
 Tipos de documento admitidos:
 
 | `codTipo` | Descripción |
@@ -160,7 +166,11 @@ Tipos de documento admitidos:
 | `ciReverso` | Cédula de identidad (reverso) |
 | `contrato` | Contrato firmado |
 
-**Resultado:** ya cargaste la documentación solicitada para este ejemplo de integración.
+</Accordion>
+
+**Resultado esperado:** la documentación requerida quedará asociada al cliente.
+
+### 3.3 Crear la cuenta de inversión
 
 ### 3.3 Crear la cuenta de inversión
 
@@ -200,11 +210,13 @@ Simula el primer aporte de fondos del cliente.
   "ObsMovimiento": "Aporte inicial de prueba"
 }
 ```
-
 <Callout icon="⚠️" theme="warning">
   El `Uuid` debe ser **único por operación**. Si reintentas el mismo request con el mismo UUID, el sistema detectará que ya fue procesado y no lo duplicará.
 </Callout>
 
+**Resultado esperado:** el aporte quedará registrado una sola vez por cada `Uuid` único.
+
+<br />
 **Resultado:** el sistema procesará el aporte una sola vez por cada `Uuid` único.
 
 <br />
