@@ -1,16 +1,31 @@
 ---
 title: Glosario
 excerpt: >-
-  Términos técnicos de integración y conceptos financieros utilizados en la API
-  de Voultech.
+  Consulta términos técnicos de integración y conceptos financieros utilizados
+  en la API de Voultech.
 deprecated: false
 hidden: false
 metadata:
   robots: index
 ---
-Definiciones de términos técnicos de integración y conceptos financieros utilizados en la API de Voultech.
+Consulta las definiciones de los términos técnicos y financieros utilizados en la API de Voultech.
+
+## Categorías del glosario
+
+<Cards columns={2}>
+  <Card title="Términos técnicos de integración" href="#" icon="fa-code">
+    Revisa conceptos utilizados en autenticación, onboarding, cuentas, movimientos, eventos y estructuras operativas.
+  </Card>
+  <Card title="Términos financieros" href="#" icon="fa-coins">
+    Consulta conceptos de inversión, mercado, riesgo, liquidez y operaciones financieras.
+  </Card>
+</Cards>
+
+**Resultado esperado:** dispondrás de una referencia rápida para interpretar la terminología utilizada en la documentación y en la API.
 
 ## Términos técnicos de integración
+
+<Accordion title="Ver términos técnicos de integración" icon="fa-code">
 
 | Término | Definición |
 |---|---|
@@ -44,9 +59,13 @@ Definiciones de términos técnicos de integración y conceptos financieros util
 | **SignIn / RefreshToken** | Endpoints para iniciar sesión y renovar el token de autenticación |
 | **Paginación** | Manejo de listas de datos: se usan `PageSize`, `PageNumber`, y headers `X-Pagination` |
 
+</Accordion>
+
 <br />
 
 ## Términos financieros
+
+<Accordion title="Ver términos financieros" icon="fa-coins">
 
 | Término | Definición |
 |---|---|
@@ -75,3 +94,5 @@ Definiciones de términos técnicos de integración y conceptos financieros util
 | **Tasa de cambio** | Precio relativo entre dos divisas |
 | **Valor liquidativo** | Valor de una participación en un fondo en un momento determinado |
 | **Volatilidad** | Medida de la variación del precio de un activo en un período determinado |
+
+</Accordion>
