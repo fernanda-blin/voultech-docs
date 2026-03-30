@@ -43,6 +43,53 @@ Permite el ingreso manual de aportes o retiros en el sistema, sumando o restando
 | `MtoMovimiento` | decimal | Monto del aporte o retiro |
 | `ObsMovimiento` | string | Observación o comentario opcional |
 
+### Tipos de movimientos y trazabilidad
+
+El campo `CodTipoMovimiento` identifica el tipo de movimiento registrado sobre una cuenta.
+
+**Movimientos no liquidados**
+
+Corresponden a movimientos que **no nacen liquidados** y pueden requerir validación o procesamiento posterior antes de quedar en estado final.
+
+| Tipo de movimiento | Código |
+|---|---|
+| Aporte patrimonial | `APO_PAT` |
+| Retiro patrimonial | `RET_PAT` |
+
+**Movimientos liquidados**
+
+Corresponden a movimientos que **nacen automáticamente en estado liquidado**, por lo que no requieren validación adicional.
+
+En estos casos, el código puede incorporar un identificador adicional de origen para efectos de trazabilidad.
+
+**Formato general:**
+
+```
+{TIPO}_{ORIGEN}
+```
+
+**Ejemplos genéricos:**
+
+- `APO_PAT_XX`
+- `RET_PAT_XX`
+
+Donde `ORIGEN` corresponde a un identificador interno del sistema, canal o integración que genera el movimiento.
+
+**Otros tipos de movimiento**
+
+Existen además otros códigos utilizados para operaciones específicas:
+
+| Tipo de movimiento | Código |
+|---|---|
+| Aporte ajuste contable | `APO_AJUST` |
+| Retiro ajuste contable | `RET_AJUST` |
+| Aporte regalo | `APO_GIFT` |
+| Aporte referidos | `APO_REF` |
+
+<Callout icon="💡" theme="info">
+  Los identificadores de origen utilizados en movimientos liquidados son de uso interno y no forman parte de la documentación pública de la API. No todos los movimientos utilizan sufijo de trazabilidad, ya que su uso depende de la configuración aplicable en cada caso.
+</Callout>
+
 ```json title="Request Body (masivo)"
 [
   {
