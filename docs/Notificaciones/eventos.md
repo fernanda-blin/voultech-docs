@@ -1,14 +1,33 @@
 ---
 title: Sistema de Eventos
 excerpt: >-
-  Notificaciones en tiempo real vía Azure Service Bus: movimientos bancarios,
-  Shinkansen y validaciones KYC.
+  Recibe notificaciones en tiempo real vía Azure Service Bus sobre movimientos
+  bancarios, Shinkansen y validaciones KYC.
 deprecated: false
 hidden: false
 metadata:
   robots: index
 ---
-Recibe notificaciones automáticas sobre movimientos bancarios, ejecuciones de pagos (Shinkansen) y validaciones de KYC a través de una cola de mensajería Azure Service Bus.
+Recibe notificaciones automáticas de movimientos bancarios, ejecuciones de pagos y validaciones KYC mediante una cola de Azure Service Bus.
+
+## Eventos disponibles
+
+<Cards columns={4}>
+  <Card title="Movimiento bancario" href="#" icon="fa-building-columns">
+    Recibe abonos y cargos detectados sobre movimientos bancarios.
+  </Card>
+  <Card title="Reversa bancaria" href="#" icon="fa-arrow-rotate-left">
+    Recibe reversas asociadas a movimientos bancarios previamente informados.
+  </Card>
+  <Card title="Movimiento Shinkansen" href="#" icon="fa-money-bill-transfer">
+    Recibe el estado de ejecuciones de pagos procesados por Shinkansen.
+  </Card>
+  <Card title="Validación KYC" href="#" icon="fa-user-check">
+    Recibe el resultado de validaciones KYC realizadas sobre un usuario.
+  </Card>
+</Cards>
+
+<br />
 
 ## Conexión
 
@@ -22,9 +41,15 @@ sb://voultech.servicebus.windows.net/{NombreCola}
   El nombre de la cola es entregado por Voultech a cada fintech. Solicítalo al equipo de soporte.
 </Callout>
 
+<Accordion title="Ver horarios de procesamiento" icon="fa-clock">
+
 **Horarios de procesamiento:**
 - Los mensajes de **aportes automáticos** se reciben entre **09:00 y 14:55 hrs**
 - Los aportes realizados fuera de este horario se encolan para el día siguiente
+
+</Accordion>
+
+**Resultado esperado:** contarás con la cadena de conexión y el nombre de la cola necesarios para consumir los eventos asignados a tu integración.
 
 <br />
 
@@ -74,11 +99,21 @@ class Program
 }
 ```
 
+**Resultado esperado:** tu integracion quedará suscrita a la cola y podrá procesar mensajes entrantes en formato JSON.
+
 <br />
 
 ## Mensajes
 
 Los mensajes se envían en formato **JSON** con una frecuencia de **1 minuto**. Cada mensaje contiene un campo `Topic` que identifica el tipo de evento.
+
+<Accordion title="Ver estructura general de los mensajes" icon="fa-envelope-open-text">
+
+- Todos los mensajes se entregan en formato **JSON**.
+- El campo `Topic` identifica el tipo de evento recibido.
+- Debes procesar cada mensaje según su `Topic` y su estructura específica.
+
+</Accordion>
 
 ### Movimiento bancario
 
@@ -101,6 +136,8 @@ Los mensajes se envían en formato **JSON** con una frecuencia de **1 minuto**. 
 }
 ```
 
+**Resultado esperado:** podrás identificar el movimiento bancario informado y asociarlo a tu proceso de conciliación o trazabilidad.
+
 ### Reversa de movimiento bancario
 
 **Topic:** `REVERSAMOVBANCO`
@@ -122,6 +159,8 @@ Los mensajes se envían en formato **JSON** con una frecuencia de **1 minuto**. 
 }
 ```
 
+**Resultado esperado:** podrás detectar que un movimiento bancario previamente informado fue revertido.
+
 ### Movimiento Shinkansen
 
 **Topic:** `MOVSHINKANSEN`
@@ -136,6 +175,8 @@ Los mensajes se envían en formato **JSON** con una frecuencia de **1 minuto**. 
   "Information": ""
 }
 ```
+
+**Resultado esperado:** podrás consultar el estado del movimiento procesado por Shinkansen mediante su identificador y estado devuelto.
 
 ### Validación de KYC
 
@@ -183,6 +224,8 @@ Los mensajes se envían en formato **JSON** con una frecuencia de **1 minuto**. 
 | 004 | Missing data | Falta información del cliente (RUT, codDocumento, etc.) |
 | 005 | Document rejected | Documento rechazado por proveedor |
 | 006 | Code not found | No se encuentra codIdentificación |
+
+**Resultado esperado:** podrás determinar si la validación KYC fue aprobada o rechazada y actuar según el código informado.
 
 <Callout icon="💡" theme="info">
   El sistema de eventos está diseñado para notificaciones **en tiempo real** (pub/sub). Si pierdes un mensaje, deberás consultar el estado manualmente vía API (por ejemplo: consultar saldo o estado KYC directamente).
