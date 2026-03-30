@@ -8,7 +8,32 @@ hidden: false
 metadata:
   robots: index
 ---
-Respuestas a las preguntas más comunes sobre la integración con la API de Voultech.
+Consulta respuestas rápidas a las preguntas más frecuentes sobre autenticación, clientes, documentos, operaciones, eventos y validación de la integración con la API de Voultech.
+
+## Categorías de preguntas frecuentes
+
+<Cards columns={3}>
+  <Card title="Autenticación y acceso" href="#autenticación-y-acceso" icon="fa-key">
+    Resuelve dudas sobre credenciales, tokens, permisos y validación de acceso.
+  </Card>
+  <Card title="Clientes y cuentas" href="#clientes-y-cuentas" icon="fa-users">
+    Consulta preguntas sobre creación de clientes, cuentas y formatos de identificadores.
+  </Card>
+  <Card title="Documentos" href="#documentos" icon="fa-file-lines">
+    Revisa formatos, tipos documentales y comportamiento de carga.
+  </Card>
+  <Card title="Operaciones y movimientos" href="#operaciones-y-movimientos" icon="fa-money-bill-transfer">
+    Consulta restricciones, fechas, saldos, cuentas y operaciones de caja.
+  </Card>
+  <Card title="Eventos y monitoreo" href="#eventos-y-monitoreo" icon="fa-bell">
+    Revisa dudas sobre pruebas, recepción de mensajes y datos en proceso.
+  </Card>
+  <Card title="Testing y validación" href="#testing-y-validación" icon="fa-vial">
+    Consulta el entorno de certificación, pruebas operativas y límites de paginación.
+  </Card>
+</Cards>
+
+**Resultado esperado:** podrás resolver dudas frecuentes de integración sin salir de esta página.
 
 ## Autenticación y acceso
 
@@ -33,6 +58,8 @@ GET /api/publicapi/shared/auth/RefreshToken
 ```
 
 Si la sesión ya expiró, deberás usar nuevamente el endpoint de `SignIn`.
+
+Usa este flujo para extender una sesión activa sin volver a enviar credenciales.
 
 </Accordion>
 
@@ -77,6 +104,8 @@ GET /Clientes?Identificador={rut}
 
 El campo `numCuenta` **debe ser único por fintech**. Si repites uno ya existente, puedes recibir un error 409 (conflict), o una sobreescritura silenciosa si los datos coinciden parcialmente. Se recomienda concatenar el identificador con una secuencia: `rut/secuencia`.
 
+Mantén una convención estable de numeración para evitar duplicidades y conflictos operativos.
+
 </Accordion>
 
 <Accordion title="¿Puedo usar un RUT con guion o dígito verificador en identificador?" icon="fa-duotone fa-id-card">
@@ -115,6 +144,8 @@ Para subir un documento vía `POST /Documentos`, el archivo debe:
 - Codificado en base64 puro, **sin encabezados** (`data:application/pdf;base64,`)
 - Tener nombre con prefijo de la fintech, ej. `Voultech_ciFrontal`
 
+Valida el archivo antes de enviarlo para evitar cargas aceptadas pero no procesadas correctamente.
+
 </Accordion>
 
 <br />
@@ -130,6 +161,8 @@ Para subir un documento vía `POST /Documentos`, el archivo debe:
 <Accordion title="¿Puedo reintentar una operación sin crear duplicados?" icon="fa-duotone fa-rotate">
 
 Sí. Los endpoints como `POST /Movimientos/IngresoAporteRetiroMasivo` aceptan el parámetro `Uuid` para **idempotencia**. Si reintentas una operación con el mismo UUID, el sistema detectará que ya fue procesada y no la duplicará.
+
+Usa un `Uuid` único por operación y consérvalo en tus registros para trazabilidad y reintentos controlados.
 
 </Accordion>
 
@@ -179,6 +212,8 @@ El sistema de eventos no permite simular desde API directamente. La única forma
 
 Si no llegan mensajes, valida que estés usando el código de asesor correcto y que tu listener esté habilitado.
 
+Este enfoque permite validar el flujo completo desde la operación hasta la recepción del evento.
+
 </Accordion>
 
 <Accordion title="¿Puedo obtener el estado de un evento anterior?" icon="fa-duotone fa-clock-rotate-left">
@@ -206,6 +241,8 @@ Te indica si hay datos que aún se están actualizando, como saldos o movimiento
 <Accordion title="¿Cómo valido que mi integración está funcionando correctamente?" icon="fa-duotone fa-circle-check">
 
 Utiliza el entorno de certificación (`apiwebcbvoultechcertificacion.azurewebsites.net`) para probar onboarding, movimientos, compra/venta y eventos. Puedes monitorear abonos o estados de KYC usando eventos, sin necesidad de hacer polling constante.
+
+Valida cada flujo con datos controlados antes de solicitar habilitación productiva.
 
 </Accordion>
 
