@@ -8,9 +8,31 @@ hidden: false
 metadata:
   robots: index
 ---
-Cómo interpretar las respuestas de la API: códigos HTTP, formato de paginación y entidades principales del sistema.
+Interpreta las respuestas de la API identificando códigos HTTP, paginación, formatos de error, catálogos por módulo y entidades principales del sistema.
+
+## Contenido de esta sección
+
+<Cards columns={5}>
+  <Card title="Códigos HTTP" href="#" icon="fa-code">
+    Consulta el significado de los códigos de respuesta más utilizados por la API.
+  </Card>
+  <Card title="Paginación" href="#" icon="fa-table-list">
+    Revisa cómo interpretar la cabecera `X-Pagination` y sus parámetros.
+  </Card>
+  <Card title="Errores" href="#" icon="fa-circle-exclamation">
+    Consulta el formato estándar de errores técnicos y errores de negocio.
+  </Card>
+  <Card title="Catálogos por módulo" href="#" icon="fa-list-check">
+    Revisa códigos de error específicos para aportes, spot, KYC y cuenta remunerada.
+  </Card>
+  <Card title="Entidades" href="#" icon="fa-diagram-project">
+    Consulta las entidades principales utilizadas en la integración.
+  </Card>
+</Cards>
 
 ## Códigos de respuesta
+
+<Accordion title="Ver códigos HTTP soportados" icon="fa-code">
 
 | Código | Tipo | Descripción |
 |---|---|---|
@@ -25,6 +47,10 @@ Cómo interpretar las respuestas de la API: códigos HTTP, formato de paginació
 | **409** | Conflicto | La operación entra en conflicto con el estado actual del recurso (ej. registro duplicado) |
 | **500** | Error interno | Falla inesperada en el servidor. Intenta nuevamente más tarde o contacta soporte |
 | **503** | Servicio no disponible | El servidor o un servicio dependiente no está disponible temporalmente |
+
+</Accordion>
+
+**Resultado esperado:** podrás interpretar si una solicitud fue procesada correctamente o identificar la categoría general del error recibido.
 
 <br />
 
@@ -53,6 +79,8 @@ Los endpoints `GET` que devuelven múltiples resultados incluyen paginación. La
 <Callout icon="💡" theme="info">
   Usa siempre paginación en endpoints que lo permitan. El `pageSize` máximo es **100 registros por página**.
 </Callout>
+
+**Resultado esperado:** podrás recorrer colecciones paginadas interpretando correctamente el encabezado `X-Pagination`.
 
 <br />
 
@@ -94,9 +122,15 @@ Para operaciones de negocio (aportes, retiros, órdenes), los errores incluyen u
 ]
 ```
 
+**Resultado esperado:** podrás distinguir entre errores técnicos estándar y errores de negocio con códigos específicos por operación.
+
 <br />
 
 ## Catálogos de errores por módulo
+
+<Callout icon="💡" theme="info">
+  Utiliza estos catálogos para mapear errores funcionales y definir respuestas de negocio más precisas en tu integración.
+</Callout>
 
 <Accordion title="Aportes y Retiros (ARP)" icon="fa-duotone fa-money-bill-transfer">
 
@@ -172,6 +206,8 @@ Para operaciones de negocio (aportes, retiros, órdenes), los errores incluyen u
 
 ## Entidades principales
 
+<Accordion title="Ver entidades principales del sistema" icon="fa-diagram-project">
+
 | Entidad | Descripción |
 |---|---|
 | **Cliente** | Persona natural o jurídica. Usuario final según normativa CMF |
@@ -186,3 +222,7 @@ Para operaciones de negocio (aportes, retiros, órdenes), los errores incluyen u
 | **MovimientosShinkansen** | Retiros vía Banco Online |
 | **MovimientosBancoSecurity** | Consulta de movimientos desde Banco Security |
 | **MovimientosBancoBice** | Consulta de movimientos desde Banco Bice |
+
+</Accordion>
+
+**Resultado esperado:** dispondrás de una referencia rápida para interpretar las entidades principales mencionadas en la API.
