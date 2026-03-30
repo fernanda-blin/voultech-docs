@@ -1,14 +1,14 @@
 ---
 title: Movimientos y Operaciones
 excerpt: >-
-  Aportes, retiros, retiros Shinkansen, órdenes de compra/venta de instrumentos
-  y operaciones de divisas (spot).
+  Gestiona movimientos y operaciones financieras: aportes, retiros, retiros
+  Shinkansen, órdenes de instrumentos y operaciones spot.
 deprecated: false
 hidden: false
 metadata:
   robots: index
 ---
-Gestiona el ciclo completo de operaciones financieras: aportes, retiros, compra/venta de instrumentos y operaciones de divisas.
+Gestiona la ejecución de movimientos y operaciones financieras, incluyendo aportes, retiros, órdenes sobre instrumentos y operaciones de divisas.
 
 ## Flujo estándar
 
@@ -21,6 +21,26 @@ El flujo de movimientos depende del modelo de negocio de cada fintech. Un ejempl
 5. Al cerrar la inversión, **vende el instrumento** y **reconvierte la divisa**
 6. Se realiza el **retiro de fondos**
 
+## Operaciones disponibles
+
+<Cards columns={5}>
+  <Card title="Aportes y retiros" href="#" icon="fa-money-bill-transfer">
+    Registra movimientos puntuales o masivos de ingreso y salida de fondos.
+  </Card>
+  <Card title="Retiros Shinkansen" href="#" icon="fa-building-columns">
+    Ejecuta retiros bancarios automáticos a cuentas del mismo cliente.
+  </Card>
+  <Card title="Cuenta remunerada" href="#" icon="fa-piggy-bank">
+    Registra inversiones o rescates con impacto en orden y movimiento.
+  </Card>
+  <Card title="Órdenes de instrumentos" href="#" icon="fa-chart-line">
+    Ingresa órdenes de compra o venta y anula órdenes existentes.
+  </Card>
+  <Card title="Operaciones spot" href="#" icon="fa-money-bill-trend-up">
+    Registra compras y ventas de divisas con liquidación spot.
+  </Card>
+</Cards>
+
 <br />
 
 ## Aportes y retiros
@@ -30,6 +50,8 @@ Permite el ingreso manual de aportes o retiros en el sistema, sumando o restando
 **→ POST** `/api/publicapi/creasys/Movimientos/IngresoAporteRetiro` — Aporte o retiro puntual
 
 **→ POST** `/api/publicapi/creasys/Movimientos/IngresoAporteRetiroMasivo` — Aportes o retiros masivos
+
+<Accordion title="Ver parámetros principales" icon="fa-file-lines">
 
 **Parámetros:**
 
@@ -42,6 +64,8 @@ Permite el ingreso manual de aportes o retiros en el sistema, sumando o restando
 | `CodMoneda` | string | Moneda del movimiento: `CLP`, `USD`, `EUR` |
 | `MtoMovimiento` | decimal | Monto del aporte o retiro |
 | `ObsMovimiento` | string | Observación o comentario opcional |
+
+</Accordion>
 
 ### Tipos de movimientos y trazabilidad
 
@@ -89,6 +113,8 @@ Existen además otros códigos utilizados para operaciones específicas:
 <Callout icon="💡" theme="info">
   Los identificadores de origen utilizados en movimientos liquidados son de uso interno y no forman parte de la documentación pública de la API. No todos los movimientos utilizan sufijo de trazabilidad, ya que su uso depende de la configuración aplicable en cada caso.
 </Callout>
+
+**Resultado esperado:** el movimiento quedará registrado sobre la cuenta con el tipo y la trazabilidad correspondientes.
 
 ```json title="Request Body (masivo)"
 [
@@ -146,6 +172,8 @@ Los retiros vía Shinkansen permiten transferencias automáticas y rápidas a cu
   Solo se permiten transferencias **a cuentas bancarias del mismo cliente**, nunca a terceros. El monto total no puede superar las 1.000 UF.
 </Callout>
 
+<Accordion title="Ver parámetros principales" icon="fa-file-lines">
+
 **Parámetros:**
 
 | Parámetro | Descripción |
@@ -157,6 +185,8 @@ Los retiros vía Shinkansen permiten transferencias automáticas y rápidas a cu
 | `NumeroCuenta` | Número de cuenta bancaria del cliente |
 | `TipoCuenta` | Tipo de cuenta bancaria |
 | `Uuid` | Identificador único de idempotencia |
+
+</Accordion>
 
 ```json title="Request Body"
 [
@@ -181,6 +211,8 @@ Los retiros vía Shinkansen permiten transferencias automáticas y rápidas a cu
   Una vez ingresado el retiro, se retorna un `id` que puedes usar para consultar el estado vía `GET /MovimientosShinkansen`.
 </Callout>
 
+**Resultado esperado:** el retiro quedará ingresado para procesamiento y podrás consultar su estado posteriormente.
+
 <br />
 
 ## Aporte/Retiro con cuenta remunerada
@@ -193,6 +225,8 @@ Ingresa una operación de inversión o rescate que se traduce automáticamente e
 2. Creación de **orden de compra/venta de instrumento**
 3. Impacto directo en **cartera y caja del cliente**
 
+<Accordion title="Ver parámetros principales" icon="fa-file-lines">
+
 **Parámetros:**
 
 | Parámetro | Descripción |
@@ -203,6 +237,8 @@ Ingresa una operación de inversión o rescate que se traduce automáticamente e
 | `Nemotecnico` | Código Bolsa del instrumento |
 | `FechaOperacion` | Fecha de la operación (ISO 8601) |
 | `Monto` | Monto total de la operación |
+
+</Accordion>
 
 ```json title="Request Body"
 [
@@ -232,6 +268,8 @@ Ingresa una operación de inversión o rescate que se traduce automáticamente e
 
 </Accordion>
 
+**Resultado esperado:** la operación generará el movimiento de caja y la orden financiera asociada.
+
 <br />
 
 ## Orden de compra/venta de instrumentos
@@ -239,6 +277,8 @@ Ingresa una operación de inversión o rescate que se traduce automáticamente e
 **→ POST** `/api/publicapi/creasys/Ordenes/IngresarOrdenesMercado`
 
 Ingresa una operación de compra o venta de un instrumento. Esta orden va directamente al sistema Voultech y al mercado a ejecutarse.
+
+<Accordion title="Ver parámetros principales" icon="fa-file-lines">
 
 **Parámetros:**
 
@@ -253,6 +293,8 @@ Ingresa una operación de compra o venta de un instrumento. Esta orden va direct
 | `codBolsa` | Bolsa de Santiago: `XSGO` |
 | `tipoLiquidacion` | `CASH` (PH), `NEXT_DAY` (PM) o `T2` (CN) |
 | `comision` | Comisión porcentual (opcional, máx. 2 decimales, entre `0` y `1`) |
+
+</Accordion>
 
 ```json title="Request Body"
 [
@@ -276,6 +318,8 @@ Ingresa una operación de compra o venta de un instrumento. Esta orden va direct
   Valores especiales en `cantidad` de la respuesta: `98` = Cancelado, `99` = Rechazado, `50` = Parcialmente asignado, `100` = Asignado.
 </Callout>
 
+**Resultado esperado:** la orden quedará ingresada para ejecución en mercado según los parámetros enviados.
+
 ### Anular orden
 
 **→ POST** `/api/publicapi/creasys/Ordenes/AnularOrden`
@@ -289,6 +333,8 @@ Ingresa una operación de compra o venta de un instrumento. Esta orden va direct
 ]
 ```
 
+**Resultado esperado:** la orden indicada quedará solicitada para anulación.
+
 <br />
 
 ## Compra/venta de divisas (Spot)
@@ -300,6 +346,8 @@ Ingresa una operación spot de compra o venta de divisas.
 <Callout icon="⚠️" theme="warning">
   Para comprar efectivamente las divisas debes conectarte a la **API FX de Voultech**.
 </Callout>
+
+<Accordion title="Ver parámetros principales" icon="fa-file-lines">
 
 **Parámetros:**
 
@@ -313,6 +361,8 @@ Ingresa una operación spot de compra o venta de divisas.
 | `PrecioMesa` | Precio de la mesa (obtenido con API FX) |
 | `PrecioTransferencia` | Debe ser igual a `PrecioMesa` |
 | `Monto` | Cantidad × Precio. Siempre en CLP, redondeado sin decimales |
+
+</Accordion>
 
 ```json title="Request Body"
 [
@@ -356,3 +406,5 @@ Ingresa una operación spot de compra o venta de divisas.
 | SPT-015 | Excepción del sistema |
 
 </Accordion>
+
+**Resultado esperado:** la operación spot quedará registrada con su moneda operada, moneda de pago/cobro y monto calculado.
