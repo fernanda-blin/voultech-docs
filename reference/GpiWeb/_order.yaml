@@ -1,6 +1,7 @@
 - inicio
 - post_api-publicapi-shared-auth-signin
 - get_api-publicapi-shared-auth-refreshtoken
+- get_api-publicapi-shared-auth-externallogin
 - auth
 - 2-clientes-y-personas
 - 3-datos-de-contacto
