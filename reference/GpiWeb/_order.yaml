@@ -5,6 +5,7 @@
 - get_api-publicapi-shared-auth-externallogincallback
 - get_api-publicapi-shared-auth-auth-popup-callback
 - post_api-publicapi-shared-auth-signout
+- get_api-publicapi-shared-auth-me
 - auth
 - 2-clientes-y-personas
 - 3-datos-de-contacto
