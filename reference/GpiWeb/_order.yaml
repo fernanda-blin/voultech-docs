@@ -3,6 +3,7 @@
 - get_api-publicapi-shared-auth-refreshtoken
 - get_api-publicapi-shared-auth-externallogin
 - get_api-publicapi-shared-auth-externallogincallback
+- get_api-publicapi-shared-auth-auth-popup-callback
 - auth
 - 2-clientes-y-personas
 - 3-datos-de-contacto
