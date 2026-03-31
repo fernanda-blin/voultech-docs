@@ -1,5 +1,5 @@
 ---
-title: 4.People & Contact Information
+title: 4. People & Contact Information
 deprecated: false
 hidden: false
 metadata:
