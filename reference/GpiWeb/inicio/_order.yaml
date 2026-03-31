@@ -1,4 +1,5 @@
 - post_api-publicapi-shared-auth-signin
 - get_api-publicapi-shared-auth-refreshtoken
 - get_api-publicapi-shared-auth-externallogin
+- get_api-publicapi-shared-auth-externallogincallback
 - h
