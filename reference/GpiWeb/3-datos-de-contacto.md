@@ -1,5 +1,5 @@
 ---
-title: 3. Datos de contacto
+title: 3. Customers
 deprecated: false
 hidden: false
 metadata:
