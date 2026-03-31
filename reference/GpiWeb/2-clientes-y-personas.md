@@ -1,5 +1,5 @@
 ---
-title: 2. Clientes y Personas
+title: 2. Customer Onboarding
 deprecated: false
 hidden: false
 metadata:
