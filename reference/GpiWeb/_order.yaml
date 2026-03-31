@@ -1,5 +1,6 @@
 - inicio
 - 2-clientes-y-personas
+- usuario
 - 3-datos-de-contacto
 - 4-cuentas-y-estructura-operativa
 - alpacasweep
@@ -62,7 +63,6 @@
 - tipodireccion
 - tipoentidad
 - tipoidentificacion
-- usuario
 - tipomediopagocobro
 - tipomovcaja
 - tiposociedad
