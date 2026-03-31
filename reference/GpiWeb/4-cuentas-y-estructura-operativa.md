@@ -1,5 +1,5 @@
 ---
-title: 4. Cuentas y estructura operativa
+title: 4.People & Contact Information
 deprecated: false
 hidden: false
 metadata:
