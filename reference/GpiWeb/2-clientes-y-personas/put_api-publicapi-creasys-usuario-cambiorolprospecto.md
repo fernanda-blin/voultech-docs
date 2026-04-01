@@ -1,5 +1,5 @@
 ---
-title: Modificar Rol de Prospecto Usuario
+title: Modificar Rol de Prospecto
 excerpt: Intercambia o actualiza el rol de un usuario en el proceso de onboarding.
 api:
   file: swagger.json
