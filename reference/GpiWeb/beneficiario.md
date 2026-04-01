@@ -1,4 +1,0 @@
----
-title: Beneficiario
-hidden: false
----
