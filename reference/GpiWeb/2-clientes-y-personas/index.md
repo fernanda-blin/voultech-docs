@@ -1,5 +1,5 @@
 ---
-title: 2. Gestión de Clientes (Customers & KYC)
+title: 2. Gestión de Clientes
 deprecated: false
 hidden: false
 metadata:
