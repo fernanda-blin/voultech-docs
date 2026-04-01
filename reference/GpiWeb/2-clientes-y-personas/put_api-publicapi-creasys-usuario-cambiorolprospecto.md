@@ -6,10 +6,14 @@ api:
   operationId: put_api-publicapi-creasys-usuario-cambiorolprospecto
 hidden: false
 ---
-Sample request:               
+Sample request:
 
 ```http
-PUT /api/publicapi/creasys/Usuario/CambioRolProspecto    {         "idUsuario": "066074xx-8734-4060-9004-757fc593d7b7"    }
+PUT /api/publicapi/creasys/Usuario/CambioRolProspecto
+
+{
+  "idUsuario": "066074xx-8734-4060-9004-757fc593d7b7"
+}
 ```
 
 <br />
