@@ -6,5 +6,6 @@
 - get_api-publicapi-creasys-personas
 - put_api-publicapi-creasys-personas-identificador
 - get_api-publicapi-creasys-cedula-vigencia
+- get_api-publicapi-creasys-cedula-riesgo
 - put_api-publicapi-creasys-usuario-cambiorolprospecto
 - put_api-publicapi-creasys-usuario-relacionusuariocliente
