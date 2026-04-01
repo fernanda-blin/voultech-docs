@@ -3,5 +3,6 @@
 - get_api-publicapi-creasys-clientes
 - put_api-publicapi-creasys-clientes-identificador
 - post_api-publicapi-creasys-personas
+- get_api-publicapi-creasys-personas
 - put_api-publicapi-creasys-usuario-cambiorolprospecto
 - put_api-publicapi-creasys-usuario-relacionusuariocliente
