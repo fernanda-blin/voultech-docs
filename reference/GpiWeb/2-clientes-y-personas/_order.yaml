@@ -1,4 +1,5 @@
 - post_api-publicapi-creasys-enrolamiento
 - post_api-publicapi-creasys-clientes
+- get_api-publicapi-creasys-clientes
 - put_api-publicapi-creasys-usuario-cambiorolprospecto
 - put_api-publicapi-creasys-usuario-relacionusuariocliente
