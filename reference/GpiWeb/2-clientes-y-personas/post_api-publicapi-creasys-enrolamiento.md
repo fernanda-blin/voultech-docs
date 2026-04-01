@@ -8,8 +8,6 @@ api:
   operationId: post_api-publicapi-creasys-enrolamiento
 hidden: false
 ---
-<br />
-
 Sample request
 
 ```json
