@@ -12,8 +12,6 @@ hidden: false
 
 Sample request
 
-POST /api/publicapi/creasys/Enrolamiento/FinalizarEnrolamiento
-
 ```json
 {
   "codPerfilRiesgo": "PERFBAJ",
