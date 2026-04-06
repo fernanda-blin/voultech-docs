@@ -1,0 +1,8 @@
+- post_api-publicapi-shared-auth-signin-1
+- get_api-publicapi-shared-auth-refreshtoken-1
+- get_api-publicapi-shared-auth-externallogin-1
+- get_api-publicapi-shared-auth-externallogincallback-1
+- get_api-publicapi-shared-auth-auth-popup-callback-1
+- post_api-publicapi-shared-auth-signout-1
+- get_api-publicapi-shared-auth-me-1
+- post_api-publicapi-shared-auth-logout-1

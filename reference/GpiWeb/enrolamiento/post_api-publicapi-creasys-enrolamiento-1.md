@@ -1,0 +1,10 @@
+---
+title: >-
+  Obtiene la informacion de los prospectos y luego crea a los clientes y sus
+  dependencias.
+excerpt: "Sample request:\r\n            \r\n    POST /api/publicapi/creasys/Enrolamiento/FinalizarEnrolamiento\r\n    {\r\n        \"codPerfilRiesgo\": \"PERFBAJ\",\r\n        \"personaFulls\": [\r\n        {\r\n            \"tipoEntidad\": \"N\",\r\n            \"identificador\": \"12345678-9\",\r\n            \"tipoIdentificador\": \"R\",\r\n            \"nombre\": \"Juan\",\r\n            \"paterno\": \"Perez\",\r\n            \"materno\": \"Perez\",\r\n            \"sexo\": \"M\",\r\n            \"fechaNacimiento\": \"1990-01-01\",\r\n            \"codPais\": \"CHL\",\r\n            \"codEstadoCivil\": \"SOLTERO\",\r\n            \"codRegimenMatrimonial\": \"REGMATRIMONIAL\",\r\n            \"dscGiro\": \"Giro\",\r\n            \"codTipoSociedad\": \"Sociedad\",\r\n            \"codTipoRelacion\": \"CLINTE\",\r\n            \"telefonoFulls\": [\r\n            {\r\n                \"telefono\": \"123456789\",\r\n                \"observacion\": \"Observacion\",\r\n                \"codTipoTelefono\": \"TTELEFIJO\"\r\n            }\r\n            ],\r\n            \"direccionFulls\": [\r\n            {\r\n                \"linea1\": \"Direccion\",\r\n                \"codTipoDireccion\": \"TDIREFPART\",\r\n                \"prospComunaCiudadId\": 1\r\n            }\r\n            ],\r\n            \"emailFulls\": [\r\n            {\r\n                \"email\": \"Email\",\r\n                \"codTipoEmail\": \"TDIREECOME\"\r\n            }\r\n            ],\r\n            \"cuentaBancarioFulls\": [\r\n            {\r\n                \"numero\": \"123456789\",\r\n                \"tipo\": \"Cuenta Corriente\",\r\n                \"prospBancoId\": 1\r\n            }\r\n            ]\r\n        }\r\n        ]\r\n    }"
+api:
+  file: swagger (1).json
+  operationId: post_api-publicapi-creasys-enrolamiento
+hidden: false
+---
