@@ -1,5 +1,8 @@
 ---
 title: Listar documentos
+excerpt: >-
+  Lista los documentos del expediente del cliente: contratos, mandatos, poderes
+  y documentacion regulatoria. Permite filtrar por tipo y estado.
 api:
   file: public-api.json
   operationId: get_api-publicapi-creasys-documentos

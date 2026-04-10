@@ -1,6 +1,9 @@
 ---
 title: Registrar prospecto (simplificado)
-excerpt: "Sample request:\r\n            \r\n    POST: api/shared/Account/SignUpProspectoSimple\r\n    {\r\n      \"Email\": \"ejemplo@ejemplo\",\r\n      \"Nombre\": \"Ejemplo\",\r\n      \"Identificador\": \"12345678-9\",\r\n      \"Password\": \"Ejemplo123\",\r\n      \"CodTheme\": \"L\"\r\n      \"EsApp\": true,\r\n      \"EsEnrolador\": false\r\n    }"
+excerpt: >-
+  Registra un nuevo prospecto con la informacion minima requerida (nombre y
+  email), sin necesidad de completar todos los campos del perfil. Permite un
+  onboarding rapido que puede completarse en pasos posteriores.
 api:
   file: public-api.json
   operationId: post_api-shared-account-signupprospectosimple

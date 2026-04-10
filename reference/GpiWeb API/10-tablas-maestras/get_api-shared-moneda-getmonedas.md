@@ -1,6 +1,8 @@
 ---
 title: Listar monedas (Shared)
-excerpt: "Sample request:\r\n            \r\n    GET /api/shared/Moneda/GetMonedas"
+excerpt: >-
+  Lista las monedas disponibles desde el modulo compartido, incluyendo codigo
+  ISO, nombre y simbolo.
 api:
   file: public-api.json
   operationId: get_api-shared-moneda-getmonedas
