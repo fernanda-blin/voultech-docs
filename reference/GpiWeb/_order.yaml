@@ -60,11 +60,9 @@
 - tipomediopagocobro
 - tipomovcaja
 - tiposociedad
-- auth
-- beneficiario
-- cedula
-- clientes
-- enrolamiento
-- personas
-- usuario
 - 5-activos-e-instrumentos
+- 1-autenticacion-y-seguridad
+- 10-tablas-maestras
+- 11-integraciones-y-sistema
+- 2-gestion-de-clientes
+- 8-cartera-y-patrimonio

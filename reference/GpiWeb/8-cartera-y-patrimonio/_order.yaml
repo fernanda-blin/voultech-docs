@@ -1,0 +1,13 @@
+- get_api-shared-cartola-rangofechacartolagrupo
+- get_api-shared-cartola-rangofechacartolacliente
+- get_api-shared-cartola-rangofechacartolacuenta
+- post_api-shared-cartola-consultacartola
+- get_api-shared-cartola-consultacartolacuenta
+- get_api-shared-cartola-consultacartolacliente
+- get_api-shared-cartola-consultacartolagrupo
+- get_api-shared-cartola-nombrecartolaporcuenta
+- get_api-shared-cartola-getcartolademo
+- get_api-shared-cartola-getcartolacron
+- get_api-shared-cartola-getcartolavoultech
+- get_api-shared-cartola-getcartolaprudential
+- get_api-shared-cartola-getcartolanevasa

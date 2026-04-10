@@ -1,0 +1,6 @@
+- get_api-shared-comisiones-getcomisiontransaccionalcuenta
+- get_api-shared-comisiones-getcomisioncorredora
+- get_api-shared-gruposcuentas-getgrupo
+- get_api-shared-gruposcuentas-gruposcuentasvigentes
+- get_api-shared-gruposcuentas-gruposcuentasvigentesfilter
+- get_api-shared-negocios

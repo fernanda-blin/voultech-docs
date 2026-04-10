@@ -15,3 +15,10 @@
 - get_api-publicapi-creasys-asset-stocks-symbol-quotes-latest-1
 - get_api-publicapi-creasys-asset-stocks-symbol-trades-1
 - get_api-publicapi-creasys-asset-stocks-symbol-trades-latest-1
+- get_api-shared-instrumentos
+- get_api-shared-instrumentos-filtrarinstrumentos
+- get_api-shared-instrumentos-instrumentosxfamilia
+- get_api-shared-instrumentos-instrumentosxclase
+- get_api-shared-tipocambio-valores
+- get_api-shared-tipocambio-getvalorestipocambioafecha
+- get_api-shared-tipocambio-indicador

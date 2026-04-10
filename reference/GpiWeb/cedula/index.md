@@ -1,4 +1,0 @@
----
-title: Cedula
-hidden: false
----
