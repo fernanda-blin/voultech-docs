@@ -1,4 +1,0 @@
----
-title: Shinkansen
-hidden: false
----

@@ -1,4 +1,0 @@
----
-title: EmailPersona
-hidden: false
----

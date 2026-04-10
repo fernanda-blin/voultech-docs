@@ -1,4 +1,0 @@
----
-title: RelacionClienteConBanco
-hidden: false
----

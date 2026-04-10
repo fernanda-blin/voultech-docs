@@ -1,4 +1,0 @@
----
-title: TipoMedioPagoCobro
-hidden: false
----

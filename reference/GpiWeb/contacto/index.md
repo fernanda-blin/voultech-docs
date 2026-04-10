@@ -1,4 +1,0 @@
----
-title: Contacto
-hidden: false
----

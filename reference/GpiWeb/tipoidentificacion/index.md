@@ -1,4 +1,0 @@
----
-title: TipoIdentificacion
-hidden: false
----

@@ -1,4 +1,0 @@
----
-title: MxMesa
-hidden: false
----

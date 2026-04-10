@@ -1,4 +1,0 @@
----
-title: CuentaCorriente
-hidden: false
----

@@ -1,4 +1,0 @@
----
-title: Cartola
-hidden: false
----

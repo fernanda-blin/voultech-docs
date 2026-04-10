@@ -1,4 +1,0 @@
----
-title: TipoCuentaBanco
-hidden: false
----

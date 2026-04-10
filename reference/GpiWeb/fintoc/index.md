@@ -1,4 +1,0 @@
----
-title: Fintoc
-hidden: false
----

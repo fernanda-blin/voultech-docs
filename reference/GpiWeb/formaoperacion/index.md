@@ -1,4 +1,0 @@
----
-title: FormaOperacion
-hidden: false
----

@@ -1,4 +1,0 @@
----
-title: MovimientoCaja
-hidden: false
----

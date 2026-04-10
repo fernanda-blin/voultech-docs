@@ -1,4 +1,0 @@
----
-title: ClosePrices
-hidden: false
----

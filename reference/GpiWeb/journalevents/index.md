@@ -1,4 +1,0 @@
----
-title: JournalEvents
-hidden: false
----

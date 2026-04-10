@@ -1,4 +1,0 @@
----
-title: TipoContacto
-hidden: false
----

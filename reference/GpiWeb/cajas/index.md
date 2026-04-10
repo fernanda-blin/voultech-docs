@@ -1,4 +1,0 @@
----
-title: Cajas
-hidden: false
----

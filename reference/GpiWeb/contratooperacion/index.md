@@ -1,4 +1,0 @@
----
-title: ContratoOperacion
-hidden: false
----

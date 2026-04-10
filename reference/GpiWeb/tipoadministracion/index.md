@@ -1,4 +1,0 @@
----
-title: TipoAdministracion
-hidden: false
----
