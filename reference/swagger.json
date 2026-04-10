@@ -8,7 +8,7 @@
     "/api/publicapi/creasys/AlpacaSweep/details": {
       "get": {
         "tags": [
-          "AlpacaSweep"
+          "7. Movimientos y Transferencias"
         ],
         "responses": {
           "401": {
@@ -41,13 +41,14 @@
               }
             }
           }
-        }
+        },
+        "summary": "Obtiene detalles del sweep de Alpaca"
       }
     },
     "/api/publicapi/creasys/Artikos/dte/listado": {
       "get": {
         "tags": [
-          "Artikos"
+          "9. Documentos"
         ],
         "parameters": [
           {
@@ -162,13 +163,14 @@
               }
             }
           }
-        }
+        },
+        "summary": "Obtiene listado de documentos tributarios electronicos"
       }
     },
     "/api/publicapi/creasys/Artikos/dte/consulta/pdf": {
       "get": {
         "tags": [
-          "Artikos"
+          "9. Documentos"
         ],
         "parameters": [
           {
@@ -289,7 +291,8 @@
           "502": {
             "description": "Server Error"
           }
-        }
+        },
+        "summary": "Descarga PDF de un documento tributario electronico"
       }
     },
     "/api/publicapi/creasys/Asesor": {
@@ -358,7 +361,7 @@
     "/api/publicapi/creasys/Asignaciones": {
       "get": {
         "tags": [
-          "Asignaciones"
+          "8. Cartera y Patrimonio"
         ],
         "summary": "Obtiene una lista de Asignaciones en un rango de fecha determinado.",
         "parameters": [
@@ -481,7 +484,7 @@
     "/api/publicapi/creasys/Asset": {
       "get": {
         "tags": [
-          "Asset"
+          "5. Activos e Instrumentos"
         ],
         "parameters": [
           {
@@ -563,13 +566,14 @@
               }
             }
           }
-        }
+        },
+        "summary": "Obtiene lista de activos financieros disponibles"
       }
     },
     "/api/publicapi/creasys/Asset/LastQuote": {
       "get": {
         "tags": [
-          "Asset"
+          "5. Activos e Instrumentos"
         ],
         "parameters": [
           {
@@ -620,13 +624,1486 @@
               }
             }
           }
+        },
+        "summary": "Obtiene la ultima cotizacion de un activo"
+      }
+    },
+    "/api/publicapi/creasys/Asset/stocks/auctions": {
+      "get": {
+        "tags": [
+          "5. Activos e Instrumentos"
+        ],
+        "summary": "Subastas (auctions) para uno o varios símbolos. Proxy al micro Alpaca.",
+        "parameters": [
+          {
+            "name": "symbols",
+            "in": "query",
+            "description": "Tickers separados por coma. Tiene prioridad sobre nemo.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "nemo",
+            "in": "query",
+            "description": "Uno o más nemotécnicos si no envías symbols.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "start",
+            "in": "query",
+            "description": "Inicio del rango (fecha u ISO 8601, según micro).",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "end",
+            "in": "query",
+            "description": "Fin del rango.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Máximo de filas por página.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "asof",
+            "in": "query",
+            "description": "Fecha as-of (ej. AAAA-MM-DD).",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "feed",
+            "in": "query",
+            "description": "Feed de datos (sip, iex, etc.).",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "currency",
+            "in": "query",
+            "description": "Moneda (ej. USD).",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "page_token",
+            "in": "query",
+            "description": "Token de paginación devuelto por el micro.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "description": "Orden (ej. asc, desc).",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/publicapi/creasys/Asset/stocks/bars": {
+      "get": {
+        "tags": [
+          "5. Activos e Instrumentos"
+        ],
+        "summary": "Barras históricas (OHLCV) para varios símbolos. Proxy a Alpaca GET /v2/stocks/bars.",
+        "parameters": [
+          {
+            "name": "symbols",
+            "in": "query",
+            "description": "Tickers separados por coma. Tiene prioridad sobre nemo.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "nemo",
+            "in": "query",
+            "description": "Un solo ticker si no envías symbols.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "start",
+            "in": "query",
+            "description": "Inicio del rango AÑO-MES-DIA.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "end",
+            "in": "query",
+            "description": "Fin del rango AÑO-MES-DIA.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "timeframe",
+            "in": "query",
+            "description": "Agregación. Ej: 1Min, 15Min, 1Hour, 1Day.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "feed",
+            "in": "query",
+            "description": "Feed de datos (sip, iex, etc.).",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "adjustment",
+            "in": "query",
+            "description": "Ajuste corporativo: raw, split, dividend, all.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Máximo de barras por página.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "page_token",
+            "in": "query",
+            "description": "Token de paginación de Alpaca.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/publicapi/creasys/Asset/stocks/bars/latest": {
+      "get": {
+        "tags": [
+          "5. Activos e Instrumentos"
+        ],
+        "summary": "Última barra por símbolo (batch). Proxy al micro Alpaca.",
+        "parameters": [
+          {
+            "name": "symbols",
+            "in": "query",
+            "description": "Tickers separados por coma. Tiene prioridad sobre nemo.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "nemo",
+            "in": "query",
+            "description": "Un solo ticker si no envías symbols.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "feed",
+            "in": "query",
+            "description": "Feed de datos (sip, iex, etc.).",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "currency",
+            "in": "query",
+            "description": "Moneda (ej. USD).",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/publicapi/creasys/Asset/stocks/quotes": {
+      "get": {
+        "tags": [
+          "5. Activos e Instrumentos"
+        ],
+        "summary": "Cotizaciones históricas para varios símbolos.",
+        "parameters": [
+          {
+            "name": "symbols",
+            "in": "query",
+            "description": "Tickers separados por coma. Tiene prioridad sobre nemo.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "nemo",
+            "in": "query",
+            "description": "Un solo ticker si no envías symbols.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "start",
+            "in": "query",
+            "description": "Inicio del rango.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "end",
+            "in": "query",
+            "description": "Fin del rango.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "feed",
+            "in": "query",
+            "description": "Feed de datos.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Máximo de filas.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "page_token",
+            "in": "query",
+            "description": "Token de paginación.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "description": "Orden (asc, desc).",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/publicapi/creasys/Asset/stocks/quotes/latest": {
+      "get": {
+        "tags": [
+          "5. Activos e Instrumentos"
+        ],
+        "summary": "Última cotización por símbolo (batch).",
+        "parameters": [
+          {
+            "name": "symbols",
+            "in": "query",
+            "description": "Tickers separados por coma.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "nemo",
+            "in": "query",
+            "description": "Nemotécnico si no envías symbols.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "feed",
+            "in": "query",
+            "description": "Feed de datos.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "currency",
+            "in": "query",
+            "description": "Moneda.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/publicapi/creasys/Asset/stocks/snapshots": {
+      "get": {
+        "tags": [
+          "5. Activos e Instrumentos"
+        ],
+        "summary": "Snapshot actual por símbolo (batch).",
+        "parameters": [
+          {
+            "name": "symbols",
+            "in": "query",
+            "description": "Tickers separados por coma.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "nemo",
+            "in": "query",
+            "description": "Nemotécnico si no envías symbols.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "feed",
+            "in": "query",
+            "description": "Feed de datos.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "currency",
+            "in": "query",
+            "description": "Moneda.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/publicapi/creasys/Asset/stocks/trades": {
+      "get": {
+        "tags": [
+          "5. Activos e Instrumentos"
+        ],
+        "summary": "Trades históricos para varios símbolos.",
+        "parameters": [
+          {
+            "name": "symbols",
+            "in": "query",
+            "description": "Tickers separados por coma.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "nemo",
+            "in": "query",
+            "description": "Nemotécnico si no envías symbols.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "start",
+            "in": "query",
+            "description": "Inicio del rango.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "end",
+            "in": "query",
+            "description": "Fin del rango.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "feed",
+            "in": "query",
+            "description": "Feed de datos.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Máximo de filas.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "page_token",
+            "in": "query",
+            "description": "Token de paginación.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "description": "Orden (asc, desc).",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/publicapi/creasys/Asset/stocks/trades/latest": {
+      "get": {
+        "tags": [
+          "5. Activos e Instrumentos"
+        ],
+        "summary": "Último trade por símbolo (batch).",
+        "parameters": [
+          {
+            "name": "symbols",
+            "in": "query",
+            "description": "Tickers separados por coma.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "nemo",
+            "in": "query",
+            "description": "Nemotécnico si no envías symbols.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "feed",
+            "in": "query",
+            "description": "Feed de datos.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "currency",
+            "in": "query",
+            "description": "Moneda.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/publicapi/creasys/Asset/stocks/meta/conditions/{tickType}": {
+      "get": {
+        "tags": [
+          "5. Activos e Instrumentos"
+        ],
+        "summary": "Meta: condiciones de tick por tipo.",
+        "parameters": [
+          {
+            "name": "tickType",
+            "in": "path",
+            "description": "Tipo de tick. Ej: trade, quote, bar.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "tape",
+            "in": "query",
+            "description": "Tape NYSE. Ej: A, B, C.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/publicapi/creasys/Asset/stocks/meta/exchanges": {
+      "get": {
+        "tags": [
+          "5. Activos e Instrumentos"
+        ],
+        "summary": "Meta: listado de exchanges.",
+        "responses": {
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/publicapi/creasys/Asset/stocks/{symbol}/auctions": {
+      "get": {
+        "tags": [
+          "5. Activos e Instrumentos"
+        ],
+        "summary": "Subastas para un símbolo en ruta.",
+        "parameters": [
+          {
+            "name": "symbol",
+            "in": "path",
+            "description": "Un ticker en la ruta. Ej: AAPL. Varios: use `symbols=AAPL,MSFT` en el endpoint batch.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "start",
+            "in": "query",
+            "description": "Inicio del rango.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "end",
+            "in": "query",
+            "description": "Fin del rango.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Máximo de filas.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "asof",
+            "in": "query",
+            "description": "Fecha as-of.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "feed",
+            "in": "query",
+            "description": "Feed de datos.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "currency",
+            "in": "query",
+            "description": "Moneda.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "page_token",
+            "in": "query",
+            "description": "Token de paginación.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "description": "Orden.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/publicapi/creasys/Asset/stocks/{symbol}/bars": {
+      "get": {
+        "tags": [
+          "5. Activos e Instrumentos"
+        ],
+        "summary": "Barras OHLCV para un símbolo en ruta.",
+        "parameters": [
+          {
+            "name": "symbol",
+            "in": "path",
+            "description": "Un ticker. Ej: AAPL. Varios: `symbols=AAPL,MSFT` en GET stocks/bars.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "start",
+            "in": "query",
+            "description": "Inicio del rango AÑO-MES-DIA.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "end",
+            "in": "query",
+            "description": "Fin del rango AÑO-MES-DIA.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "timeframe",
+            "in": "query",
+            "description": "Agregación. Ej: 1Min, 15Min, 1Hour, 1Day.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "feed",
+            "in": "query",
+            "description": "Feed de datos.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "adjustment",
+            "in": "query",
+            "description": "Ajuste: raw, split, dividend, all.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Máximo de barras por página.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "page_token",
+            "in": "query",
+            "description": "Token de paginación.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/publicapi/creasys/Asset/stocks/{symbol}/bars/latest": {
+      "get": {
+        "tags": [
+          "5. Activos e Instrumentos"
+        ],
+        "summary": "Última barra para un símbolo en ruta.",
+        "parameters": [
+          {
+            "name": "symbol",
+            "in": "path",
+            "description": "Ej: AAPL.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "feed",
+            "in": "query",
+            "description": "Feed de datos.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "currency",
+            "in": "query",
+            "description": "Moneda.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/publicapi/creasys/Asset/stocks/{symbol}/quotes": {
+      "get": {
+        "tags": [
+          "5. Activos e Instrumentos"
+        ],
+        "summary": "Cotizaciones históricas para un símbolo en ruta.",
+        "parameters": [
+          {
+            "name": "symbol",
+            "in": "path",
+            "description": "Ej: AAPL.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "start",
+            "in": "query",
+            "description": "Inicio del rango.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "end",
+            "in": "query",
+            "description": "Fin del rango.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "feed",
+            "in": "query",
+            "description": "Feed de datos.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Máximo de filas.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "page_token",
+            "in": "query",
+            "description": "Token de paginación.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "description": "Orden (asc, desc).",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/publicapi/creasys/Asset/stocks/{symbol}/quotes/latest": {
+      "get": {
+        "tags": [
+          "5. Activos e Instrumentos"
+        ],
+        "summary": "Última cotización para un símbolo en ruta.",
+        "parameters": [
+          {
+            "name": "symbol",
+            "in": "path",
+            "description": "Ej: AAPL.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "feed",
+            "in": "query",
+            "description": "Feed de datos.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "currency",
+            "in": "query",
+            "description": "Moneda.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/publicapi/creasys/Asset/stocks/{symbol}/trades": {
+      "get": {
+        "tags": [
+          "5. Activos e Instrumentos"
+        ],
+        "summary": "Trades históricos para un símbolo en ruta.",
+        "parameters": [
+          {
+            "name": "symbol",
+            "in": "path",
+            "description": "Ej: AAPL.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "start",
+            "in": "query",
+            "description": "Inicio del rango.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "end",
+            "in": "query",
+            "description": "Fin del rango.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "feed",
+            "in": "query",
+            "description": "Feed de datos.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Máximo de filas.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "page_token",
+            "in": "query",
+            "description": "Token de paginación.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "description": "Orden (asc, desc).",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/publicapi/creasys/Asset/stocks/{symbol}/trades/latest": {
+      "get": {
+        "tags": [
+          "5. Activos e Instrumentos"
+        ],
+        "summary": "Último trade para un símbolo en ruta.",
+        "parameters": [
+          {
+            "name": "symbol",
+            "in": "path",
+            "description": "Ej: AAPL.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "feed",
+            "in": "query",
+            "description": "Feed de datos.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "currency",
+            "in": "query",
+            "description": "Moneda.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
         }
       }
     },
     "/api/publicapi/creasys/Asset/LogoParquet/{nemotecnico}": {
       "get": {
         "tags": [
-          "Asset"
+          "5. Activos e Instrumentos"
         ],
         "summary": "Obtiene el logo de un activo financiero según su nemotecnico",
         "parameters": [
@@ -700,7 +2177,7 @@
     "/api/publicapi/shared/Auth/SignIn": {
       "post": {
         "tags": [
-          "Auth"
+          "1. Autenticacion y Seguridad"
         ],
         "summary": "Inicia sesión usando usuario y contraseña.",
         "requestBody": {
@@ -759,7 +2236,7 @@
     "/api/publicapi/shared/Auth/RefreshToken": {
       "get": {
         "tags": [
-          "Auth"
+          "1. Autenticacion y Seguridad"
         ],
         "summary": "Si aun se tiene una sesión vigente pero su periodo de vigencia esta próxima a vencer, se puede solicitar renovar el token por otro periodo adicional.",
         "responses": {
@@ -799,7 +2276,7 @@
     "/api/publicapi/shared/Auth/externallogin": {
       "get": {
         "tags": [
-          "Auth"
+          "1. Autenticacion y Seguridad"
         ],
         "parameters": [
           {
@@ -846,13 +2323,14 @@
               }
             }
           }
-        }
+        },
+        "summary": "Inicia el flujo de autenticacion externa (OAuth)"
       }
     },
     "/api/publicapi/shared/Auth/externallogincallback": {
       "get": {
         "tags": [
-          "Auth"
+          "1. Autenticacion y Seguridad"
         ],
         "parameters": [
           {
@@ -885,13 +2363,14 @@
               }
             }
           }
-        }
+        },
+        "summary": "Procesa la respuesta del proveedor de autenticacion externa"
       }
     },
     "/api/publicapi/shared/Auth/auth-popup-callback": {
       "get": {
         "tags": [
-          "Auth"
+          "1. Autenticacion y Seguridad"
         ],
         "parameters": [
           {
@@ -923,13 +2402,14 @@
               }
             }
           }
-        }
+        },
+        "summary": "Callback de autenticacion en ventana emergente"
       }
     },
     "/api/publicapi/shared/Auth/SignOut": {
       "post": {
         "tags": [
-          "Auth"
+          "1. Autenticacion y Seguridad"
         ],
         "summary": "Cierra la sesión actual expirando el cookie de autenticación.",
         "responses": {
@@ -962,7 +2442,7 @@
     "/api/publicapi/shared/Auth/Me": {
       "get": {
         "tags": [
-          "Auth"
+          "1. Autenticacion y Seguridad"
         ],
         "summary": "Obtiene datos de la sesión actual (usuario y configuración) desde el token vigente.",
         "responses": {
@@ -1002,7 +2482,7 @@
     "/api/publicapi/shared/Auth/Logout": {
       "post": {
         "tags": [
-          "Auth"
+          "1. Autenticacion y Seguridad"
         ],
         "summary": "Cierra la sesión del usuario eliminando la cookie de autenticación.",
         "responses": {
@@ -1032,7 +2512,7 @@
     "/api/publicapi/creasys/Banco": {
       "get": {
         "tags": [
-          "Banco"
+          "10. Tablas Maestras"
         ],
         "summary": "Obtiene la lista disponible de bancos de Chile.",
         "responses": {
@@ -1095,7 +2575,7 @@
     "/api/publicapi/creasys/Beneficiario": {
       "post": {
         "tags": [
-          "Beneficiario"
+          "2. Gestion de Clientes"
         ],
         "summary": "Crea un nuevo Beneficiario.",
         "requestBody": {
@@ -1165,7 +2645,7 @@
     "/api/publicapi/creasys/Beneficiario/{identificador}": {
       "get": {
         "tags": [
-          "Beneficiario"
+          "2. Gestion de Clientes"
         ],
         "summary": "Obtiene los Beneficiarios asociados a un cliente por su identificador.",
         "parameters": [
@@ -1239,7 +2719,7 @@
     "/api/publicapi/creasys/Cajas": {
       "get": {
         "tags": [
-          "Cajas"
+          "4. Cuentas y Estructura Operativa"
         ],
         "summary": "Obtiene una lista de Cajas.",
         "parameters": [
@@ -1340,7 +2820,7 @@
       },
       "post": {
         "tags": [
-          "Cajas"
+          "4. Cuentas y Estructura Operativa"
         ],
         "summary": "Crea una Caja nueva.",
         "requestBody": {
@@ -1410,7 +2890,7 @@
     "/api/publicapi/creasys/Cajas/ConSaldo": {
       "get": {
         "tags": [
-          "Cajas"
+          "4. Cuentas y Estructura Operativa"
         ],
         "summary": "Obtiene una lista de Cajas con saldo a una fecha determinada.",
         "parameters": [
@@ -1523,7 +3003,7 @@
     "/api/publicapi/creasys/Cajas/ConSaldoOnline": {
       "get": {
         "tags": [
-          "Cajas"
+          "4. Cuentas y Estructura Operativa"
         ],
         "summary": "Obtiene una lista de Cajas con saldo online si no existe cierre con saldo_caja a una fecha determinada para la cuenta ingresada.",
         "parameters": [
@@ -1618,7 +3098,7 @@
     "/api/publicapi/creasys/Cartera": {
       "get": {
         "tags": [
-          "Cartera"
+          "8. Cartera y Patrimonio"
         ],
         "summary": "Obtiene una lista de Cartera en una fecha, cliente o cuenta determinada.",
         "parameters": [
@@ -1759,7 +3239,7 @@
     "/api/publicapi/creasys/Cartera/CarteraActual": {
       "get": {
         "tags": [
-          "Cartera"
+          "8. Cartera y Patrimonio"
         ],
         "summary": "Obtiene una lista de Cartera en una fecha, cliente o cuenta determinada.",
         "parameters": [
@@ -1900,7 +3380,7 @@
     "/api/publicapi/creasys/Cartera/CarteraActualOptimizada": {
       "get": {
         "tags": [
-          "Cartera"
+          "8. Cartera y Patrimonio"
         ],
         "parameters": [
           {
@@ -2031,13 +3511,14 @@
               }
             }
           }
-        }
+        },
+        "summary": "Obtiene la cartera actual en formato optimizado"
       }
     },
     "/api/publicapi/creasys/Cartera/CarteraResumida": {
       "get": {
         "tags": [
-          "Cartera"
+          "8. Cartera y Patrimonio"
         ],
         "summary": "Obtiene una lista de Cartera Resumida en una fecha, cliente o cuenta determinada.",
         "parameters": [
@@ -2178,7 +3659,7 @@
     "/api/publicapi/creasys/Cartera/CarteraDetallada": {
       "get": {
         "tags": [
-          "Cartera"
+          "8. Cartera y Patrimonio"
         ],
         "summary": "Obtiene una lista de Cartera en una fecha, cliente o cuenta determinada.",
         "parameters": [
@@ -2319,7 +3800,7 @@
     "/api/publicapi/creasys/Cartola/GetCartolaVoultech": {
       "get": {
         "tags": [
-          "Cartola"
+          "8. Cartera y Patrimonio"
         ],
         "summary": "Obtiene la cartola de Voultech de una cuenta, fecha y moneda determinada.",
         "parameters": [
@@ -2416,7 +3897,7 @@
     "/api/publicapi/creasys/Cartola/GetCartolaCompletaVoultech": {
       "get": {
         "tags": [
-          "Cartola"
+          "8. Cartera y Patrimonio"
         ],
         "summary": "Obtiene la cartola de Voultech de una cuenta, fecha y moneda determinada.",
         "parameters": [
@@ -2513,7 +3994,7 @@
     "/api/publicapi/creasys/Cedula/Vigencia": {
       "get": {
         "tags": [
-          "Cedula"
+          "2. Gestion de Clientes"
         ],
         "summary": "Valida el carnet RUT (Rol Único Tributario).",
         "description": "Sample request:\r\n            \r\n    GET /api/publicapi/creasys/Cedula/Vigencia?rut=12345678-9&serie=123456789",
@@ -2585,7 +4066,7 @@
     "/api/publicapi/creasys/Cedula/Riesgo": {
       "get": {
         "tags": [
-          "Cedula"
+          "2. Gestion de Clientes"
         ],
         "summary": "Valida el Riesgo de una persona por RUT (Rol Único Tributario).",
         "description": "Sample request:\r\n            \r\n    GET /api/publicapi/creasys/Cedula/Riesgo?rut=12345678-9",
@@ -2649,7 +4130,7 @@
     "/api/publicapi/creasys/CertificadoCustodias": {
       "get": {
         "tags": [
-          "CertificadoCustodias"
+          "8. Cartera y Patrimonio"
         ],
         "parameters": [
           {
@@ -2707,13 +4188,14 @@
               }
             }
           }
-        }
+        },
+        "summary": "Obtiene el certificado de custodias del cliente"
       }
     },
     "/api/publicapi/shared/Cierre/DatosEnProceso": {
       "get": {
         "tags": [
-          "Cierre"
+          "11. Integraciones y Sistema"
         ],
         "summary": "Muestra si hay datos en proceso, lo que significa que los datos mostrados podrian cambiar.",
         "parameters": [
@@ -2781,7 +4263,7 @@
     "/api/publicapi/shared/Cierre/Cuentas": {
       "get": {
         "tags": [
-          "Cierre"
+          "11. Integraciones y Sistema"
         ],
         "summary": "Muestra los Cierres por Cuenta.",
         "responses": {
@@ -2824,7 +4306,7 @@
     "/api/publicapi/shared/Cierre/Sistema": {
       "get": {
         "tags": [
-          "Cierre"
+          "11. Integraciones y Sistema"
         ],
         "summary": "Muestra el ultimo cierre de GPI.",
         "responses": {
@@ -2865,7 +4347,7 @@
     "/api/publicapi/shared/Cierre/MinComun": {
       "get": {
         "tags": [
-          "Cierre"
+          "11. Integraciones y Sistema"
         ],
         "summary": "Muestra la fecha de cierre minima comun de las cuentas que resulten del filtro.",
         "requestBody": {
@@ -2925,7 +4407,7 @@
     "/api/publicapi/creasys/Clientes": {
       "get": {
         "tags": [
-          "Clientes"
+          "2. Gestion de Clientes"
         ],
         "summary": "Obtiene una lista de Clientes.",
         "parameters": [
@@ -3025,7 +4507,7 @@
       },
       "post": {
         "tags": [
-          "Clientes"
+          "2. Gestion de Clientes"
         ],
         "summary": "Crea un Cliente nuevo.\r\nCrea un nuevo cliente en el sistema.",
         "description": "Este endpoint permite registrar un nuevo cliente, ya sea persona natural o jurídica.\r\nRealiza validaciones de negocio y formato de datos. Puede retornar errores si la información es inválida o si el cliente ya existe.",
@@ -3124,7 +4606,7 @@
     "/api/publicapi/creasys/Clientes/{identificador}": {
       "put": {
         "tags": [
-          "Clientes"
+          "2. Gestion de Clientes"
         ],
         "summary": "Actualiza un Cliente por identificador.",
         "parameters": [
@@ -3208,7 +4690,7 @@
     "/api/publicapi/creasys/ClockAlpaca": {
       "get": {
         "tags": [
-          "ClockAlpaca"
+          "5. Activos e Instrumentos"
         ],
         "summary": "Obtiene el reloj de mercado desde Alpaca (formato en español).",
         "responses": {
@@ -3251,7 +4733,7 @@
     "/api/publicapi/creasys/ClosePrices/symbol/{symbol}/latest": {
       "get": {
         "tags": [
-          "ClosePrices"
+          "5. Activos e Instrumentos"
         ],
         "parameters": [
           {
@@ -3294,13 +4776,14 @@
               }
             }
           }
-        }
+        },
+        "summary": "Obtiene el precio de cierre mas reciente para un simbolo"
       }
     },
     "/api/publicapi/creasys/CodigoTipoDocumento": {
       "get": {
         "tags": [
-          "CodigoTipoDocumento"
+          "10. Tablas Maestras"
         ],
         "summary": "Obtiene la lista disponible de los codigos de tipos de documentos.",
         "responses": {
@@ -3363,7 +4846,7 @@
     "/api/publicapi/creasys/Comision": {
       "post": {
         "tags": [
-          "Comision"
+          "4. Cuentas y Estructura Operativa"
         ],
         "summary": "Asigna un porcentaje de comisión a una cuenta específica.",
         "requestBody": {
@@ -3436,7 +4919,7 @@
     "/api/publicapi/creasys/Comision/Administracion": {
       "post": {
         "tags": [
-          "Comision"
+          "4. Cuentas y Estructura Operativa"
         ],
         "summary": "Asigna una comisión de administración a una cuenta específica.",
         "requestBody": {
@@ -3547,7 +5030,7 @@
     "/api/publicapi/creasys/Comuna": {
       "get": {
         "tags": [
-          "Comuna"
+          "10. Tablas Maestras"
         ],
         "summary": "Obtiene la lista disponible de comunas de Chile.",
         "responses": {
@@ -3610,7 +5093,7 @@
     "/api/publicapi/creasys/Contacto": {
       "get": {
         "tags": [
-          "Contacto"
+          "3. Datos de Contacto"
         ],
         "summary": "Obtiene una lista de ccontactos por cliente.",
         "parameters": [
@@ -3681,7 +5164,7 @@
       },
       "post": {
         "tags": [
-          "Contacto"
+          "3. Datos de Contacto"
         ],
         "summary": "Crea un registro de contacto nuevo.",
         "requestBody": {
@@ -3751,7 +5234,7 @@
     "/api/publicapi/creasys/Contraparte": {
       "get": {
         "tags": [
-          "Contraparte"
+          "10. Tablas Maestras"
         ],
         "summary": "Obtiene la lista disponible de contrapartes.",
         "responses": {
@@ -3814,7 +5297,7 @@
     "/api/publicapi/creasys/ContratoMatrimonial": {
       "get": {
         "tags": [
-          "ContratoMatrimonial"
+          "10. Tablas Maestras"
         ],
         "summary": "Obtiene la lista disponible de contratos nupciales.",
         "responses": {
@@ -3877,7 +5360,7 @@
     "/api/publicapi/creasys/ContratoOperacion/GetTipoContrato": {
       "get": {
         "tags": [
-          "ContratoOperacion"
+          "10. Tablas Maestras"
         ],
         "summary": "Obtiene la lista disponible de tipos de contrato.",
         "responses": {
@@ -3940,7 +5423,7 @@
     "/api/publicapi/creasys/ContratoOperacion/GetTipoDocumento": {
       "get": {
         "tags": [
-          "ContratoOperacion"
+          "10. Tablas Maestras"
         ],
         "summary": "Obtiene la lista disponible de tipos de contrato.",
         "responses": {
@@ -4003,7 +5486,7 @@
     "/api/publicapi/creasys/CuentaAlpaca/CrearClienteAlpaca": {
       "post": {
         "tags": [
-          "CuentaAlpaca"
+          "4. Cuentas y Estructura Operativa"
         ],
         "summary": "Crea una cuenta Alpaca para el cliente especificado. Utiliza el identificador del asesor autenticado.",
         "requestBody": {
@@ -4063,7 +5546,7 @@
     "/api/publicapi/creasys/CuentaAlpaca/ObtenerCuentaAlpaca/{accountNumber}": {
       "get": {
         "tags": [
-          "CuentaAlpaca"
+          "4. Cuentas y Estructura Operativa"
         ],
         "summary": "Obtiene los detalles de una cuenta Alpaca específica a partir del número de cuenta.",
         "parameters": [
@@ -4114,7 +5597,7 @@
     "/api/publicapi/creasys/CuentaAlpaca/ObtenerCuentas": {
       "get": {
         "tags": [
-          "CuentaAlpaca"
+          "4. Cuentas y Estructura Operativa"
         ],
         "summary": "Obtiene todas las cuentas Alpaca asociadas al asesor autenticado, contrastando con las cuentas locales.",
         "parameters": [
@@ -4188,7 +5671,7 @@
     "/api/publicapi/creasys/CuentaAlpaca/SaldoAlpaca/{accountNumber}": {
       "get": {
         "tags": [
-          "CuentaAlpaca"
+          "4. Cuentas y Estructura Operativa"
         ],
         "parameters": [
           {
@@ -4231,13 +5714,14 @@
               }
             }
           }
-        }
+        },
+        "summary": "Obtiene el saldo de una cuenta Alpaca"
       }
     },
     "/api/publicapi/creasys/CuentaAlpaca/ObtenerActividadCuenta": {
       "get": {
         "tags": [
-          "CuentaAlpaca"
+          "4. Cuentas y Estructura Operativa"
         ],
         "parameters": [
           {
@@ -4342,13 +5826,14 @@
               }
             }
           }
-        }
+        },
+        "summary": "Obtiene el historial de actividad de la cuenta Alpaca"
       }
     },
     "/api/publicapi/creasys/CuentaAlpaca/Custodias/{accountNumber}": {
       "get": {
         "tags": [
-          "CuentaAlpaca"
+          "4. Cuentas y Estructura Operativa"
         ],
         "parameters": [
           {
@@ -4391,13 +5876,14 @@
               }
             }
           }
-        }
+        },
+        "summary": "Obtiene las custodias de una cuenta Alpaca"
       }
     },
     "/api/publicapi/creasys/CuentaAlpaca/PreviewCip/{numCuenta}": {
       "get": {
         "tags": [
-          "CuentaAlpaca"
+          "4. Cuentas y Estructura Operativa"
         ],
         "parameters": [
           {
@@ -4440,13 +5926,14 @@
               }
             }
           }
-        }
+        },
+        "summary": "Obtiene la vista previa del CIP de una cuenta"
       }
     },
     "/api/publicapi/creasys/CuentaAlpaca/ListarDocumentos": {
       "get": {
         "tags": [
-          "CuentaAlpaca"
+          "4. Cuentas y Estructura Operativa"
         ],
         "parameters": [
           {
@@ -4512,13 +5999,14 @@
               }
             }
           }
-        }
+        },
+        "summary": "Lista los documentos de la cuenta Alpaca"
       }
     },
     "/api/publicapi/creasys/CuentaAlpaca/DescargarDocumentos": {
       "get": {
         "tags": [
-          "CuentaAlpaca"
+          "4. Cuentas y Estructura Operativa"
         ],
         "parameters": [
           {
@@ -4567,13 +6055,14 @@
               }
             }
           }
-        }
+        },
+        "summary": "Descarga documentos de la cuenta Alpaca"
       }
     },
     "/api/publicapi/creasys/CuentaAlpaca/DescargarW8": {
       "get": {
         "tags": [
-          "CuentaAlpaca"
+          "4. Cuentas y Estructura Operativa"
         ],
         "parameters": [
           {
@@ -4615,13 +6104,14 @@
               }
             }
           }
-        }
+        },
+        "summary": "Descarga el formulario W8 de la cuenta Alpaca"
       }
     },
     "/api/publicapi/creasys/CuentaCorriente": {
       "get": {
         "tags": [
-          "CuentaCorriente"
+          "4. Cuentas y Estructura Operativa"
         ],
         "summary": "Obtiene una lista de cuentas corrientes por cliente.",
         "parameters": [
@@ -4692,7 +6182,7 @@
       },
       "post": {
         "tags": [
-          "CuentaCorriente"
+          "4. Cuentas y Estructura Operativa"
         ],
         "summary": "Crea un registro de cuenta corriente nuevo.",
         "requestBody": {
@@ -4762,7 +6252,7 @@
     "/api/publicapi/creasys/Cuentas": {
       "get": {
         "tags": [
-          "Cuentas"
+          "4. Cuentas y Estructura Operativa"
         ],
         "summary": "Obtiene una lista de Cuentas.",
         "parameters": [
@@ -4863,7 +6353,7 @@
       },
       "post": {
         "tags": [
-          "Cuentas"
+          "4. Cuentas y Estructura Operativa"
         ],
         "summary": "Crea una Cuenta nueva.",
         "requestBody": {
@@ -4933,7 +6423,7 @@
     "/api/publicapi/creasys/Cuentas/{numCuenta}": {
       "put": {
         "tags": [
-          "Cuentas"
+          "4. Cuentas y Estructura Operativa"
         ],
         "summary": "Actualiza una Cuenta por numero de cuenta.",
         "parameters": [
@@ -5017,7 +6507,7 @@
     "/api/publicapi/creasys/Cuentas/kyc": {
       "get": {
         "tags": [
-          "Cuentas"
+          "4. Cuentas y Estructura Operativa"
         ],
         "summary": "Obtiene los datos KYC de una cuenta.",
         "parameters": [
@@ -5088,7 +6578,7 @@
     "/api/publicapi/creasys/Cuentas/identyz": {
       "post": {
         "tags": [
-          "Cuentas"
+          "4. Cuentas y Estructura Operativa"
         ],
         "summary": "Consulta Identyz con los documentos de la cuenta especificada.",
         "parameters": [
@@ -5169,7 +6659,7 @@
     "/api/publicapi/creasys/DireccionPersona": {
       "get": {
         "tags": [
-          "DireccionPersona"
+          "3. Datos de Contacto"
         ],
         "summary": "Obtiene una lista de Direcciones.",
         "parameters": [
@@ -5240,7 +6730,7 @@
       },
       "post": {
         "tags": [
-          "DireccionPersona"
+          "3. Datos de Contacto"
         ],
         "summary": "Crea una Dirección.",
         "requestBody": {
@@ -5328,7 +6818,7 @@
       },
       "put": {
         "tags": [
-          "DireccionPersona"
+          "3. Datos de Contacto"
         ],
         "summary": "Actualiza un Dirección por id.",
         "parameters": [
@@ -5439,7 +6929,7 @@
       },
       "delete": {
         "tags": [
-          "DireccionPersona"
+          "3. Datos de Contacto"
         ],
         "summary": "Elimina una Dirección por id.",
         "parameters": [
@@ -5512,7 +7002,7 @@
     "/api/publicapi/creasys/Documentos": {
       "get": {
         "tags": [
-          "Documentos"
+          "9. Documentos"
         ],
         "summary": "Obtiene una lista de Documentos.",
         "parameters": [
@@ -5603,7 +7093,7 @@
       },
       "post": {
         "tags": [
-          "Documentos"
+          "9. Documentos"
         ],
         "summary": "Ingresa los datos y contenido de un documento.",
         "requestBody": {
@@ -5666,7 +7156,7 @@
     "/publicapi/creasys/DocumentosAlpacaSync/sync": {
       "post": {
         "tags": [
-          "DocumentosAlpacaSync"
+          "9. Documentos"
         ],
         "summary": "Dispara la sincronización (order-first) hacia la BD.",
         "responses": {
@@ -5706,7 +7196,7 @@
     "/api/publicapi/creasys/EmailPersona": {
       "get": {
         "tags": [
-          "EmailPersona"
+          "3. Datos de Contacto"
         ],
         "summary": "Obtiene una lista de Email.",
         "parameters": [
@@ -5777,7 +7267,7 @@
       },
       "post": {
         "tags": [
-          "EmailPersona"
+          "3. Datos de Contacto"
         ],
         "summary": "Crea un Email.",
         "requestBody": {
@@ -5865,7 +7355,7 @@
       },
       "put": {
         "tags": [
-          "EmailPersona"
+          "3. Datos de Contacto"
         ],
         "summary": "Actualiza un Email por id.",
         "parameters": [
@@ -5976,7 +7466,7 @@
       },
       "delete": {
         "tags": [
-          "EmailPersona"
+          "3. Datos de Contacto"
         ],
         "summary": "Elimina un Email por id.",
         "parameters": [
@@ -6049,7 +7539,7 @@
     "/api/publicapi/creasys/Enrolamiento": {
       "post": {
         "tags": [
-          "Enrolamiento"
+          "2. Gestion de Clientes"
         ],
         "summary": "Obtiene la informacion de los prospectos y luego crea a los clientes y sus dependencias.",
         "description": "Sample request:\r\n            \r\n    POST /api/publicapi/creasys/Enrolamiento/FinalizarEnrolamiento\r\n    {\r\n        \"codPerfilRiesgo\": \"PERFBAJ\",\r\n        \"personaFulls\": [\r\n        {\r\n            \"tipoEntidad\": \"N\",\r\n            \"identificador\": \"12345678-9\",\r\n            \"tipoIdentificador\": \"R\",\r\n            \"nombre\": \"Juan\",\r\n            \"paterno\": \"Perez\",\r\n            \"materno\": \"Perez\",\r\n            \"sexo\": \"M\",\r\n            \"fechaNacimiento\": \"1990-01-01\",\r\n            \"codPais\": \"CHL\",\r\n            \"codEstadoCivil\": \"SOLTERO\",\r\n            \"codRegimenMatrimonial\": \"REGMATRIMONIAL\",\r\n            \"dscGiro\": \"Giro\",\r\n            \"codTipoSociedad\": \"Sociedad\",\r\n            \"codTipoRelacion\": \"CLINTE\",\r\n            \"telefonoFulls\": [\r\n            {\r\n                \"telefono\": \"123456789\",\r\n                \"observacion\": \"Observacion\",\r\n                \"codTipoTelefono\": \"TTELEFIJO\"\r\n            }\r\n            ],\r\n            \"direccionFulls\": [\r\n            {\r\n                \"linea1\": \"Direccion\",\r\n                \"codTipoDireccion\": \"TDIREFPART\",\r\n                \"prospComunaCiudadId\": 1\r\n            }\r\n            ],\r\n            \"emailFulls\": [\r\n            {\r\n                \"email\": \"Email\",\r\n                \"codTipoEmail\": \"TDIREECOME\"\r\n            }\r\n            ],\r\n            \"cuentaBancarioFulls\": [\r\n            {\r\n                \"numero\": \"123456789\",\r\n                \"tipo\": \"Cuenta Corriente\",\r\n                \"prospBancoId\": 1\r\n            }\r\n            ]\r\n        }\r\n        ]\r\n    }",
@@ -6135,7 +7625,7 @@
     "/api/publicapi/creasys/EstadoCivil": {
       "get": {
         "tags": [
-          "EstadoCivil"
+          "10. Tablas Maestras"
         ],
         "summary": "Obtiene la lista disponible de tipos de estado civil.",
         "responses": {
@@ -6198,7 +7688,7 @@
     "/api/publicapi/shared/Fintoc/WebhookSuccess": {
       "post": {
         "tags": [
-          "Fintoc"
+          "7. Movimientos y Transferencias"
         ],
         "requestBody": {
           "content": {
@@ -6237,13 +7727,14 @@
               }
             }
           }
-        }
+        },
+        "summary": "Webhook de Fintoc para notificaciones de transferencias exitosas"
       }
     },
     "/api/publicapi/shared/Fintoc/WebhookFailed": {
       "post": {
         "tags": [
-          "Fintoc"
+          "7. Movimientos y Transferencias"
         ],
         "requestBody": {
           "content": {
@@ -6282,13 +7773,14 @@
               }
             }
           }
-        }
+        },
+        "summary": "Webhook de Fintoc para notificaciones de transferencias fallidas"
       }
     },
     "/api/publicapi/creasys/FormaOperacion": {
       "get": {
         "tags": [
-          "FormaOperacion"
+          "10. Tablas Maestras"
         ],
         "summary": "Obtiene la lista disponible de formas de operacion.",
         "responses": {
@@ -6351,7 +7843,7 @@
     "/api/publicapi/creasys/Instrumentos/GetInstrumentos": {
       "get": {
         "tags": [
-          "Instrumentos"
+          "5. Activos e Instrumentos"
         ],
         "summary": "Obtiene una Lista de instrumentos del sistema.",
         "description": "Sample request:\r\n            \r\n    GET /api/publicapi/creasys/Instrumentos/GetInstrumentos?IdInstrumento=1&Nemotecnico=ACCION&IdRamaArbol=1&IdDatoAtributo=1",
@@ -6442,7 +7934,7 @@
     "/api/publicapi/creasys/Instrumentos": {
       "get": {
         "tags": [
-          "Instrumentos"
+          "5. Activos e Instrumentos"
         ],
         "summary": "Obtiene una Lista de instrumentos del sistema Por Perfil de Riesgo.",
         "description": "Sample request:\r\n            \r\n    GET /api/publicapi/creasys/Instrumentos?abrPerfilRiesgo=CONSERVADOR",
@@ -6514,7 +8006,7 @@
     "/api/alpaca/journals/events": {
       "post": {
         "tags": [
-          "JournalEvents"
+          "11. Integraciones y Sistema"
         ],
         "requestBody": {
           "content": {
@@ -6566,13 +8058,14 @@
               }
             }
           }
-        }
+        },
+        "summary": "Registra eventos de journals en Alpaca"
       }
     },
     "/api/publicapi/creasys/Moneda": {
       "get": {
         "tags": [
-          "Moneda"
+          "10. Tablas Maestras"
         ],
         "summary": "Obtiene la lista disponible de monedas.",
         "responses": {
@@ -6635,7 +8128,7 @@
     "/api/publicapi/creasys/MovimientoCaja/CambioCajaAuto": {
       "post": {
         "tags": [
-          "MovimientoCaja"
+          "7. Movimientos y Transferencias"
         ],
         "summary": "requi",
         "requestBody": {
@@ -6695,7 +8188,7 @@
     "/api/publicapi/creasys/Movimientos": {
       "get": {
         "tags": [
-          "Movimientos"
+          "7. Movimientos y Transferencias"
         ],
         "summary": "Obtiene una lista de Movimientos en un rango de fecha determinado.",
         "parameters": [
@@ -6847,7 +8340,7 @@
     "/api/publicapi/creasys/Movimientos/MovimientosShinkansen": {
       "get": {
         "tags": [
-          "Movimientos"
+          "7. Movimientos y Transferencias"
         ],
         "summary": "Obtiene una lista de Movimientos shinkansen en un rango de fecha determinado con informacion de estado banco.",
         "parameters": [
@@ -6987,7 +8480,7 @@
     "/api/publicapi/creasys/Movimientos/MovimientosBancoSecurity": {
       "get": {
         "tags": [
-          "Movimientos"
+          "7. Movimientos y Transferencias"
         ],
         "summary": "Obtiene una lista de Movimientos del banco Security en un rango de fecha determinado",
         "parameters": [
@@ -7100,7 +8593,7 @@
     "/api/publicapi/creasys/Movimientos/MovimientosBancoBice": {
       "get": {
         "tags": [
-          "Movimientos"
+          "7. Movimientos y Transferencias"
         ],
         "summary": "Obtiene una lista de Movimientos del banco Bice en un rango de fecha determinado",
         "parameters": [
@@ -7213,7 +8706,7 @@
     "/api/publicapi/creasys/Movimientos/IngresoAporteRetiro": {
       "post": {
         "tags": [
-          "Movimientos"
+          "7. Movimientos y Transferencias"
         ],
         "summary": "Se puede hacer ingreso de Aportes o Retiros patrimoniales.",
         "requestBody": {
@@ -7293,9 +8786,9 @@
     "/api/publicapi/creasys/Movimientos/NuevoIngresoAporteRetiro": {
       "post": {
         "tags": [
-          "Movimientos"
+          "7. Movimientos y Transferencias"
         ],
-        "summary": "(Nuevo)Se puede hacer ingreso de Aportes o Retiros patrimoniales.",
+        "summary": "(Nuevo) Ingreso de retiros patrimoniales vía Shinkansen.\r\nFecha de movimiento y fecha de liquidación se calculan en servidor (hora Chile, corte 14:00 y días hábiles);\r\nlos valores enviados en el cuerpo para esas fechas se ignoran.",
         "requestBody": {
           "content": {
             "application/json": {
@@ -7375,7 +8868,7 @@
     "/api/publicapi/creasys/Movimientos/IngresoAporteRetiroMasivo": {
       "post": {
         "tags": [
-          "Movimientos"
+          "7. Movimientos y Transferencias"
         ],
         "summary": "Se puede hacer ingreso de Aportes o Retiros patrimoniales.",
         "requestBody": {
@@ -7470,7 +8963,7 @@
     "/api/publicapi/creasys/MovimientosAlpaca/MovimientoInternacionalAlpaca": {
       "post": {
         "tags": [
-          "MovimientosAlpaca"
+          "7. Movimientos y Transferencias"
         ],
         "summary": "Registra un movimiento internacional de tipo retiro o aporte patrimonial\r\nentre cuentas locales y cuentas Alpaca, según el tipo de movimiento especificado.",
         "requestBody": {
@@ -7532,7 +9025,7 @@
     "/api/publicapi/creasys/MovimientosAlpaca/patrimoniales/{numCuenta}": {
       "get": {
         "tags": [
-          "MovimientosAlpaca"
+          "7. Movimientos y Transferencias"
         ],
         "parameters": [
           {
@@ -7627,13 +9120,14 @@
               }
             }
           }
-        }
+        },
+        "summary": "Obtiene los movimientos patrimoniales de una cuenta Alpaca"
       }
     },
     "/api/publicapi/creasys/MxMesa": {
       "get": {
         "tags": [
-          "MxMesa"
+          "11. Integraciones y Sistema"
         ],
         "summary": "Obtiene la lista disponible de mesa de distribucion spot.",
         "responses": {
@@ -7696,7 +9190,7 @@
     "/api/publicapi/creasys/Operaciones": {
       "get": {
         "tags": [
-          "Operaciones"
+          "6. Ordenes y Operaciones"
         ],
         "summary": "Obtiene una lista de Operaciones en un rango de fecha determinado.",
         "parameters": [
@@ -7833,7 +9327,7 @@
     "/api/publicapi/creasys/Operaciones/IngresoOperacionCuentaRemunerada": {
       "post": {
         "tags": [
-          "Operaciones"
+          "6. Ordenes y Operaciones"
         ],
         "summary": "Se puede hacer ingreso de una lista de operaciones.",
         "requestBody": {
@@ -7938,7 +9432,7 @@
     "/api/publicapi/creasys/Operaciones/IngresoOperacionSpot": {
       "post": {
         "tags": [
-          "Operaciones"
+          "6. Ordenes y Operaciones"
         ],
         "summary": "Se puede hacer ingreso de una lista de Operaciones Spot.",
         "requestBody": {
@@ -8030,7 +9524,7 @@
     "/api/publicapi/creasys/Operaciones/OrdenSpot": {
       "post": {
         "tags": [
-          "Operaciones"
+          "6. Ordenes y Operaciones"
         ],
         "requestBody": {
           "content": {
@@ -8108,13 +9602,14 @@
               }
             }
           }
-        }
+        },
+        "summary": "Ingresa una orden spot al sistema"
       }
     },
     "/api/operaciones/reporte/enviar": {
       "post": {
         "tags": [
-          "OperacionesReporte"
+          "6. Ordenes y Operaciones"
         ],
         "summary": "Envía el reporte diario de operaciones (inversiones/rescates) del día actual.\r\n- Notifica al cliente (si tiene mail)\r\n- Siempre envía copia a soporte@voultech.com\r\n- Marca operaciones como enviadas para evitar duplicados",
         "parameters": [
@@ -8164,7 +9659,7 @@
     "/api/publicapi/creasys/Ordenes": {
       "get": {
         "tags": [
-          "Ordenes"
+          "6. Ordenes y Operaciones"
         ],
         "summary": "Obtiene una lista de Ordenes Ingresdas via api a mercado en un rango de fecha determinado.",
         "parameters": [
@@ -8291,7 +9786,7 @@
     "/api/publicapi/creasys/Ordenes/IngresoOrdenes": {
       "post": {
         "tags": [
-          "Ordenes"
+          "6. Ordenes y Operaciones"
         ],
         "summary": "Se puede hacer ingreso de Ordenes.",
         "parameters": [
@@ -8394,7 +9889,7 @@
     "/api/publicapi/creasys/Ordenes/IngresarOrdenesMercado": {
       "post": {
         "tags": [
-          "Ordenes"
+          "6. Ordenes y Operaciones"
         ],
         "summary": "Ingreso de órdenes directo a mercado OMS.",
         "description": "Este endpoint permite ingresar órdenes al mercado basándose en los parámetros especificados en la solicitud.\r\nSe realiza una serie de validaciones para asegurar que la orden pueda ser procesada:\r\n<list type=\"bullet\"><item><description>Validación de que se proporcionaron órdenes y que su cantidad no exceda el límite permitido.</description></item><item><description>Verificación de que no haya UUIDs duplicados en la lista de órdenes.</description></item><item><description>Validación de la existencia de la cuenta asociada con la orden.</description></item><item><description>Comprobación de la existencia del instrumento financiero especificado.</description></item><item><description>Verificación de que el UUID proporcionado no haya sido utilizado previamente para evitar duplicaciones.</description></item></list>",
@@ -8497,7 +9992,7 @@
     "/api/publicapi/creasys/Ordenes/IngresarOrdenesMercadoAuto": {
       "post": {
         "tags": [
-          "Ordenes"
+          "6. Ordenes y Operaciones"
         ],
         "summary": "Ingreso de órdenes directo a mercado OMS (versión automática con modalidades).",
         "description": "Este endpoint permite ingresar órdenes al mercado basándose en los parámetros especificados en la solicitud.\r\nSe realiza una serie de validaciones para asegurar que la orden pueda ser procesada:\r\n<list type=\"bullet\"><item><description>Validación de que se proporcionaron órdenes y que su cantidad no exceda el límite permitido.</description></item><item><description>Verificación de que no haya UUIDs duplicados en la lista de órdenes.</description></item><item><description>Validación de la existencia de la cuenta asociada con la orden.</description></item><item><description>Comprobación de la existencia del instrumento financiero especificado.</description></item><item><description>Verificación de que el UUID proporcionado no haya sido utilizado previamente para evitar duplicaciones.</description></item></list>",
@@ -8600,7 +10095,7 @@
     "/api/publicapi/creasys/Ordenes/AnularOrden": {
       "post": {
         "tags": [
-          "Ordenes"
+          "6. Ordenes y Operaciones"
         ],
         "requestBody": {
           "content": {
@@ -8661,7 +10156,7 @@
     "/api/publicapi/creasys/Ordenes/RegistroOrdenesExterno": {
       "post": {
         "tags": [
-          "Ordenes"
+          "6. Ordenes y Operaciones"
         ],
         "summary": "Se puede hacer ingreso de Ordenes particulares(externas).",
         "parameters": [
@@ -8763,7 +10258,7 @@
     "/api/publicapi/creasys/Ordenes/IngresoOrdenesIntraDay": {
       "post": {
         "tags": [
-          "Ordenes"
+          "6. Ordenes y Operaciones"
         ],
         "summary": "Ingreso de órdenes v2 con funcionalidad completa del frontoffice.",
         "description": "Este endpoint permite ingresar órdenes con todas las funcionalidades del frontoffice, incluyendo:\r\n<list type=\"bullet\"><item><description>Validación de cuenta y permisos</description></item><item><description>Validación de fechas de liquidación</description></item><item><description>Registro de logs</description></item></list>",
@@ -8849,7 +10344,7 @@
     "/api/publicapi/creasys/Ordenes/SaldoCustodiaIntraDay": {
       "get": {
         "tags": [
-          "Ordenes"
+          "6. Ordenes y Operaciones"
         ],
         "summary": "Consulta de saldo de custodia intradía para una cuenta.",
         "description": "Este endpoint permite consultar el saldo de custodia intradía, considerando:\r\n<list type=\"bullet\"><item><description>Validación de cuenta</description></item><item><description>Cálculo de fecha de liquidación según tipo</description></item><item><description>Evaluación del saldo disponible en custodia</description></item></list>",
@@ -9022,7 +10517,7 @@
     "/api/publicapi/shared/OrderMovement/UpdateMovement": {
       "post": {
         "tags": [
-          "OrderMovement"
+          "11. Integraciones y Sistema"
         ],
         "requestBody": {
           "content": {
@@ -9061,13 +10556,14 @@
               }
             }
           }
-        }
+        },
+        "summary": "Actualiza el estado de un movimiento de orden"
       }
     },
     "/api/publicapi/shared/OrderMovement/UpdateMovementBufferProtocol": {
       "post": {
         "tags": [
-          "OrderMovement"
+          "11. Integraciones y Sistema"
         ],
         "requestBody": {
           "content": {
@@ -9106,13 +10602,14 @@
               }
             }
           }
-        }
+        },
+        "summary": "Actualiza movimiento de orden con protocolo de buffer"
       }
     },
     "/api/publicapi/creasys/Pais": {
       "get": {
         "tags": [
-          "Pais"
+          "10. Tablas Maestras"
         ],
         "summary": "Obtiene la lista disponible de paises.",
         "responses": {
@@ -9175,7 +10672,7 @@
     "/api/publicapi/creasys/PerfilRiesgo": {
       "get": {
         "tags": [
-          "PerfilRiesgo"
+          "10. Tablas Maestras"
         ],
         "summary": "Obtiene la lista disponible de tipos de perfil de riesgo.",
         "responses": {
@@ -9238,7 +10735,7 @@
     "/api/publicapi/creasys/Personas": {
       "get": {
         "tags": [
-          "Personas"
+          "2. Gestion de Clientes"
         ],
         "summary": "Obtiene una lista de Personas.",
         "parameters": [
@@ -9338,7 +10835,7 @@
       },
       "post": {
         "tags": [
-          "Personas"
+          "2. Gestion de Clientes"
         ],
         "summary": "Crea un Persona nuevo.",
         "requestBody": {
@@ -9408,7 +10905,7 @@
     "/api/publicapi/creasys/Personas/{identificador}": {
       "put": {
         "tags": [
-          "Personas"
+          "2. Gestion de Clientes"
         ],
         "summary": "Actualiza un Persona por id.",
         "parameters": [
@@ -9502,7 +10999,7 @@
     "/api/publicapi/creasys/PublicadorPrecio/GetPreciosInstrumento": {
       "get": {
         "tags": [
-          "PublicadorPrecio"
+          "5. Activos e Instrumentos"
         ],
         "summary": "Devuelve los precios historicos de un instrumento",
         "description": "Sample request:\r\n            \r\n    GET api/publicapi/creasys/PublicadorPrecio/GetPreciosInstrumento?nemotecnico=COPEC",
@@ -9605,7 +11102,7 @@
     "/api/publicapi/creasys/Region": {
       "get": {
         "tags": [
-          "Region"
+          "10. Tablas Maestras"
         ],
         "summary": "Obtiene la lista disponible de regiones de Chile.",
         "responses": {
@@ -9668,7 +11165,7 @@
     "/api/publicapi/creasys/RelacionClienteConBanco": {
       "get": {
         "tags": [
-          "RelacionClienteConBanco"
+          "10. Tablas Maestras"
         ],
         "summary": "Obtiene la lista disponible de relacion de corredora.",
         "responses": {
@@ -9731,7 +11228,7 @@
     "/api/Shinkansen": {
       "post": {
         "tags": [
-          "Shinkansen"
+          "7. Movimientos y Transferencias"
         ],
         "requestBody": {
           "content": {
@@ -9773,13 +11270,14 @@
               }
             }
           }
-        }
+        },
+        "summary": "Procesa una transferencia via Shinkansen"
       }
     },
     "/api/publicapi/creasys/TelefonoPersona": {
       "get": {
         "tags": [
-          "TelefonoPersona"
+          "3. Datos de Contacto"
         ],
         "summary": "Obtiene una lista de Teléfonos.",
         "parameters": [
@@ -9850,7 +11348,7 @@
       },
       "post": {
         "tags": [
-          "TelefonoPersona"
+          "3. Datos de Contacto"
         ],
         "summary": "Crea un Teléfono.",
         "requestBody": {
@@ -9938,7 +11436,7 @@
       },
       "put": {
         "tags": [
-          "TelefonoPersona"
+          "3. Datos de Contacto"
         ],
         "summary": "Actualiza un Teléfono por identificador y telefono.",
         "parameters": [
@@ -10049,7 +11547,7 @@
       },
       "delete": {
         "tags": [
-          "TelefonoPersona"
+          "3. Datos de Contacto"
         ],
         "summary": "Elimina un Teléfono por id.",
         "parameters": [
@@ -10122,7 +11620,7 @@
     "/api/publicapi/creasys/TipoAdministracion": {
       "get": {
         "tags": [
-          "TipoAdministracion"
+          "4. Cuentas y Estructura Operativa"
         ],
         "summary": "Obtiene la lista disponible de tipos de administracion.",
         "responses": {
@@ -10185,7 +11683,7 @@
     "/api/publicapi/creasys/TipoContacto": {
       "get": {
         "tags": [
-          "TipoContacto"
+          "3. Datos de Contacto"
         ],
         "summary": "Obtiene la lista disponible de tipos de contacto.",
         "responses": {
@@ -10248,7 +11746,7 @@
     "/api/publicapi/creasys/TipoCuenta": {
       "get": {
         "tags": [
-          "TipoCuenta"
+          "4. Cuentas y Estructura Operativa"
         ],
         "summary": "Obtiene la lista disponible de tipos de cuenta.",
         "responses": {
@@ -10311,7 +11809,7 @@
     "/api/publicapi/creasys/TipoCuentaBanco": {
       "get": {
         "tags": [
-          "TipoCuentaBanco"
+          "4. Cuentas y Estructura Operativa"
         ],
         "summary": "Obtiene la lista disponible de tipos de cuenta Banco.",
         "responses": {
@@ -10374,7 +11872,7 @@
     "/api/publicapi/creasys/TipoDireccion/GetTipoDireccion": {
       "get": {
         "tags": [
-          "TipoDireccion"
+          "3. Datos de Contacto"
         ],
         "summary": "Obtiene la lista disponible de tipos de direccion.",
         "responses": {
@@ -10437,7 +11935,7 @@
     "/api/publicapi/creasys/TipoDireccion/GetTipoTelefono": {
       "get": {
         "tags": [
-          "TipoDireccion"
+          "3. Datos de Contacto"
         ],
         "summary": "Obtiene la lista disponible de tipos de telefonos.",
         "responses": {
@@ -10500,7 +11998,7 @@
     "/api/publicapi/creasys/TipoDireccion/GetTipoMail": {
       "get": {
         "tags": [
-          "TipoDireccion"
+          "3. Datos de Contacto"
         ],
         "summary": "Obtiene la lista disponible de tipos de mails.",
         "responses": {
@@ -10563,7 +12061,7 @@
     "/api/publicapi/creasys/TipoEntidad": {
       "get": {
         "tags": [
-          "TipoEntidad"
+          "10. Tablas Maestras"
         ],
         "summary": "Obtiene la lista disponible de tipos de entidad.",
         "responses": {
@@ -10626,7 +12124,7 @@
     "/api/publicapi/creasys/TipoIdentificacion": {
       "get": {
         "tags": [
-          "TipoIdentificacion"
+          "10. Tablas Maestras"
         ],
         "summary": "Obtiene la lista disponible de tipos de identificacion.",
         "responses": {
@@ -10689,7 +12187,7 @@
     "/api/publicapi/creasys/TipoMedioPagoCobro": {
       "get": {
         "tags": [
-          "TipoMedioPagoCobro"
+          "10. Tablas Maestras"
         ],
         "summary": "Obtiene la lista disponible de tipos de medios de pago o cobro.",
         "responses": {
@@ -10752,7 +12250,7 @@
     "/api/publicapi/creasys/TipoMovCaja": {
       "get": {
         "tags": [
-          "TipoMovCaja"
+          "10. Tablas Maestras"
         ],
         "summary": "Obtiene la lista disponible de tipos de movimientos de caja.",
         "responses": {
@@ -10815,7 +12313,7 @@
     "/api/publicapi/creasys/TipoSociedad": {
       "get": {
         "tags": [
-          "TipoSociedad"
+          "10. Tablas Maestras"
         ],
         "summary": "Obtiene la lista disponible de tipos de sociedad.",
         "responses": {
@@ -10878,7 +12376,7 @@
     "/api/publicapi/creasys/Usuario/CambioRolProspecto": {
       "put": {
         "tags": [
-          "Usuario"
+          "2. Gestion de Clientes"
         ],
         "summary": "Intercambia el rol del usuario .",
         "description": "Sample request:\r\n            \r\n    PUT /api/publicapi/creasys/Usuario/CambioRolProspecto\r\n    {\r\n         \"idUsuario\": \"066074xx-8734-4060-9004-757fc593d7b7\"\r\n    }",
@@ -10962,7 +12460,7 @@
     "/api/publicapi/creasys/Usuario/RelacionUsuarioCliente": {
       "put": {
         "tags": [
-          "Usuario"
+          "2. Gestion de Clientes"
         ],
         "summary": "Intercambia el rol del usuario .",
         "description": "Sample request:\r\n            \r\n    PUT /api/publicapi/creasys/Usuario/RelacionUsuarioCliente\r\n    {\r\n         \"idUsuario\": \"066074xx-8734-4060-9004-757fc593d7b7\",\r\n         \"identificador\":\"1-9\",\r\n         \"ContenidoBase64\":\"https://storage.blob.core.windows.net/container/category/name.pdf?sig=....\"\r\n    }",
@@ -16384,6 +17882,56 @@
   "security": [
     {
       "Bearer": []
+    }
+  ],
+  "tags": [
+    {
+      "name": "1. Autenticacion y Seguridad",
+      "description": ""
+    },
+    {
+      "name": "10. Tablas Maestras",
+      "description": ""
+    },
+    {
+      "name": "11. Integraciones y Sistema",
+      "description": ""
+    },
+    {
+      "name": "2. Gestion de Clientes",
+      "description": ""
+    },
+    {
+      "name": "3. Datos de Contacto",
+      "description": ""
+    },
+    {
+      "name": "4. Cuentas y Estructura Operativa",
+      "description": ""
+    },
+    {
+      "name": "5. Activos e Instrumentos",
+      "description": ""
+    },
+    {
+      "name": "6. Ordenes y Operaciones",
+      "description": ""
+    },
+    {
+      "name": "7. Movimientos y Transferencias",
+      "description": ""
+    },
+    {
+      "name": "8. Cartera y Patrimonio",
+      "description": ""
+    },
+    {
+      "name": "9. Documentos",
+      "description": ""
+    },
+    {
+      "name": "Asesor",
+      "description": ""
     }
   ]
 }

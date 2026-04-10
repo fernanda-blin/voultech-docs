@@ -1,6 +1,6 @@
 ---
 title: Evaluar Riesgo por Cédula
-excerpt: Retorna la evaluación de riesgo asociada a un Rol Único Tributario (RUT).
+excerpt: "Sample request:\r\n            \r\n    GET /api/publicapi/creasys/Cedula/Riesgo?rut=12345678-9"
 api:
   file: swagger.json
   operationId: get_api-publicapi-creasys-cedula-riesgo

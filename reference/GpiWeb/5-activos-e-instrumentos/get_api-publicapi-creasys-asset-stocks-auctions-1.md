@@ -1,0 +1,7 @@
+---
+title: Subastas (auctions) para uno o varios símbolos. Proxy al micro Alpaca.
+api:
+  file: swagger.json
+  operationId: get_api-publicapi-creasys-asset-stocks-auctions
+hidden: false
+---
