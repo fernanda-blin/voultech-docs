@@ -8,7 +8,7 @@
     "/api/shared/Account/SignUpProspecto": {
       "post": {
         "tags": [
-          "1. Autenticacion y Seguridad"
+          "01. Autenticacion y Seguridad"
         ],
         "summary": "Crear un usuario para iniciar el proceso de enrolamiento.",
         "requestBody": {
@@ -53,7 +53,7 @@
     "/api/shared/Account/ConfirmEmail": {
       "post": {
         "tags": [
-          "1. Autenticacion y Seguridad"
+          "01. Autenticacion y Seguridad"
         ],
         "summary": "Confirma el email de un usuari con los parámetros de confirmación.",
         "requestBody": {
@@ -112,7 +112,7 @@
     "/api/shared/Account/ResendEmail": {
       "get": {
         "tags": [
-          "1. Autenticacion y Seguridad"
+          "01. Autenticacion y Seguridad"
         ],
         "parameters": [
           {
@@ -153,13 +153,14 @@
               }
             }
           }
-        }
+        },
+        "summary": "Account Resendemail"
       }
     },
     "/api/shared/Account/ChangeTheme": {
       "post": {
         "tags": [
-          "1. Autenticacion y Seguridad"
+          "01. Autenticacion y Seguridad"
         ],
         "requestBody": {
           "content": {
@@ -227,13 +228,14 @@
               }
             }
           }
-        }
+        },
+        "summary": "Account Changetheme"
       }
     },
     "/api/shared/Account/SignUpProspectoSimple": {
       "post": {
         "tags": [
-          "1. Autenticacion y Seguridad"
+          "01. Autenticacion y Seguridad"
         ],
         "summary": "Registra un nuevo prospecto en el sistema.",
         "description": "Sample request:\r\n            \r\n    POST: api/shared/Account/SignUpProspectoSimple\r\n    {\r\n      \"Email\": \"ejemplo@ejemplo\",\r\n      \"Nombre\": \"Ejemplo\",\r\n      \"Identificador\": \"12345678-9\",\r\n      \"Password\": \"Ejemplo123\",\r\n      \"CodTheme\": \"L\"\r\n      \"EsApp\": true,\r\n      \"EsEnrolador\": false\r\n    }",
@@ -284,7 +286,7 @@
     "/api/shared/Cartola/RangoFechaCartolaGrupo": {
       "get": {
         "tags": [
-          "8. Cartera y Patrimonio"
+          "08. Cartera y Patrimonio"
         ],
         "parameters": [
           {
@@ -327,13 +329,14 @@
               }
             }
           }
-        }
+        },
+        "summary": "Cartola Rangofechacartolagrupo"
       }
     },
     "/api/shared/Cartola/RangoFechaCartolaCliente": {
       "get": {
         "tags": [
-          "8. Cartera y Patrimonio"
+          "08. Cartera y Patrimonio"
         ],
         "parameters": [
           {
@@ -376,13 +379,14 @@
               }
             }
           }
-        }
+        },
+        "summary": "Cartola Rangofechacartolacliente"
       }
     },
     "/api/shared/Cartola/RangoFechaCartolaCuenta": {
       "get": {
         "tags": [
-          "8. Cartera y Patrimonio"
+          "08. Cartera y Patrimonio"
         ],
         "parameters": [
           {
@@ -425,13 +429,14 @@
               }
             }
           }
-        }
+        },
+        "summary": "Cartola Rangofechacartolacuenta"
       }
     },
     "/api/shared/Cartola/ConsultaCartola": {
       "post": {
         "tags": [
-          "8. Cartera y Patrimonio"
+          "08. Cartera y Patrimonio"
         ],
         "requestBody": {
           "content": {
@@ -483,13 +488,14 @@
               }
             }
           }
-        }
+        },
+        "summary": "Cartola Consultacartola"
       }
     },
     "/api/shared/Cartola/ConsultaCartolaCuenta": {
       "get": {
         "tags": [
-          "8. Cartera y Patrimonio"
+          "08. Cartera y Patrimonio"
         ],
         "parameters": [
           {
@@ -540,13 +546,14 @@
               }
             }
           }
-        }
+        },
+        "summary": "Cartola Consultacartolacuenta"
       }
     },
     "/api/shared/Cartola/ConsultaCartolaCliente": {
       "get": {
         "tags": [
-          "8. Cartera y Patrimonio"
+          "08. Cartera y Patrimonio"
         ],
         "parameters": [
           {
@@ -597,13 +604,14 @@
               }
             }
           }
-        }
+        },
+        "summary": "Cartola Consultacartolacliente"
       }
     },
     "/api/shared/Cartola/ConsultaCartolaGrupo": {
       "get": {
         "tags": [
-          "8. Cartera y Patrimonio"
+          "08. Cartera y Patrimonio"
         ],
         "parameters": [
           {
@@ -654,13 +662,14 @@
               }
             }
           }
-        }
+        },
+        "summary": "Cartola Consultacartolagrupo"
       }
     },
     "/api/shared/Cartola/NombreCartolaPorCuenta": {
       "get": {
         "tags": [
-          "8. Cartera y Patrimonio"
+          "08. Cartera y Patrimonio"
         ],
         "parameters": [
           {
@@ -727,13 +736,14 @@
               }
             }
           }
-        }
+        },
+        "summary": "Cartola Nombrecartolaporcuenta"
       }
     },
     "/api/shared/Cartola/GetCartolaDemo": {
       "get": {
         "tags": [
-          "8. Cartera y Patrimonio"
+          "08. Cartera y Patrimonio"
         ],
         "responses": {
           "401": {
@@ -781,13 +791,14 @@
               }
             }
           }
-        }
+        },
+        "summary": "Cartola Getcartolademo"
       }
     },
     "/api/shared/Cartola/GetCartolaCron": {
       "get": {
         "tags": [
-          "8. Cartera y Patrimonio"
+          "08. Cartera y Patrimonio"
         ],
         "parameters": [
           {
@@ -883,13 +894,14 @@
               }
             }
           }
-        }
+        },
+        "summary": "Cartola Getcartolacron"
       }
     },
     "/api/shared/Cartola/GetCartolaVoultech": {
       "get": {
         "tags": [
-          "8. Cartera y Patrimonio"
+          "08. Cartera y Patrimonio"
         ],
         "parameters": [
           {
@@ -985,13 +997,14 @@
               }
             }
           }
-        }
+        },
+        "summary": "Cartola Getcartolavoultech"
       }
     },
     "/api/shared/Cartola/GetCartolaPrudential": {
       "get": {
         "tags": [
-          "8. Cartera y Patrimonio"
+          "08. Cartera y Patrimonio"
         ],
         "parameters": [
           {
@@ -1095,13 +1108,14 @@
               }
             }
           }
-        }
+        },
+        "summary": "Cartola Getcartolaprudential"
       }
     },
     "/api/shared/Cartola/GetCartolaNevasa": {
       "get": {
         "tags": [
-          "8. Cartera y Patrimonio"
+          "08. Cartera y Patrimonio"
         ],
         "parameters": [
           {
@@ -1205,13 +1219,14 @@
               }
             }
           }
-        }
+        },
+        "summary": "Cartola Getcartolanevasa"
       }
     },
     "/api/shared/Clientes/PerfilUsuarioCliente": {
       "get": {
         "tags": [
-          "2. Gestion de Clientes"
+          "02. Clientes y Personas"
         ],
         "responses": {
           "401": {
@@ -1234,13 +1249,14 @@
               }
             }
           }
-        }
+        },
+        "summary": "Clientes Perfilusuariocliente"
       }
     },
     "/api/shared/Clientes/DetalleCliente": {
       "get": {
         "tags": [
-          "2. Gestion de Clientes"
+          "02. Clientes y Personas"
         ],
         "parameters": [
           {
@@ -1273,13 +1289,14 @@
               }
             }
           }
-        }
+        },
+        "summary": "Clientes Detallecliente"
       }
     },
     "/api/shared/Clientes/FiltroClientesFilter": {
       "get": {
         "tags": [
-          "2. Gestion de Clientes"
+          "02. Clientes y Personas"
         ],
         "parameters": [
           {
@@ -1330,13 +1347,14 @@
               }
             }
           }
-        }
+        },
+        "summary": "Clientes Filtroclientesfilter"
       }
     },
     "/api/shared/Clientes/ClientesVigentes": {
       "get": {
         "tags": [
-          "2. Gestion de Clientes"
+          "02. Clientes y Personas"
         ],
         "parameters": [
           {
@@ -1380,13 +1398,14 @@
               }
             }
           }
-        }
+        },
+        "summary": "Clientes Clientesvigentes"
       }
     },
     "/api/shared/Clientes/ClientesVigentesValidaApv": {
       "get": {
         "tags": [
-          "2. Gestion de Clientes"
+          "02. Clientes y Personas"
         ],
         "parameters": [
           {
@@ -1437,13 +1456,14 @@
               }
             }
           }
-        }
+        },
+        "summary": "Clientes Clientesvigentesvalidaapv"
       }
     },
     "/api/shared/Comisiones/GetComisionTransaccionalCuenta": {
       "get": {
         "tags": [
-          "4. Cuentas y Estructura Operativa"
+          "04. Cuentas"
         ],
         "parameters": [
           {
@@ -1510,13 +1530,14 @@
               }
             }
           }
-        }
+        },
+        "summary": "Comisiones Getcomisiontransaccionalcuenta"
       }
     },
     "/api/shared/Comisiones/GetComisionCorredora": {
       "get": {
         "tags": [
-          "4. Cuentas y Estructura Operativa"
+          "04. Cuentas"
         ],
         "responses": {
           "401": {
@@ -1539,7 +1560,8 @@
               }
             }
           }
-        }
+        },
+        "summary": "Comisiones Getcomisioncorredora"
       }
     },
     "/api/shared/Environment": {
@@ -1568,13 +1590,14 @@
               }
             }
           }
-        }
+        },
+        "summary": "Environment"
       }
     },
     "/api/shared/GruposCuentas/GetGrupo": {
       "get": {
         "tags": [
-          "4. Cuentas y Estructura Operativa"
+          "04. Cuentas"
         ],
         "parameters": [
           {
@@ -1623,13 +1646,14 @@
               }
             }
           }
-        }
+        },
+        "summary": "Gruposcuentas Getgrupo"
       }
     },
     "/api/shared/GruposCuentas/GruposCuentasVigentes": {
       "get": {
         "tags": [
-          "4. Cuentas y Estructura Operativa"
+          "04. Cuentas"
         ],
         "parameters": [
           {
@@ -1673,13 +1697,14 @@
               }
             }
           }
-        }
+        },
+        "summary": "Gruposcuentas Gruposcuentasvigentes"
       }
     },
     "/api/shared/GruposCuentas/GruposCuentasVigentesFilter": {
       "get": {
         "tags": [
-          "4. Cuentas y Estructura Operativa"
+          "04. Cuentas"
         ],
         "parameters": [
           {
@@ -1730,13 +1755,14 @@
               }
             }
           }
-        }
+        },
+        "summary": "Gruposcuentas Gruposcuentasvigentesfilter"
       }
     },
     "/api/shared/Instrumentos": {
       "get": {
         "tags": [
-          "5. Activos e Instrumentos"
+          "05. Activos e Instrumentos"
         ],
         "summary": "Devuelve los instrumentos por moneda y si es APV o no",
         "description": "Sample request:\r\n            \r\n    GET /api/shared/Instrumentos?codSubclaseInstrumento=CFI&codMoneda=CLP&esApv=false",
@@ -1800,7 +1826,7 @@
     "/api/shared/Instrumentos/FiltrarInstrumentos": {
       "get": {
         "tags": [
-          "5. Activos e Instrumentos"
+          "05. Activos e Instrumentos"
         ],
         "parameters": [
           {
@@ -1873,13 +1899,14 @@
               }
             }
           }
-        }
+        },
+        "summary": "Instrumentos Filtrarinstrumentos"
       }
     },
     "/api/shared/Instrumentos/InstrumentosxFamilia": {
       "get": {
         "tags": [
-          "5. Activos e Instrumentos"
+          "05. Activos e Instrumentos"
         ],
         "parameters": [
           {
@@ -1914,13 +1941,14 @@
               }
             }
           }
-        }
+        },
+        "summary": "Instrumentos Instrumentosxfamilia"
       }
     },
     "/api/shared/Instrumentos/InstrumentosxClase": {
       "get": {
         "tags": [
-          "5. Activos e Instrumentos"
+          "05. Activos e Instrumentos"
         ],
         "parameters": [
           {
@@ -1955,7 +1983,8 @@
               }
             }
           }
-        }
+        },
+        "summary": "Instrumentos Instrumentosxclase"
       }
     },
     "/api/shared/intermediarios-mercado": {
@@ -2024,7 +2053,8 @@
               }
             }
           }
-        }
+        },
+        "summary": "Moneda Getmonedastiposcambio"
       }
     },
     "/api/shared/Moneda/GetMonedas": {
@@ -2067,7 +2097,7 @@
     "/api/shared/Negocios": {
       "get": {
         "tags": [
-          "4. Cuentas y Estructura Operativa"
+          "04. Cuentas"
         ],
         "responses": {
           "401": {
@@ -2093,13 +2123,14 @@
               }
             }
           }
-        }
+        },
+        "summary": "Negocios"
       }
     },
     "/api/shared/Pass/ChangePasswordGpiMas": {
       "post": {
         "tags": [
-          "1. Autenticacion y Seguridad"
+          "01. Autenticacion y Seguridad"
         ],
         "requestBody": {
           "content": {
@@ -2131,13 +2162,14 @@
               }
             }
           }
-        }
+        },
+        "summary": "Pass Changepasswordgpimas"
       }
     },
     "/api/shared/Pass/RequestResetPassword": {
       "post": {
         "tags": [
-          "1. Autenticacion y Seguridad"
+          "01. Autenticacion y Seguridad"
         ],
         "requestBody": {
           "content": {
@@ -2198,13 +2230,14 @@
               }
             }
           }
-        }
+        },
+        "summary": "Pass Requestresetpassword"
       }
     },
     "/api/shared/Pass/ChangePassword": {
       "post": {
         "tags": [
-          "1. Autenticacion y Seguridad"
+          "01. Autenticacion y Seguridad"
         ],
         "requestBody": {
           "content": {
@@ -2272,13 +2305,14 @@
               }
             }
           }
-        }
+        },
+        "summary": "Pass Changepassword"
       }
     },
     "/api/shared/Pass/ResetPassword": {
       "post": {
         "tags": [
-          "1. Autenticacion y Seguridad"
+          "01. Autenticacion y Seguridad"
         ],
         "requestBody": {
           "content": {
@@ -2336,13 +2370,14 @@
               }
             }
           }
-        }
+        },
+        "summary": "Pass Resetpassword"
       }
     },
     "/api/shared/TipoCambio/Valores": {
       "get": {
         "tags": [
-          "5. Activos e Instrumentos"
+          "05. Activos e Instrumentos"
         ],
         "parameters": [
           {
@@ -2393,13 +2428,14 @@
               }
             }
           }
-        }
+        },
+        "summary": "Tipocambio Valores"
       }
     },
     "/api/shared/TipoCambio/GetValoresTipoCambioAFecha": {
       "get": {
         "tags": [
-          "5. Activos e Instrumentos"
+          "05. Activos e Instrumentos"
         ],
         "parameters": [
           {
@@ -2442,13 +2478,14 @@
               }
             }
           }
-        }
+        },
+        "summary": "Tipocambio Getvalorestipocambioafecha"
       }
     },
     "/api/shared/TipoCambio/Indicador": {
       "get": {
         "tags": [
-          "5. Activos e Instrumentos"
+          "05. Activos e Instrumentos"
         ],
         "parameters": [
           {
@@ -2495,7 +2532,8 @@
               }
             }
           }
-        }
+        },
+        "summary": "Tipocambio Indicador"
       }
     },
     "/api/shared/TipoEstado/ByDsc/{dsc}": {
@@ -16073,32 +16111,32 @@
   ],
   "tags": [
     {
-      "name": "1. Autenticacion y Seguridad",
-      "description": ""
+      "name": "01. Autenticacion y Seguridad",
+      "description": "Endpoints para iniciar sesion, cerrar sesion, renovar tokens y gestionar la autenticacion de usuarios."
+    },
+    {
+      "name": "02. Clientes y Personas",
+      "description": "Endpoints para crear, consultar y actualizar clientes, personas naturales, juridicas y su proceso de enrolamiento."
+    },
+    {
+      "name": "04. Cuentas",
+      "description": "Endpoints para administrar cuentas de inversion, cuentas corrientes, cuentas Alpaca, cajas y comisiones."
+    },
+    {
+      "name": "05. Activos e Instrumentos",
+      "description": "Endpoints para consultar activos financieros, instrumentos, precios, cotizaciones, barras OHLCV y datos de mercado."
+    },
+    {
+      "name": "08. Cartera y Patrimonio",
+      "description": "Endpoints para consultar la cartera de inversiones, cartola de movimientos, asignaciones y certificados de custodia."
     },
     {
       "name": "10. Tablas Maestras",
-      "description": ""
+      "description": "Endpoints de referencia: bancos, paises, regiones, comunas, monedas, tipos de cuenta, estados civiles y otros catalogos."
     },
     {
       "name": "11. Integraciones y Sistema",
-      "description": ""
-    },
-    {
-      "name": "2. Gestion de Clientes",
-      "description": ""
-    },
-    {
-      "name": "4. Cuentas y Estructura Operativa",
-      "description": ""
-    },
-    {
-      "name": "5. Activos e Instrumentos",
-      "description": ""
-    },
-    {
-      "name": "8. Cartera y Patrimonio",
-      "description": ""
+      "description": "Endpoints de integraciones externas, webhooks, control de cierre de sistema y gestion de usuarios del sistema."
     }
   ]
 }
