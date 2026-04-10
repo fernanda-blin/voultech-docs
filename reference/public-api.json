@@ -33974,9 +33974,9 @@
     "securitySchemes": {
       "Bearer": {
         "type": "http",
-        "description": "Please enter a valid token",
-        "scheme": "Bearer",
-        "bearerFormat": "JWT"
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "description": "Token JWT obtenido al hacer SignIn. Incluirlo en el header: Authorization: Bearer {token}"
       }
     }
   },
@@ -34029,6 +34029,12 @@
     {
       "name": "11. Integraciones y Sistema",
       "description": "Endpoints para integraciones externas y control operativo del sistema. Incluye webhooks de Fintoc, actualizacion de movimientos de ordenes, eventos de journal Alpaca, gestion del cierre contable diario, cambio de roles de usuarios y consulta del entorno del sistema."
+    }
+  ],
+  "servers": [
+    {
+      "url": "https://apiwebcbvoultechcertificacion.azurewebsites.net",
+      "description": "Servidor de certificacion"
     }
   ]
 }
