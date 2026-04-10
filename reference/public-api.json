@@ -43,7 +43,8 @@
             }
           }
         },
-        "summary": "Detalles del sweep Alpaca"
+        "summary": "Detalles del sweep Alpaca",
+        "description": "Consulta el detalle de un sweep (barrido automatico de fondos) ejecutado entre la cuenta local y la cuenta Alpaca del cliente."
       }
     },
     "/api/publicapi/creasys/Artikos/dte/listado": {
@@ -165,7 +166,8 @@
             }
           }
         },
-        "summary": "Listar documentos tributarios electronicos"
+        "summary": "Listar documentos tributarios electronicos",
+        "description": "Lista los documentos tributarios electronicos (DTE) generados por Artikos para el cliente: boletas, facturas y liquidaciones de compra."
       }
     },
     "/api/publicapi/creasys/Artikos/dte/consulta/pdf": {
@@ -293,7 +295,8 @@
             "description": "Server Error"
           }
         },
-        "summary": "Descargar PDF de documento tributario"
+        "summary": "Descargar PDF de documento tributario",
+        "description": "Descarga el PDF de un documento tributario electronico (DTE) especifico generado por Artikos."
       }
     },
     "/api/publicapi/creasys/Asesor": {
@@ -356,7 +359,8 @@
               }
             }
           }
-        }
+        },
+        "description": "Lista los asesores de inversion disponibles en el sistema con sus datos de contacto, especializacion y cartera de clientes asignada."
       }
     },
     "/api/publicapi/creasys/Asignaciones": {
@@ -479,7 +483,8 @@
               }
             }
           }
-        }
+        },
+        "description": "Lista las asignaciones de instrumentos realizadas en la cartera del cliente, indicando instrumento, porcentaje target y fecha de asignacion."
       }
     },
     "/api/publicapi/creasys/Asset": {
@@ -568,7 +573,8 @@
             }
           }
         },
-        "summary": "Listar activos financieros"
+        "summary": "Listar activos financieros",
+        "description": "Retorna informacion detallada de un activo financiero especifico: nombre, simbolo, tipo, moneda, mercado donde cotiza y estado."
       }
     },
     "/api/publicapi/creasys/Asset/LastQuote": {
@@ -626,7 +632,8 @@
             }
           }
         },
-        "summary": "Obtener ultima cotizacion"
+        "summary": "Obtener ultima cotizacion",
+        "description": "Obtiene la ultima cotizacion disponible de un activo financiero, incluyendo precio, volumen y timestamp de la ultima transaccion."
       }
     },
     "/api/publicapi/creasys/Asset/stocks/auctions": {
@@ -749,7 +756,8 @@
               }
             }
           }
-        }
+        },
+        "description": "Retorna informacion de subastas (apertura y cierre) para un lote de simbolos."
       }
     },
     "/api/publicapi/creasys/Asset/stocks/bars": {
@@ -864,7 +872,8 @@
               }
             }
           }
-        }
+        },
+        "description": "Retorna barras OHLCV (Apertura, Maximo, Minimo, Cierre, Volumen) para un lote de simbolos en el rango de tiempo y frecuencia indicados. Util para graficar velas japonesas."
       }
     },
     "/api/publicapi/creasys/Asset/stocks/bars/latest": {
@@ -938,7 +947,8 @@
               }
             }
           }
-        }
+        },
+        "description": "Retorna la barra OHLCV mas reciente disponible para un lote de simbolos."
       }
     },
     "/api/publicapi/creasys/Asset/stocks/quotes": {
@@ -1045,7 +1055,8 @@
               }
             }
           }
-        }
+        },
+        "description": "Retorna el historial de cotizaciones (bid, ask, spread) para un lote de simbolos en el rango de tiempo indicado."
       }
     },
     "/api/publicapi/creasys/Asset/stocks/quotes/latest": {
@@ -1119,7 +1130,8 @@
               }
             }
           }
-        }
+        },
+        "description": "Retorna la ultima cotizacion vigente (bid y ask) para un lote de simbolos."
       }
     },
     "/api/publicapi/creasys/Asset/stocks/snapshots": {
@@ -1193,7 +1205,8 @@
               }
             }
           }
-        }
+        },
+        "description": "Retorna un snapshot completo del estado actual de mercado para un lote de simbolos: precio, volumen, variacion del dia y datos de la ultima sesion."
       }
     },
     "/api/publicapi/creasys/Asset/stocks/trades": {
@@ -1300,7 +1313,8 @@
               }
             }
           }
-        }
+        },
+        "description": "Retorna el historial de trades ejecutados para un lote de simbolos, con precio, cantidad y timestamp de cada transaccion."
       }
     },
     "/api/publicapi/creasys/Asset/stocks/trades/latest": {
@@ -1374,7 +1388,8 @@
               }
             }
           }
-        }
+        },
+        "description": "Retorna el ultimo trade ejecutado para un lote de simbolos, con precio y volumen de la ultima transaccion."
       }
     },
     "/api/publicapi/creasys/Asset/stocks/meta/conditions/{tickType}": {
@@ -1433,7 +1448,8 @@
               }
             }
           }
-        }
+        },
+        "description": "Retorna las condiciones de tick disponibles para un tipo de tick especifico (trade, quote), usadas para interpretar los datos de mercado."
       }
     },
     "/api/publicapi/creasys/Asset/stocks/meta/exchanges": {
@@ -1473,7 +1489,8 @@
               }
             }
           }
-        }
+        },
+        "description": "Lista los exchanges (bolsas de valores) disponibles en el sistema con su nombre, codigo y zona horaria."
       }
     },
     "/api/publicapi/creasys/Asset/stocks/{symbol}/auctions": {
@@ -1589,7 +1606,8 @@
               }
             }
           }
-        }
+        },
+        "description": "Retorna informacion de la subasta de apertura y cierre del dia para un simbolo especifico."
       }
     },
     "/api/publicapi/creasys/Asset/stocks/{symbol}/bars": {
@@ -1697,7 +1715,8 @@
               }
             }
           }
-        }
+        },
+        "description": "Retorna barras OHLCV para un simbolo especifico en el rango de tiempo y frecuencia indicados."
       }
     },
     "/api/publicapi/creasys/Asset/stocks/{symbol}/bars/latest": {
@@ -1764,7 +1783,8 @@
               }
             }
           }
-        }
+        },
+        "description": "Retorna la barra OHLCV mas reciente disponible para un simbolo especifico."
       }
     },
     "/api/publicapi/creasys/Asset/stocks/{symbol}/quotes": {
@@ -1864,7 +1884,8 @@
               }
             }
           }
-        }
+        },
+        "description": "Retorna el historial de cotizaciones (bid y ask) para un simbolo especifico."
       }
     },
     "/api/publicapi/creasys/Asset/stocks/{symbol}/quotes/latest": {
@@ -1931,7 +1952,8 @@
               }
             }
           }
-        }
+        },
+        "description": "Retorna la ultima cotizacion vigente (bid y ask) para un simbolo especifico."
       }
     },
     "/api/publicapi/creasys/Asset/stocks/{symbol}/trades": {
@@ -2031,7 +2053,8 @@
               }
             }
           }
-        }
+        },
+        "description": "Retorna el historial de trades ejecutados para un simbolo especifico."
       }
     },
     "/api/publicapi/creasys/Asset/stocks/{symbol}/trades/latest": {
@@ -2098,7 +2121,8 @@
               }
             }
           }
-        }
+        },
+        "description": "Retorna el ultimo trade ejecutado para un simbolo especifico, con precio, volumen y timestamp."
       }
     },
     "/api/publicapi/creasys/Asset/LogoParquet/{nemotecnico}": {
@@ -2172,7 +2196,8 @@
               }
             }
           }
-        }
+        },
+        "description": "Retorna el logotipo de la empresa o fondo asociado a un nemotecnico especifico, para uso en interfaces de usuario."
       }
     },
     "/api/publicapi/shared/Auth/SignIn": {
@@ -2231,7 +2256,8 @@
               }
             }
           }
-        }
+        },
+        "description": "Autentica al usuario con sus credenciales (email y contrasena) y retorna un token JWT de acceso. Este token debe incluirse en el header `Authorization: Bearer {token}` en todas las peticiones posteriores. El token tiene una duracion limitada y debe renovarse con el endpoint RefreshToken antes de expirar."
       }
     },
     "/api/publicapi/shared/Auth/RefreshToken": {
@@ -2271,7 +2297,8 @@
               }
             }
           }
-        }
+        },
+        "description": "Renueva el token de sesion activo antes de que expire, sin necesidad de volver a ingresar credenciales. Se recomienda llamar a este endpoint cuando el token este proximo a vencer para mantener la sesion activa de forma continua."
       }
     },
     "/api/publicapi/shared/Auth/externallogin": {
@@ -2325,7 +2352,8 @@
             }
           }
         },
-        "summary": "Iniciar autenticacion externa"
+        "summary": "Iniciar autenticacion externa",
+        "description": "Inicia el flujo de autenticacion mediante un proveedor de identidad externo (OAuth/OpenID Connect). Redirige al usuario al proveedor configurado para completar la autenticacion."
       }
     },
     "/api/publicapi/shared/Auth/externallogincallback": {
@@ -2365,7 +2393,8 @@
             }
           }
         },
-        "summary": "Callback de autenticacion externa"
+        "summary": "Callback de autenticacion externa",
+        "description": "Procesa el retorno del proveedor de autenticacion externo tras completar el login. Valida el resultado y genera el token de sesion interno para el usuario autenticado."
       }
     },
     "/api/publicapi/shared/Auth/auth-popup-callback": {
@@ -2404,7 +2433,8 @@
             }
           }
         },
-        "summary": "Callback de autenticacion en popup"
+        "summary": "Callback de autenticacion en popup",
+        "description": "Maneja el retorno de autenticacion cuando el flujo se realizo en una ventana emergente (popup). Transfiere el token generado a la ventana principal y cierra el popup."
       }
     },
     "/api/publicapi/shared/Auth/SignOut": {
@@ -2437,7 +2467,8 @@
           "204": {
             "description": "No Content"
           }
-        }
+        },
+        "description": "Cierra la sesion del usuario autenticado e invalida el token de acceso en el servidor. Despues de llamar a este endpoint, el token deja de ser valido."
       }
     },
     "/api/publicapi/shared/Auth/Me": {
@@ -2477,7 +2508,8 @@
               }
             }
           }
-        }
+        },
+        "description": "Retorna la informacion del usuario autenticado en la sesion actual: nombre, email, roles asignados y permisos activos. Util para validar el estado de la sesion."
       }
     },
     "/api/publicapi/shared/Auth/Logout": {
@@ -2507,7 +2539,8 @@
               }
             }
           }
-        }
+        },
+        "description": "Cierra la sesion del usuario y limpia las credenciales almacenadas en el servidor. Equivalente a SignOut, con compatibilidad para flujos OAuth."
       }
     },
     "/api/publicapi/creasys/Banco": {
@@ -2570,7 +2603,8 @@
               }
             }
           }
-        }
+        },
+        "description": "Lista todos los bancos disponibles en el sistema con su codigo oficial y nombre. Usado para registrar cuentas corrientes bancarias."
       }
     },
     "/api/publicapi/creasys/Beneficiario": {
@@ -2640,7 +2674,8 @@
               }
             }
           }
-        }
+        },
+        "description": "Registra un nuevo beneficiario para un cliente especifico. Se debe indicar el porcentaje de participacion y los datos de identificacion del beneficiario."
       }
     },
     "/api/publicapi/creasys/Beneficiario/{identificador}": {
@@ -2714,7 +2749,8 @@
               }
             }
           }
-        }
+        },
+        "description": "Lista todos los beneficiarios registrados para el cliente identificado, con su porcentaje de participacion y datos personales."
       }
     },
     "/api/publicapi/creasys/Cajas": {
@@ -2817,7 +2853,8 @@
               }
             }
           }
-        }
+        },
+        "description": "Lista las cajas disponibles en el sistema para operaciones de deposito y retiro de fondos."
       },
       "post": {
         "tags": [
@@ -2885,7 +2922,8 @@
               }
             }
           }
-        }
+        },
+        "description": "Crea una nueva caja en el sistema, configurando su nombre, moneda y parametros operativos."
       }
     },
     "/api/publicapi/creasys/Cajas/ConSaldo": {
@@ -2998,7 +3036,8 @@
               }
             }
           }
-        }
+        },
+        "description": "Lista las cajas que tienen saldo disponible, calculado a partir de los movimientos registrados."
       }
     },
     "/api/publicapi/creasys/Cajas/ConSaldoOnline": {
@@ -3093,7 +3132,8 @@
               }
             }
           }
-        }
+        },
+        "description": "Lista las cajas con saldo actualizado en tiempo real, consultando directamente el estado actual de cada caja."
       }
     },
     "/api/publicapi/creasys/Cartera": {
@@ -3234,7 +3274,8 @@
               }
             }
           }
-        }
+        },
+        "description": "Retorna la cartera de inversiones del cliente con el detalle de cada posicion: instrumento, cantidad de titulos, precio de compra, precio actual y valorizacion."
       }
     },
     "/api/publicapi/creasys/Cartera/CarteraActual": {
@@ -3375,7 +3416,8 @@
               }
             }
           }
-        }
+        },
+        "description": "Consulta la cartera actual del cliente con los precios vigentes al momento de la consulta. Incluye el valor total de la cartera y la variacion del dia."
       }
     },
     "/api/publicapi/creasys/Cartera/CarteraActualOptimizada": {
@@ -3513,7 +3555,8 @@
             }
           }
         },
-        "summary": "Consultar cartera actual (optimizada)"
+        "summary": "Consultar cartera actual (optimizada)",
+        "description": "Consulta la cartera actual del cliente en una version optimizada de respuesta, con tiempos de respuesta menores para interfaces que requieren alta performance."
       }
     },
     "/api/publicapi/creasys/Cartera/CarteraResumida": {
@@ -3654,7 +3697,8 @@
               }
             }
           }
-        }
+        },
+        "description": "Retorna un resumen de la cartera del cliente con los totales por clase de activo y moneda, sin el detalle de cada posicion individual."
       }
     },
     "/api/publicapi/creasys/Cartera/CarteraDetallada": {
@@ -3795,7 +3839,8 @@
               }
             }
           }
-        }
+        },
+        "description": "Retorna la cartera del cliente con el maximo nivel de detalle: historial de compras por posicion, comisiones acumuladas, rendimiento y datos de liquidacion."
       }
     },
     "/api/publicapi/creasys/Cartola/GetCartolaVoultech": {
@@ -3892,7 +3937,8 @@
               }
             }
           }
-        }
+        },
+        "description": "Genera la cartola de movimientos en el formato estandar de Voultech para el periodo indicado, incluyendo aportes, retiros, operaciones y comisiones."
       }
     },
     "/api/publicapi/creasys/Cartola/GetCartolaCompletaVoultech": {
@@ -3989,7 +4035,8 @@
               }
             }
           }
-        }
+        },
+        "description": "Genera la cartola completa de movimientos en formato Voultech, incluyendo todos los tipos de movimiento y el detalle de cada operacion."
       }
     },
     "/api/publicapi/creasys/Cedula/Vigencia": {
@@ -3998,7 +4045,7 @@
           "02. Clientes y Personas"
         ],
         "summary": "Verificar vigencia de cedula",
-        "description": "Sample request:\r\n            \r\n    GET /api/publicapi/creasys/Cedula/Vigencia?rut=12345678-9&serie=123456789",
+        "description": "Verifica si la cedula de identidad de un cliente esta vigente segun los registros del sistema. Retorna el estado de vigencia y la fecha de vencimiento.",
         "parameters": [
           {
             "name": "rut",
@@ -4070,7 +4117,7 @@
           "02. Clientes y Personas"
         ],
         "summary": "Consultar riesgo de cedula",
-        "description": "Sample request:\r\n            \r\n    GET /api/publicapi/creasys/Cedula/Riesgo?rut=12345678-9",
+        "description": "Consulta el nivel de riesgo asociado a la cedula de identidad de un cliente, basado en validaciones internas y listas de control.",
         "parameters": [
           {
             "name": "rut",
@@ -4190,7 +4237,8 @@
             }
           }
         },
-        "summary": "Obtener certificado de custodias"
+        "summary": "Obtener certificado de custodias",
+        "description": "Genera o consulta el certificado oficial de custodia de los instrumentos mantenidos en cartera por el cliente. Este documento certifica la propiedad de los valores."
       }
     },
     "/api/publicapi/shared/Cierre/DatosEnProceso": {
@@ -4258,7 +4306,8 @@
               }
             }
           }
-        }
+        },
+        "description": "Retorna los datos contables que se encuentran actualmente en proceso de cierre del dia. Permite verificar que no haya operaciones pendientes antes de completar el cierre."
       }
     },
     "/api/publicapi/shared/Cierre/Cuentas": {
@@ -4301,7 +4350,8 @@
               }
             }
           }
-        }
+        },
+        "description": "Lista las cuentas que estan participando en el proceso de cierre contable del dia, con su estado de avance."
       }
     },
     "/api/publicapi/shared/Cierre/Sistema": {
@@ -4342,7 +4392,8 @@
               }
             }
           }
-        }
+        },
+        "description": "Consulta el estado actual del cierre del sistema: abierto (permite operar), en proceso de cierre o cerrado (solo consultas)."
       }
     },
     "/api/publicapi/shared/Cierre/MinComun": {
@@ -4402,7 +4453,8 @@
               }
             }
           }
-        }
+        },
+        "description": "Retorna el minimo comun del cierre, que corresponde a la menor fecha de proceso entre todas las cuentas activas. Define la \"fecha contable\" vigente del sistema."
       }
     },
     "/api/publicapi/creasys/Clientes": {
@@ -4504,14 +4556,15 @@
               }
             }
           }
-        }
+        },
+        "description": "Retorna el listado paginado de clientes registrados en el sistema. Soporta filtros por estado, tipo de cliente, RUT y otros parametros para acotar los resultados."
       },
       "post": {
         "tags": [
           "02. Clientes y Personas"
         ],
         "summary": "Crear cliente",
-        "description": "Este endpoint permite registrar un nuevo cliente, ya sea persona natural o jurídica.\r\nRealiza validaciones de negocio y formato de datos. Puede retornar errores si la información es inválida o si el cliente ya existe.",
+        "description": "Crea un nuevo cliente en el sistema asociandolo a una persona previamente registrada. El cliente representa la relacion comercial entre la persona y la empresa.",
         "requestBody": {
           "description": "Objeto con los datos del cliente a crear.",
           "content": {
@@ -4685,7 +4738,8 @@
           "200": {
             "description": "Success"
           }
-        }
+        },
+        "description": "Actualiza los datos del cliente identificado por su ID o RUT. Permite modificar informacion comercial, estado operativo y configuracion del cliente."
       }
     },
     "/api/publicapi/creasys/ClockAlpaca": {
@@ -4728,7 +4782,8 @@
               }
             }
           }
-        }
+        },
+        "description": "Retorna el estado actual del reloj de mercado de Alpaca: si el mercado esta abierto, cerrado, en pre-mercado o post-mercado, junto con los horarios de proxima apertura y cierre."
       }
     },
     "/api/publicapi/creasys/ClosePrices/symbol/{symbol}/latest": {
@@ -4778,7 +4833,8 @@
             }
           }
         },
-        "summary": "Precio de cierre mas reciente"
+        "summary": "Precio de cierre mas reciente",
+        "description": "Retorna el precio de cierre mas reciente disponible para un instrumento especifico. Utilizado para valorar posiciones al precio oficial de cierre del mercado."
       }
     },
     "/api/publicapi/creasys/CodigoTipoDocumento": {
@@ -4841,7 +4897,8 @@
               }
             }
           }
-        }
+        },
+        "description": "Retorna los codigos de tipo de documento reconocidos por el sistema, usados para clasificar documentos en el expediente del cliente."
       }
     },
     "/api/publicapi/creasys/Comision": {
@@ -4914,7 +4971,8 @@
               }
             }
           }
-        }
+        },
+        "description": "Registra una comision cobrada por una operacion especifica, asociandola al cliente y tipo de operacion correspondiente."
       }
     },
     "/api/publicapi/creasys/Comision/Administracion": {
@@ -5025,7 +5083,8 @@
               }
             }
           }
-        }
+        },
+        "description": "Registra una comision de administracion periodica para una cuenta o cliente, segun la estructura tarifaria configurada."
       }
     },
     "/api/publicapi/creasys/Comuna": {
@@ -5088,7 +5147,8 @@
               }
             }
           }
-        }
+        },
+        "description": "Lista las comunas disponibles, con opcion de filtrar por region. Usado para registrar la direccion exacta de una persona."
       }
     },
     "/api/publicapi/creasys/Contacto": {
@@ -5161,7 +5221,8 @@
               }
             }
           }
-        }
+        },
+        "description": "Lista todos los contactos registrados para el cliente o cuenta indicada."
       },
       "post": {
         "tags": [
@@ -5229,7 +5290,8 @@
               }
             }
           }
-        }
+        },
+        "description": "Registra un nuevo contacto asociado a un cliente o cuenta, indicando nombre, cargo y datos de comunicacion."
       }
     },
     "/api/publicapi/creasys/Contraparte": {
@@ -5292,7 +5354,8 @@
               }
             }
           }
-        }
+        },
+        "description": "Lista las contrapartes registradas en el sistema para operaciones de mercado (corredores, fondos, instituciones financieras)."
       }
     },
     "/api/publicapi/creasys/ContratoMatrimonial": {
@@ -5355,7 +5418,8 @@
               }
             }
           }
-        }
+        },
+        "description": "Lista los tipos de regimen matrimonial disponibles (separacion de bienes, sociedad conyugal, participacion en los gananciales)."
       }
     },
     "/api/publicapi/creasys/ContratoOperacion/GetTipoContrato": {
@@ -5418,7 +5482,8 @@
               }
             }
           }
-        }
+        },
+        "description": "Lista los tipos de contrato de operacion disponibles en el sistema, usados para categorizar los acuerdos con clientes."
       }
     },
     "/api/publicapi/creasys/ContratoOperacion/GetTipoDocumento": {
@@ -5481,7 +5546,8 @@
               }
             }
           }
-        }
+        },
+        "description": "Lista los tipos de documento asociados a contratos de operacion que el sistema reconoce y puede gestionar."
       }
     },
     "/api/publicapi/creasys/CuentaAlpaca/CrearClienteAlpaca": {
@@ -5541,7 +5607,8 @@
               }
             }
           }
-        }
+        },
+        "description": "Crea una nueva cuenta en la plataforma Alpaca para un cliente existente. Inicia el proceso de apertura de cuenta de corretaje internacional."
       }
     },
     "/api/publicapi/creasys/CuentaAlpaca/ObtenerCuentaAlpaca/{accountNumber}": {
@@ -5592,7 +5659,8 @@
               }
             }
           }
-        }
+        },
+        "description": "Retorna el detalle de una cuenta Alpaca especifica: estado, tipo, restricciones y configuracion."
       }
     },
     "/api/publicapi/creasys/CuentaAlpaca/ObtenerCuentas": {
@@ -5666,7 +5734,8 @@
               }
             }
           }
-        }
+        },
+        "description": "Lista todas las cuentas Alpaca (broker internacional) vinculadas a clientes en el sistema."
       }
     },
     "/api/publicapi/creasys/CuentaAlpaca/SaldoAlpaca/{accountNumber}": {
@@ -5716,7 +5785,8 @@
             }
           }
         },
-        "summary": "Consultar saldo Alpaca"
+        "summary": "Consultar saldo Alpaca",
+        "description": "Consulta el saldo disponible y el poder adquisitivo de la cuenta Alpaca del cliente."
       }
     },
     "/api/publicapi/creasys/CuentaAlpaca/ObtenerActividadCuenta": {
@@ -5828,7 +5898,8 @@
             }
           }
         },
-        "summary": "Consultar actividad Alpaca"
+        "summary": "Consultar actividad Alpaca",
+        "description": "Retorna el historial de actividad de la cuenta Alpaca: trades, dividendos, transferencias y otros eventos."
       }
     },
     "/api/publicapi/creasys/CuentaAlpaca/Custodias/{accountNumber}": {
@@ -5878,7 +5949,8 @@
             }
           }
         },
-        "summary": "Consultar custodias Alpaca"
+        "summary": "Consultar custodias Alpaca",
+        "description": "Consulta las posiciones en custodia de la cuenta Alpaca del cliente: instrumentos, cantidades y valoracion actual."
       }
     },
     "/api/publicapi/creasys/CuentaAlpaca/PreviewCip/{numCuenta}": {
@@ -5928,7 +6000,8 @@
             }
           }
         },
-        "summary": "Vista previa CIP"
+        "summary": "Vista previa CIP",
+        "description": "Genera una vista previa del CIP (Customer Identification Program) para la cuenta Alpaca antes de su envio."
       }
     },
     "/api/publicapi/creasys/CuentaAlpaca/ListarDocumentos": {
@@ -6001,7 +6074,8 @@
             }
           }
         },
-        "summary": "Listar documentos Alpaca"
+        "summary": "Listar documentos Alpaca",
+        "description": "Lista los documentos disponibles en la cuenta Alpaca del cliente (estados de cuenta, confirmaciones de trade, etc.)."
       }
     },
     "/api/publicapi/creasys/CuentaAlpaca/DescargarDocumentos": {
@@ -6057,7 +6131,8 @@
             }
           }
         },
-        "summary": "Descargar documentos Alpaca"
+        "summary": "Descargar documentos Alpaca",
+        "description": "Descarga un documento especifico de la cuenta Alpaca del cliente en formato PDF."
       }
     },
     "/api/publicapi/creasys/CuentaAlpaca/DescargarW8": {
@@ -6106,7 +6181,8 @@
             }
           }
         },
-        "summary": "Descargar formulario W8"
+        "summary": "Descargar formulario W8",
+        "description": "Descarga el formulario W-8BEN firmado del cliente, requerido por regulacion estadounidense para cuentas de no residentes."
       }
     },
     "/api/publicapi/creasys/CuentaCorriente": {
@@ -6179,7 +6255,8 @@
               }
             }
           }
-        }
+        },
+        "description": "Lista las cuentas corrientes bancarias registradas para un cliente, con su banco, tipo y numero de cuenta."
       },
       "post": {
         "tags": [
@@ -6247,7 +6324,8 @@
               }
             }
           }
-        }
+        },
+        "description": "Registra una nueva cuenta corriente bancaria para un cliente. Se utiliza para habilitar depositos y retiros de fondos."
       }
     },
     "/api/publicapi/creasys/Cuentas": {
@@ -6350,7 +6428,8 @@
               }
             }
           }
-        }
+        },
+        "description": "Lista todas las cuentas de inversion registradas en el sistema. Permite filtrar por cliente, tipo de cuenta y estado."
       },
       "post": {
         "tags": [
@@ -6418,7 +6497,8 @@
               }
             }
           }
-        }
+        },
+        "description": "Crea una nueva cuenta de inversion para un cliente existente. Se debe especificar el tipo de cuenta, moneda base y configuracion operativa inicial."
       }
     },
     "/api/publicapi/creasys/Cuentas/{numCuenta}": {
@@ -6502,7 +6582,8 @@
           "200": {
             "description": "Success"
           }
-        }
+        },
+        "description": "Actualiza la configuracion y datos de una cuenta existente identificada por su numero de cuenta."
       }
     },
     "/api/publicapi/creasys/Cuentas/kyc": {
@@ -6573,7 +6654,8 @@
               }
             }
           }
-        }
+        },
+        "description": "Retorna los datos de KYC (Know Your Customer) registrados para una cuenta, incluyendo el estado de verificacion de identidad y la documentacion asociada."
       }
     },
     "/api/publicapi/creasys/Cuentas/identyz": {
@@ -6654,7 +6736,8 @@
               }
             }
           }
-        }
+        },
+        "description": "Valida la identidad del titular de la cuenta mediante el servicio Identyz. Se utiliza en el proceso de KYC (Know Your Customer) para verificar la autenticidad del cliente."
       }
     },
     "/api/publicapi/creasys/DireccionPersona": {
@@ -6727,7 +6810,8 @@
               }
             }
           }
-        }
+        },
+        "description": "Retorna todas las direcciones fisicas registradas para una persona, incluyendo tipo de direccion, calle, ciudad, region y pais."
       },
       "post": {
         "tags": [
@@ -6815,7 +6899,8 @@
               }
             }
           }
-        }
+        },
+        "description": "Agrega una nueva direccion a la persona indicada. Se debe especificar el tipo (residencial, comercial, correspondencia), calle, numero, ciudad, region y pais."
       },
       "put": {
         "tags": [
@@ -6926,7 +7011,8 @@
               }
             }
           }
-        }
+        },
+        "description": "Modifica los datos de una direccion existente de la persona. Se puede actualizar cualquier campo de la direccion: tipo, calle, ciudad, region o pais."
       },
       "delete": {
         "tags": [
@@ -6997,7 +7083,8 @@
           "204": {
             "description": "No Content"
           }
-        }
+        },
+        "description": "Elimina una direccion registrada de la persona. La operacion es irreversible, por lo que debe confirmarse antes de ejecutarse."
       }
     },
     "/api/publicapi/creasys/Documentos": {
@@ -7090,7 +7177,8 @@
               }
             }
           }
-        }
+        },
+        "description": "Lista los documentos del expediente del cliente: contratos, mandatos, poderes y documentacion regulatoria. Permite filtrar por tipo y estado."
       },
       "post": {
         "tags": [
@@ -7151,7 +7239,8 @@
           "200": {
             "description": "Success"
           }
-        }
+        },
+        "description": "Sube un nuevo documento al expediente del cliente. Se debe indicar el tipo de documento y adjuntar el archivo en formato PDF u otro formato aceptado."
       }
     },
     "/publicapi/creasys/DocumentosAlpacaSync/sync": {
@@ -7191,7 +7280,8 @@
               }
             }
           }
-        }
+        },
+        "description": "Inicia la sincronizacion de documentos del cliente con la plataforma Alpaca, asegurando que los documentos requeridos esten disponibles para la apertura o mantencion de la cuenta."
       }
     },
     "/api/publicapi/creasys/EmailPersona": {
@@ -7264,7 +7354,8 @@
               }
             }
           }
-        }
+        },
+        "description": "Lista todos los correos electronicos registrados para una persona, con su tipo y estado de verificacion."
       },
       "post": {
         "tags": [
@@ -7352,7 +7443,8 @@
               }
             }
           }
-        }
+        },
+        "description": "Agrega un nuevo correo electronico a la persona, indicando el tipo (personal, laboral, otro)."
       },
       "put": {
         "tags": [
@@ -7463,7 +7555,8 @@
               }
             }
           }
-        }
+        },
+        "description": "Actualiza un correo electronico existente de la persona. Se puede modificar el tipo o la direccion de correo."
       },
       "delete": {
         "tags": [
@@ -7534,7 +7627,8 @@
           "204": {
             "description": "No Content"
           }
-        }
+        },
+        "description": "Elimina un correo electronico registrado de la persona."
       }
     },
     "/api/publicapi/creasys/Enrolamiento": {
@@ -7543,7 +7637,7 @@
           "02. Clientes y Personas"
         ],
         "summary": "Iniciar enrolamiento de cliente",
-        "description": "Sample request:\r\n            \r\n    POST /api/publicapi/creasys/Enrolamiento/FinalizarEnrolamiento\r\n    {\r\n        \"codPerfilRiesgo\": \"PERFBAJ\",\r\n        \"personaFulls\": [\r\n        {\r\n            \"tipoEntidad\": \"N\",\r\n            \"identificador\": \"12345678-9\",\r\n            \"tipoIdentificador\": \"R\",\r\n            \"nombre\": \"Juan\",\r\n            \"paterno\": \"Perez\",\r\n            \"materno\": \"Perez\",\r\n            \"sexo\": \"M\",\r\n            \"fechaNacimiento\": \"1990-01-01\",\r\n            \"codPais\": \"CHL\",\r\n            \"codEstadoCivil\": \"SOLTERO\",\r\n            \"codRegimenMatrimonial\": \"REGMATRIMONIAL\",\r\n            \"dscGiro\": \"Giro\",\r\n            \"codTipoSociedad\": \"Sociedad\",\r\n            \"codTipoRelacion\": \"CLINTE\",\r\n            \"telefonoFulls\": [\r\n            {\r\n                \"telefono\": \"123456789\",\r\n                \"observacion\": \"Observacion\",\r\n                \"codTipoTelefono\": \"TTELEFIJO\"\r\n            }\r\n            ],\r\n            \"direccionFulls\": [\r\n            {\r\n                \"linea1\": \"Direccion\",\r\n                \"codTipoDireccion\": \"TDIREFPART\",\r\n                \"prospComunaCiudadId\": 1\r\n            }\r\n            ],\r\n            \"emailFulls\": [\r\n            {\r\n                \"email\": \"Email\",\r\n                \"codTipoEmail\": \"TDIREECOME\"\r\n            }\r\n            ],\r\n            \"cuentaBancarioFulls\": [\r\n            {\r\n                \"numero\": \"123456789\",\r\n                \"tipo\": \"Cuenta Corriente\",\r\n                \"prospBancoId\": 1\r\n            }\r\n            ]\r\n        }\r\n        ]\r\n    }",
+        "description": "Inicia el proceso formal de enrolamiento de un nuevo cliente. Incluye la configuracion de perfil de riesgo, aceptacion de terminos y carga de documentacion inicial requerida.",
         "requestBody": {
           "content": {
             "application/json": {
@@ -7683,7 +7777,8 @@
               }
             }
           }
-        }
+        },
+        "description": "Lista los estados civiles disponibles para el registro de personas (soltero, casado, divorciado, viudo, etc.)."
       }
     },
     "/api/publicapi/shared/Fintoc/WebhookSuccess": {
@@ -7729,7 +7824,8 @@
             "description": "Success"
           }
         },
-        "summary": "Webhook Fintoc: transferencia exitosa"
+        "summary": "Webhook Fintoc: transferencia exitosa",
+        "description": "Recibe la notificacion webhook de Fintoc cuando una transferencia bancaria se completa exitosamente. Actualiza el estado del movimiento en el sistema."
       }
     },
     "/api/publicapi/shared/Fintoc/WebhookFailed": {
@@ -7775,7 +7871,8 @@
             "description": "Success"
           }
         },
-        "summary": "Webhook Fintoc: transferencia fallida"
+        "summary": "Webhook Fintoc: transferencia fallida",
+        "description": "Recibe la notificacion webhook de Fintoc cuando una transferencia bancaria falla. Actualiza el estado del movimiento y notifica al cliente si corresponde."
       }
     },
     "/api/publicapi/creasys/FormaOperacion": {
@@ -7838,7 +7935,8 @@
               }
             }
           }
-        }
+        },
+        "description": "Lista las formas de operacion disponibles para registrar como se realizo una transaccion (presencial, electronica, telefonica, etc.)."
       }
     },
     "/api/publicapi/creasys/Instrumentos/GetInstrumentos": {
@@ -7847,7 +7945,7 @@
           "05. Activos e Instrumentos"
         ],
         "summary": "Listar instrumentos financieros",
-        "description": "Sample request:\r\n            \r\n    GET /api/publicapi/creasys/Instrumentos/GetInstrumentos?IdInstrumento=1&Nemotecnico=ACCION&IdRamaArbol=1&IdDatoAtributo=1",
+        "description": "Retorna el listado completo de instrumentos financieros disponibles en el sistema con sus caracteristicas operativas.",
         "parameters": [
           {
             "name": "IdInstrumento",
@@ -7938,7 +8036,7 @@
           "05. Activos e Instrumentos"
         ],
         "summary": "Buscar instrumentos financieros",
-        "description": "Sample request:\r\n            \r\n    GET /api/publicapi/creasys/Instrumentos?abrPerfilRiesgo=CONSERVADOR",
+        "description": "Busca instrumentos financieros por nombre, nemotecnico u otros criterios. Retorna los instrumentos que coincidan con la busqueda.",
         "parameters": [
           {
             "name": "abrPerfilRiesgo",
@@ -8060,7 +8158,8 @@
             }
           }
         },
-        "summary": "Registrar evento de journal Alpaca"
+        "summary": "Registrar evento de journal Alpaca",
+        "description": "Recibe y registra eventos de journal (asientos contables) provenientes de la plataforma Alpaca. Actualiza el estado de las operaciones y movimientos correspondientes en el sistema."
       }
     },
     "/api/publicapi/creasys/Moneda": {
@@ -8123,7 +8222,8 @@
               }
             }
           }
-        }
+        },
+        "description": "Lista todas las monedas disponibles en el sistema con su codigo ISO y nombre oficial."
       }
     },
     "/api/publicapi/creasys/MovimientoCaja/CambioCajaAuto": {
@@ -8183,7 +8283,8 @@
               }
             }
           }
-        }
+        },
+        "description": "Ejecuta un cambio automatico entre cajas del sistema para cuadrar saldos o realizar traspasos internos de fondos."
       }
     },
     "/api/publicapi/creasys/Movimientos": {
@@ -8335,7 +8436,8 @@
               }
             }
           }
-        }
+        },
+        "description": "Lista los movimientos de la cuenta del cliente en el rango de fechas indicado, incluyendo aportes, retiros, operaciones y comisiones."
       }
     },
     "/api/publicapi/creasys/Movimientos/MovimientosShinkansen": {
@@ -8475,7 +8577,8 @@
               }
             }
           }
-        }
+        },
+        "description": "Consulta los movimientos de fondos realizados a traves del sistema Shinkansen, incluyendo el estado de cada transferencia."
       }
     },
     "/api/publicapi/creasys/Movimientos/MovimientosBancoSecurity": {
@@ -8588,7 +8691,8 @@
               }
             }
           }
-        }
+        },
+        "description": "Consulta los movimientos bancarios sincronizados desde el Banco Security, incluyendo depositos y retiros procesados por esta institucion."
       }
     },
     "/api/publicapi/creasys/Movimientos/MovimientosBancoBice": {
@@ -8701,7 +8805,8 @@
               }
             }
           }
-        }
+        },
+        "description": "Consulta los movimientos bancarios sincronizados desde el Banco Bice, incluyendo depositos y retiros procesados por esta institucion."
       }
     },
     "/api/publicapi/creasys/Movimientos/IngresoAporteRetiro": {
@@ -8781,7 +8886,8 @@
               }
             }
           }
-        }
+        },
+        "description": "Registra un aporte o retiro de fondos en la cuenta del cliente. Se debe indicar el monto, moneda, tipo de movimiento y cuenta bancaria asociada."
       }
     },
     "/api/publicapi/creasys/Movimientos/NuevoIngresoAporteRetiro": {
@@ -8863,7 +8969,8 @@
           "502": {
             "description": "Server Error"
           }
-        }
+        },
+        "description": "Registra un aporte o retiro de fondos usando la logica de negocio actualizada (v2). Reemplaza al endpoint IngresoAporteRetiro con mejoras en validacion y procesamiento."
       }
     },
     "/api/publicapi/creasys/Movimientos/IngresoAporteRetiroMasivo": {
@@ -8958,7 +9065,8 @@
           "207": {
             "description": "Devuelve la lista de observaciones si hubo algún error en los registros."
           }
-        }
+        },
+        "description": "Registra multiples aportes o retiros de fondos en una sola peticion. Util para procesar lotes de movimientos de forma eficiente."
       }
     },
     "/api/publicapi/creasys/MovimientosAlpaca/MovimientoInternacionalAlpaca": {
@@ -9020,7 +9128,8 @@
           "204": {
             "description": "No Content"
           }
-        }
+        },
+        "description": "Registra un movimiento de fondos internacional hacia o desde la cuenta Alpaca del cliente (wire transfer o ACH)."
       }
     },
     "/api/publicapi/creasys/MovimientosAlpaca/patrimoniales/{numCuenta}": {
@@ -9122,7 +9231,8 @@
             }
           }
         },
-        "summary": "Movimientos patrimoniales Alpaca"
+        "summary": "Movimientos patrimoniales Alpaca",
+        "description": "Consulta los movimientos patrimoniales sincronizados desde Alpaca para una cuenta especifica, como dividendos, splits y ajustes."
       }
     },
     "/api/publicapi/creasys/MxMesa": {
@@ -9185,7 +9295,8 @@
               }
             }
           }
-        }
+        },
+        "description": "Consulta el estado y configuracion de la mesa de operaciones: limites de operacion, disponibilidad de lineas de credito y parametros de riesgo activos."
       }
     },
     "/api/publicapi/creasys/Operaciones": {
@@ -9322,7 +9433,8 @@
               }
             }
           }
-        }
+        },
+        "description": "Lista las operaciones ejecutadas para un cliente o cuenta, con detalle de instrumento, precio de ejecucion, cantidad, fecha y comisiones aplicadas."
       }
     },
     "/api/publicapi/creasys/Operaciones/IngresoOperacionCuentaRemunerada": {
@@ -9427,7 +9539,8 @@
               }
             }
           }
-        }
+        },
+        "description": "Registra una operacion en la cuenta remunerada del cliente, como un deposito o retiro de fondos remunerados."
       }
     },
     "/api/publicapi/creasys/Operaciones/IngresoOperacionSpot": {
@@ -9519,7 +9632,8 @@
               }
             }
           }
-        }
+        },
+        "description": "Registra una operacion spot (de contado) de compra o venta de un instrumento. La operacion se liquida en el plazo de contado configurado (T+0, T+2, etc.)."
       }
     },
     "/api/publicapi/creasys/Operaciones/OrdenSpot": {
@@ -9604,7 +9718,8 @@
             "description": "Success"
           }
         },
-        "summary": "Ingresar orden spot"
+        "summary": "Ingresar orden spot",
+        "description": "Ingresa una orden spot para ejecucion inmediata a precio de mercado. Combina el ingreso de la orden y la ejecucion en un solo paso."
       }
     },
     "/api/operaciones/reporte/enviar": {
@@ -9654,7 +9769,8 @@
               }
             }
           }
-        }
+        },
+        "description": "Envia el reporte de operaciones generado para el periodo indicado. El reporte puede enviarse por correo electronico o ponerse a disposicion para su descarga."
       }
     },
     "/api/publicapi/creasys/Ordenes": {
@@ -9781,7 +9897,8 @@
               }
             }
           }
-        }
+        },
+        "description": "Lista las ordenes de mercado registradas para un cliente o cuenta, con filtros por estado (vigente, anulada, ejecutada), instrumento y rango de fechas."
       }
     },
     "/api/publicapi/creasys/Ordenes/IngresoOrdenes": {
@@ -9884,7 +10001,8 @@
               }
             }
           }
-        }
+        },
+        "description": "Ingresa una o varias ordenes de compra o venta de instrumentos financieros. Las ordenes se envian al motor de ejecucion configurado para su procesamiento."
       }
     },
     "/api/publicapi/creasys/Ordenes/IngresarOrdenesMercado": {
@@ -9893,7 +10011,7 @@
           "06. Ordenes y Operaciones"
         ],
         "summary": "Ingresar ordenes a mercado",
-        "description": "Este endpoint permite ingresar órdenes al mercado basándose en los parámetros especificados en la solicitud.\r\nSe realiza una serie de validaciones para asegurar que la orden pueda ser procesada:\r\n<list type=\"bullet\"><item><description>Validación de que se proporcionaron órdenes y que su cantidad no exceda el límite permitido.</description></item><item><description>Verificación de que no haya UUIDs duplicados en la lista de órdenes.</description></item><item><description>Validación de la existencia de la cuenta asociada con la orden.</description></item><item><description>Comprobación de la existencia del instrumento financiero especificado.</description></item><item><description>Verificación de que el UUID proporcionado no haya sido utilizado previamente para evitar duplicaciones.</description></item></list>",
+        "description": "Ingresa ordenes directamente al mercado bursatil para su ejecucion inmediata o segun las condiciones de precio indicadas.",
         "requestBody": {
           "description": "Lista de objetos que representan las órdenes a ingresar, con detalles como cuenta, instrumento, cantidad, y precio.",
           "content": {
@@ -9996,7 +10114,7 @@
           "06. Ordenes y Operaciones"
         ],
         "summary": "Ingresar ordenes a mercado (automatico)",
-        "description": "Este endpoint permite ingresar órdenes al mercado basándose en los parámetros especificados en la solicitud.\r\nSe realiza una serie de validaciones para asegurar que la orden pueda ser procesada:\r\n<list type=\"bullet\"><item><description>Validación de que se proporcionaron órdenes y que su cantidad no exceda el límite permitido.</description></item><item><description>Verificación de que no haya UUIDs duplicados en la lista de órdenes.</description></item><item><description>Validación de la existencia de la cuenta asociada con la orden.</description></item><item><description>Comprobación de la existencia del instrumento financiero especificado.</description></item><item><description>Verificación de que el UUID proporcionado no haya sido utilizado previamente para evitar duplicaciones.</description></item></list>",
+        "description": "Ingresa ordenes al mercado de forma automatica, sin intervencion manual. Usado en procesos de automatizacion y estrategias programadas.",
         "requestBody": {
           "description": "Lista de objetos que representan las órdenes a ingresar, con detalles como cuenta, instrumento, cantidad, y precio.",
           "content": {
@@ -10152,7 +10270,8 @@
             "description": "Success"
           }
         },
-        "summary": "Anular orden"
+        "summary": "Anular orden",
+        "description": "Anula una orden pendiente que aun no ha sido ejecutada en el mercado. Solo es posible anular ordenes en estado vigente."
       }
     },
     "/api/publicapi/creasys/Ordenes/RegistroOrdenesExterno": {
@@ -10254,7 +10373,8 @@
               }
             }
           }
-        }
+        },
+        "description": "Registra ordenes provenientes de sistemas externos, integrando operaciones ejecutadas fuera de la plataforma."
       }
     },
     "/api/publicapi/creasys/Ordenes/IngresoOrdenesIntraDay": {
@@ -10263,7 +10383,7 @@
           "06. Ordenes y Operaciones"
         ],
         "summary": "Ingresar ordenes intraday",
-        "description": "Este endpoint permite ingresar órdenes con todas las funcionalidades del frontoffice, incluyendo:\r\n<list type=\"bullet\"><item><description>Validación de cuenta y permisos</description></item><item><description>Validación de fechas de liquidación</description></item><item><description>Registro de logs</description></item></list>",
+        "description": "Ingresa ordenes intraday, validas solo para la sesion de mercado del dia en curso. Las ordenes no ejecutadas se cancelan al cierre del mercado.",
         "requestBody": {
           "description": "Lista de órdenes a ingresar",
           "content": {
@@ -10349,7 +10469,7 @@
           "06. Ordenes y Operaciones"
         ],
         "summary": "Consultar saldo de custodia intraday",
-        "description": "Este endpoint permite consultar el saldo de custodia intradía, considerando:\r\n<list type=\"bullet\"><item><description>Validación de cuenta</description></item><item><description>Cálculo de fecha de liquidación según tipo</description></item><item><description>Evaluación del saldo disponible en custodia</description></item></list>",
+        "description": "Consulta el saldo de custodia disponible en tiempo real para operar durante la sesion intraday del dia.",
         "parameters": [
           {
             "name": "Uuid",
@@ -10559,7 +10679,8 @@
             "description": "Success"
           }
         },
-        "summary": "Actualizar estado de movimiento de orden"
+        "summary": "Actualizar estado de movimiento de orden",
+        "description": "Actualiza el estado de un movimiento asociado a una orden (confirmado, liquidado, rechazado, etc.). Se usa para sincronizar el estado de las ordenes entre sistemas."
       }
     },
     "/api/publicapi/shared/OrderMovement/UpdateMovementBufferProtocol": {
@@ -10605,7 +10726,8 @@
             "description": "Success"
           }
         },
-        "summary": "Actualizar movimiento (protocolo buffer)"
+        "summary": "Actualizar movimiento (protocolo buffer)",
+        "description": "Actualiza el estado de movimientos de ordenes usando el protocolo de buffer, optimizado para el procesamiento masivo y de alta frecuencia."
       }
     },
     "/api/publicapi/creasys/Pais": {
@@ -10668,7 +10790,8 @@
               }
             }
           }
-        }
+        },
+        "description": "Retorna el catalogo completo de paises del sistema con su codigo ISO y nombre. Usado para registrar nacionalidades y direcciones."
       }
     },
     "/api/publicapi/creasys/PerfilRiesgo": {
@@ -10731,7 +10854,8 @@
               }
             }
           }
-        }
+        },
+        "description": "Lista los perfiles de riesgo disponibles para clasificar a los clientes segun su tolerancia y experiencia inversora (conservador, moderado, agresivo, etc.)."
       }
     },
     "/api/publicapi/creasys/Personas": {
@@ -10833,7 +10957,8 @@
               }
             }
           }
-        }
+        },
+        "description": "Retorna el listado de personas naturales y juridicas registradas en el sistema con sus datos de identificacion."
       },
       "post": {
         "tags": [
@@ -10901,7 +11026,8 @@
               }
             }
           }
-        }
+        },
+        "description": "Registra una nueva persona (natural o juridica) en el sistema. Es el primer paso antes de crear un cliente, ya que el cliente se asocia a una persona existente."
       }
     },
     "/api/publicapi/creasys/Personas/{identificador}": {
@@ -10995,7 +11121,8 @@
           "204": {
             "description": "No Content"
           }
-        }
+        },
+        "description": "Actualiza los datos de una persona existente identificada por su RUT u otro identificador unico. Permite modificar nombre, fecha de nacimiento, nacionalidad y otros datos personales."
       }
     },
     "/api/publicapi/creasys/PublicadorPrecio/GetPreciosInstrumento": {
@@ -11004,7 +11131,7 @@
           "05. Activos e Instrumentos"
         ],
         "summary": "Precios actuales de un instrumento",
-        "description": "Sample request:\r\n            \r\n    GET api/publicapi/creasys/PublicadorPrecio/GetPreciosInstrumento?nemotecnico=COPEC",
+        "description": "Consulta los precios actuales de un instrumento segun el publicador de precios configurado. Puede retornar precio de compra, venta y ultimo precio transado.",
         "parameters": [
           {
             "name": "Desde",
@@ -11161,7 +11288,8 @@
               }
             }
           }
-        }
+        },
+        "description": "Lista las regiones del pais configuradas en el sistema. Usado para clasificar las direcciones de personas y clientes."
       }
     },
     "/api/publicapi/creasys/RelacionClienteConBanco": {
@@ -11224,7 +11352,8 @@
               }
             }
           }
-        }
+        },
+        "description": "Consulta los tipos de relacion que puede tener un cliente con un banco (cuenta propia, representante, apoderado, etc.)."
       }
     },
     "/api/Shinkansen": {
@@ -11273,7 +11402,8 @@
             }
           }
         },
-        "summary": "Procesar transferencia Shinkansen"
+        "summary": "Procesar transferencia Shinkansen",
+        "description": "Inicia o procesa una transferencia de fondos a traves del sistema Shinkansen (transferencia interbancaria en tiempo real). Shinkansen permite enviar y recibir dinero entre bancos de forma instantanea."
       }
     },
     "/api/publicapi/creasys/TelefonoPersona": {
@@ -11346,7 +11476,8 @@
               }
             }
           }
-        }
+        },
+        "description": "Lista todos los numeros de telefono registrados para una persona, con su tipo (movil, fijo, otro) y codigo de pais."
       },
       "post": {
         "tags": [
@@ -11434,7 +11565,8 @@
               }
             }
           }
-        }
+        },
+        "description": "Agrega un nuevo numero de telefono a la persona. Debe indicarse el tipo de telefono (movil, fijo), el codigo de pais y el numero."
       },
       "put": {
         "tags": [
@@ -11545,7 +11677,8 @@
               }
             }
           }
-        }
+        },
+        "description": "Actualiza los datos de un numero de telefono existente de la persona, incluyendo tipo, codigo de pais o numero."
       },
       "delete": {
         "tags": [
@@ -11616,7 +11749,8 @@
           "204": {
             "description": "No Content"
           }
-        }
+        },
+        "description": "Elimina un numero de telefono registrado de la persona."
       }
     },
     "/api/publicapi/creasys/TipoAdministracion": {
@@ -11679,7 +11813,8 @@
               }
             }
           }
-        }
+        },
+        "description": "Lista los tipos de administracion disponibles para configurar como se gestiona una cuenta de inversion."
       }
     },
     "/api/publicapi/creasys/TipoContacto": {
@@ -11742,7 +11877,8 @@
               }
             }
           }
-        }
+        },
+        "description": "Lista los tipos de contacto disponibles en el sistema (representante legal, apoderado, contacto comercial, etc.)."
       }
     },
     "/api/publicapi/creasys/TipoCuenta": {
@@ -11805,7 +11941,8 @@
               }
             }
           }
-        }
+        },
+        "description": "Lista los tipos de cuenta de inversion disponibles en el sistema (cuenta de inversion, cuenta APV, cuenta FIP, etc.)."
       }
     },
     "/api/publicapi/creasys/TipoCuentaBanco": {
@@ -11868,7 +12005,8 @@
               }
             }
           }
-        }
+        },
+        "description": "Lista los tipos de cuenta bancaria aceptados (cuenta corriente, cuenta vista, cuenta de ahorro, etc.)."
       }
     },
     "/api/publicapi/creasys/TipoDireccion/GetTipoDireccion": {
@@ -11931,7 +12069,8 @@
               }
             }
           }
-        }
+        },
+        "description": "Lista los tipos de direccion disponibles en el sistema (residencial, comercial, correspondencia, etc.)."
       }
     },
     "/api/publicapi/creasys/TipoDireccion/GetTipoTelefono": {
@@ -11994,7 +12133,8 @@
               }
             }
           }
-        }
+        },
+        "description": "Lista los tipos de telefono disponibles (movil, fijo, oficina, etc.) para clasificar los telefonos de una persona."
       }
     },
     "/api/publicapi/creasys/TipoDireccion/GetTipoMail": {
@@ -12057,7 +12197,8 @@
               }
             }
           }
-        }
+        },
+        "description": "Lista los tipos de correo electronico disponibles (personal, laboral, otro) para clasificar los emails de una persona."
       }
     },
     "/api/publicapi/creasys/TipoEntidad": {
@@ -12120,7 +12261,8 @@
               }
             }
           }
-        }
+        },
+        "description": "Lista los tipos de entidad disponibles para clasificar a clientes y personas (persona natural, empresa, fondo, gobierno, etc.)."
       }
     },
     "/api/publicapi/creasys/TipoIdentificacion": {
@@ -12183,7 +12325,8 @@
               }
             }
           }
-        }
+        },
+        "description": "Lista los tipos de identificacion aceptados por el sistema (RUT, pasaporte, DNI, etc.) para el registro de personas."
       }
     },
     "/api/publicapi/creasys/TipoMedioPagoCobro": {
@@ -12246,7 +12389,8 @@
               }
             }
           }
-        }
+        },
+        "description": "Lista los medios de pago y cobro disponibles para operaciones y transferencias (transferencia bancaria, cheque, efectivo, etc.)."
       }
     },
     "/api/publicapi/creasys/TipoMovCaja": {
@@ -12309,7 +12453,8 @@
               }
             }
           }
-        }
+        },
+        "description": "Lista los tipos de movimiento de caja del sistema (deposito de cliente, retiro de cliente, comision cobrada, ajuste contable, etc.)."
       }
     },
     "/api/publicapi/creasys/TipoSociedad": {
@@ -12372,7 +12517,8 @@
               }
             }
           }
-        }
+        },
+        "description": "Lista los tipos de sociedad disponibles para personas juridicas (Sociedad Anonima, SpA, Limitada, EIRL, etc.)."
       }
     },
     "/api/publicapi/creasys/Usuario/CambioRolProspecto": {
@@ -12381,7 +12527,7 @@
           "11. Integraciones y Sistema"
         ],
         "summary": "Cambiar rol de prospecto a cliente",
-        "description": "Sample request:\r\n            \r\n    PUT /api/publicapi/creasys/Usuario/CambioRolProspecto\r\n    {\r\n         \"idUsuario\": \"066074xx-8734-4060-9004-757fc593d7b7\"\r\n    }",
+        "description": "Cambia el rol de un usuario de \"prospecto\" a \"cliente activo\" una vez que completo exitosamente el proceso de enrolamiento y verificacion de identidad.",
         "requestBody": {
           "description": "Objeto con el id usuario para cambiar el rol",
           "content": {
@@ -12465,7 +12611,7 @@
           "11. Integraciones y Sistema"
         ],
         "summary": "Asociar usuario a cliente",
-        "description": "Sample request:\r\n            \r\n    PUT /api/publicapi/creasys/Usuario/RelacionUsuarioCliente\r\n    {\r\n         \"idUsuario\": \"066074xx-8734-4060-9004-757fc593d7b7\",\r\n         \"identificador\":\"1-9\",\r\n         \"ContenidoBase64\":\"https://storage.blob.core.windows.net/container/category/name.pdf?sig=....\"\r\n    }",
+        "description": "Establece o actualiza la relacion entre un usuario del sistema y un cliente especifico, definiendo el nivel de acceso del usuario a la informacion del cliente.",
         "requestBody": {
           "content": {
             "application/json": {
@@ -12574,7 +12720,8 @@
               }
             }
           }
-        }
+        },
+        "description": "Registra un nuevo prospecto en el sistema con sus datos personales completos. Al completar el registro, se envia un correo de confirmacion al email indicado. El prospecto debe confirmar su email antes de poder operar."
       }
     },
     "/api/shared/Account/ConfirmEmail": {
@@ -12633,7 +12780,8 @@
               }
             }
           }
-        }
+        },
+        "description": "Confirma la direccion de email del prospecto usando el token enviado por correo electronico. Una vez confirmado, la cuenta queda habilitada para el proceso de enrolamiento completo."
       }
     },
     "/api/shared/Account/ResendEmail": {
@@ -12681,7 +12829,8 @@
             }
           }
         },
-        "summary": "Reenviar email de confirmacion"
+        "summary": "Reenviar email de confirmacion",
+        "description": "Reenviar el correo de confirmacion de cuenta al email registrado. Se utiliza cuando el usuario no recibio el correo original o el enlace de confirmacion ha expirado."
       }
     },
     "/api/shared/Account/ChangeTheme": {
@@ -12756,7 +12905,8 @@
             }
           }
         },
-        "summary": "Cambiar tema de la interfaz"
+        "summary": "Cambiar tema de la interfaz",
+        "description": "Actualiza la preferencia de tema visual (claro u oscuro) del usuario autenticado en la plataforma. La preferencia se guarda por usuario."
       }
     },
     "/api/shared/Account/SignUpProspectoSimple": {
@@ -12765,7 +12915,7 @@
           "01. Autenticacion y Seguridad"
         ],
         "summary": "Registrar prospecto (simplificado)",
-        "description": "Sample request:\r\n            \r\n    POST: api/shared/Account/SignUpProspectoSimple\r\n    {\r\n      \"Email\": \"ejemplo@ejemplo\",\r\n      \"Nombre\": \"Ejemplo\",\r\n      \"Identificador\": \"12345678-9\",\r\n      \"Password\": \"Ejemplo123\",\r\n      \"CodTheme\": \"L\"\r\n      \"EsApp\": true,\r\n      \"EsEnrolador\": false\r\n    }",
+        "description": "Registra un nuevo prospecto con la informacion minima requerida (nombre y email), sin necesidad de completar todos los campos del perfil. Permite un onboarding rapido que puede completarse en pasos posteriores.",
         "requestBody": {
           "description": "Los datos del prospecto a registrar.",
           "content": {
@@ -12857,7 +13007,8 @@
             }
           }
         },
-        "summary": "Cartola por grupo en rango de fechas"
+        "summary": "Cartola por grupo en rango de fechas",
+        "description": "Retorna la cartola consolidada de un grupo de cuentas para un rango de fechas especifico."
       }
     },
     "/api/shared/Cartola/RangoFechaCartolaCliente": {
@@ -12907,7 +13058,8 @@
             }
           }
         },
-        "summary": "Cartola por cliente en rango de fechas"
+        "summary": "Cartola por cliente en rango de fechas",
+        "description": "Retorna la cartola de un cliente para un rango de fechas especifico, util para generar estados de cuenta periodicos."
       }
     },
     "/api/shared/Cartola/RangoFechaCartolaCuenta": {
@@ -12957,7 +13109,8 @@
             }
           }
         },
-        "summary": "Cartola por cuenta en rango de fechas"
+        "summary": "Cartola por cuenta en rango de fechas",
+        "description": "Retorna la cartola de una cuenta para un rango de fechas especifico."
       }
     },
     "/api/shared/Cartola/ConsultaCartola": {
@@ -13016,7 +13169,8 @@
             }
           }
         },
-        "summary": "Consultar cartola"
+        "summary": "Consultar cartola",
+        "description": "Genera y retorna una cartola de movimientos para los parametros indicados (cliente, cuenta, grupo, rango de fechas)."
       }
     },
     "/api/shared/Cartola/ConsultaCartolaCuenta": {
@@ -13074,7 +13228,8 @@
             }
           }
         },
-        "summary": "Consultar cartola por cuenta"
+        "summary": "Consultar cartola por cuenta",
+        "description": "Consulta la cartola de movimientos de una cuenta especifica en el rango de fechas indicado."
       }
     },
     "/api/shared/Cartola/ConsultaCartolaCliente": {
@@ -13132,7 +13287,8 @@
             }
           }
         },
-        "summary": "Consultar cartola por cliente"
+        "summary": "Consultar cartola por cliente",
+        "description": "Consulta la cartola consolidada de movimientos para un cliente especifico en el rango de fechas indicado."
       }
     },
     "/api/shared/Cartola/ConsultaCartolaGrupo": {
@@ -13190,7 +13346,8 @@
             }
           }
         },
-        "summary": "Consultar cartola por grupo"
+        "summary": "Consultar cartola por grupo",
+        "description": "Consulta la cartola consolidada de movimientos para un grupo de cuentas en el rango de fechas indicado."
       }
     },
     "/api/shared/Cartola/NombreCartolaPorCuenta": {
@@ -13264,7 +13421,8 @@
             }
           }
         },
-        "summary": "Nombre de cartola por cuenta"
+        "summary": "Nombre de cartola por cuenta",
+        "description": "Retorna el nombre del archivo de cartola correspondiente a una cuenta especifica."
       }
     },
     "/api/shared/Cartola/GetCartolaDemo": {
@@ -13319,7 +13477,8 @@
             }
           }
         },
-        "summary": "Obtener cartola demo"
+        "summary": "Obtener cartola demo",
+        "description": "Retorna una cartola de ejemplo o demo con datos de prueba, usada para desarrollo e integracion."
       }
     },
     "/api/shared/Cartola/GetCartolaCron": {
@@ -13422,7 +13581,8 @@
             }
           }
         },
-        "summary": "Obtener cartola cron"
+        "summary": "Obtener cartola cron",
+        "description": "Obtiene la cartola generada por el proceso automatico (cron) de cierre del periodo."
       }
     },
     "/api/shared/Cartola/GetCartolaVoultech": {
@@ -13525,7 +13685,8 @@
             }
           }
         },
-        "summary": "Cartola Voultech"
+        "summary": "Cartola Voultech",
+        "description": "Genera la cartola en el formato estandar de Voultech desde el modulo compartido."
       }
     },
     "/api/shared/Cartola/GetCartolaPrudential": {
@@ -13636,7 +13797,8 @@
             }
           }
         },
-        "summary": "Cartola Prudential"
+        "summary": "Cartola Prudential",
+        "description": "Genera la cartola en el formato especifico requerido por Prudential."
       }
     },
     "/api/shared/Cartola/GetCartolaNevasa": {
@@ -13747,7 +13909,8 @@
             }
           }
         },
-        "summary": "Cartola Getcartolanevasa"
+        "summary": "Cartola Getcartolanevasa",
+        "description": "Genera la cartola en el formato especifico requerido por Nevasa."
       }
     },
     "/api/shared/Clientes/PerfilUsuarioCliente": {
@@ -13777,7 +13940,8 @@
             }
           }
         },
-        "summary": "Obtener perfil de usuario cliente"
+        "summary": "Obtener perfil de usuario cliente",
+        "description": "Retorna el perfil completo del cliente asociado al usuario autenticado, incluyendo datos personales, informacion comercial y preferencias."
       }
     },
     "/api/shared/Clientes/DetalleCliente": {
@@ -13817,7 +13981,8 @@
             }
           }
         },
-        "summary": "Obtener detalle de cliente"
+        "summary": "Obtener detalle de cliente",
+        "description": "Obtiene el detalle completo de un cliente especifico, incluyendo sus cuentas, estado, documentacion y datos de contacto asociados."
       }
     },
     "/api/shared/Clientes/FiltroClientesFilter": {
@@ -13875,7 +14040,8 @@
             }
           }
         },
-        "summary": "Buscar clientes con filtros"
+        "summary": "Buscar clientes con filtros",
+        "description": "Realiza una busqueda de clientes aplicando multiples filtros combinados como nombre, RUT, estado o tipo de cliente. Retorna los resultados que coincidan con todos los criterios indicados."
       }
     },
     "/api/shared/Clientes/ClientesVigentes": {
@@ -13926,7 +14092,8 @@
             }
           }
         },
-        "summary": "Listar clientes vigentes"
+        "summary": "Listar clientes vigentes",
+        "description": "Retorna el listado de todos los clientes con estado vigente en el sistema. Excluye clientes inactivos, bloqueados o en proceso de cierre."
       }
     },
     "/api/shared/Clientes/ClientesVigentesValidaApv": {
@@ -13984,7 +14151,8 @@
             }
           }
         },
-        "summary": "Listar clientes vigentes con validacion APV"
+        "summary": "Listar clientes vigentes con validacion APV",
+        "description": "Lista los clientes vigentes que tienen validacion de APV (Ahorro Previsional Voluntario) activa y habilitada en su perfil."
       }
     },
     "/api/shared/Comisiones/GetComisionTransaccionalCuenta": {
@@ -14058,7 +14226,8 @@
             }
           }
         },
-        "summary": "Consultar comision transaccional por cuenta"
+        "summary": "Consultar comision transaccional por cuenta",
+        "description": "Retorna la comision transaccional configurada para una cuenta especifica, usada para calcular el costo de cada operacion."
       }
     },
     "/api/shared/Comisiones/GetComisionCorredora": {
@@ -14088,7 +14257,8 @@
             }
           }
         },
-        "summary": "Consultar comision de corredora"
+        "summary": "Consultar comision de corredora",
+        "description": "Consulta la estructura de comisiones de la corredora aplicables a un cliente o tipo de operacion."
       }
     },
     "/api/shared/Environment": {
@@ -14118,7 +14288,8 @@
             }
           }
         },
-        "summary": "Consultar entorno del sistema"
+        "summary": "Consultar entorno del sistema",
+        "description": "Retorna informacion del entorno actual del sistema: version de la aplicacion, ambiente activo (desarrollo, certificacion o produccion) y configuraciones generales vigentes."
       }
     },
     "/api/shared/GruposCuentas/GetGrupo": {
@@ -14174,7 +14345,8 @@
             }
           }
         },
-        "summary": "Obtener grupo de cuentas"
+        "summary": "Obtener grupo de cuentas",
+        "description": "Retorna los datos de un grupo de cuentas especifico, incluyendo las cuentas que lo componen."
       }
     },
     "/api/shared/GruposCuentas/GruposCuentasVigentes": {
@@ -14225,7 +14397,8 @@
             }
           }
         },
-        "summary": "Listar grupos de cuentas vigentes"
+        "summary": "Listar grupos de cuentas vigentes",
+        "description": "Lista todos los grupos de cuentas vigentes en el sistema, usados para agrupar y administrar cuentas de forma consolidada."
       }
     },
     "/api/shared/GruposCuentas/GruposCuentasVigentesFilter": {
@@ -14283,7 +14456,8 @@
             }
           }
         },
-        "summary": "Buscar grupos de cuentas con filtros"
+        "summary": "Buscar grupos de cuentas con filtros",
+        "description": "Busca grupos de cuentas vigentes aplicando filtros por nombre, estado u otros criterios."
       }
     },
     "/api/shared/Instrumentos": {
@@ -14292,7 +14466,7 @@
           "05. Activos e Instrumentos"
         ],
         "summary": "Listar instrumentos (Shared)",
-        "description": "Sample request:\r\n            \r\n    GET /api/shared/Instrumentos?codSubclaseInstrumento=CFI&codMoneda=CLP&esApv=false",
+        "description": "Lista los instrumentos financieros disponibles desde el modulo compartido, incluyendo datos basicos y estado de mercado.",
         "parameters": [
           {
             "name": "codSubclaseInstrumento",
@@ -14427,7 +14601,8 @@
             }
           }
         },
-        "summary": "Buscar instrumentos con filtros"
+        "summary": "Buscar instrumentos con filtros",
+        "description": "Busca y filtra instrumentos financieros aplicando criterios como tipo, clase, familia y estado."
       }
     },
     "/api/shared/Instrumentos/InstrumentosxFamilia": {
@@ -14469,7 +14644,8 @@
             }
           }
         },
-        "summary": "Instrumentos Instrumentosxfamilia"
+        "summary": "Instrumentos Instrumentosxfamilia",
+        "description": "Lista los instrumentos agrupados por familia de instrumento, para facilitar la navegacion y seleccion."
       }
     },
     "/api/shared/Instrumentos/InstrumentosxClase": {
@@ -14511,7 +14687,8 @@
             }
           }
         },
-        "summary": "Instrumentos Instrumentosxclase"
+        "summary": "Instrumentos Instrumentosxclase",
+        "description": "Lista los instrumentos agrupados por clase de activo (renta fija, renta variable, fondo mutuo, etc.)."
       }
     },
     "/api/shared/intermediarios-mercado": {
@@ -14520,7 +14697,7 @@
           "10. Tablas Maestras"
         ],
         "summary": "Devuelve la lista de orígenes/destinos disponibles para traspasos (corredoras de bolsa y asesores)",
-        "description": "Sample request:\r\n            \r\n    GET /api/shared/intermediarios-mercado",
+        "description": "Lista los intermediarios de mercado disponibles como origenes o destinos para traspasos (corredoras de bolsa, asesores de inversion registrados).",
         "responses": {
           "401": {
             "description": "Unauthorized",
@@ -14581,7 +14758,8 @@
             }
           }
         },
-        "summary": "Listar monedas con tipo de cambio"
+        "summary": "Listar monedas con tipo de cambio",
+        "description": "Retorna el listado de monedas con sus tipos de cambio vigentes respecto a la moneda base del sistema."
       }
     },
     "/api/shared/Moneda/GetMonedas": {
@@ -14590,7 +14768,7 @@
           "10. Tablas Maestras"
         ],
         "summary": "Listar monedas (Shared)",
-        "description": "Sample request:\r\n            \r\n    GET /api/shared/Moneda/GetMonedas",
+        "description": "Lista las monedas disponibles desde el modulo compartido, incluyendo codigo ISO, nombre y simbolo.",
         "responses": {
           "401": {
             "description": "Si el usuario no esta autenticado.",
@@ -14651,7 +14829,8 @@
             }
           }
         },
-        "summary": "Listar negocios"
+        "summary": "Listar negocios",
+        "description": "Retorna las lineas de negocio o segmentos configurados en el sistema, utilizados para clasificar clientes y cuentas."
       }
     },
     "/api/shared/Pass/ChangePasswordGpiMas": {
@@ -14690,7 +14869,8 @@
             }
           }
         },
-        "summary": "Cambiar contrasena (GpiMas)"
+        "summary": "Cambiar contrasena (GpiMas)",
+        "description": "Cambia la contrasena del usuario en el sistema GpiMas. Requiere la contrasena actual para verificar la identidad del usuario antes de aplicar el cambio."
       }
     },
     "/api/shared/Pass/RequestResetPassword": {
@@ -14758,7 +14938,8 @@
             }
           }
         },
-        "summary": "Solicitar restablecimiento de contrasena"
+        "summary": "Solicitar restablecimiento de contrasena",
+        "description": "Solicita el inicio del proceso de restablecimiento de contrasena. Envia un enlace de recuperacion al correo electronico registrado del usuario. El enlace tiene una vigencia limitada."
       }
     },
     "/api/shared/Pass/ChangePassword": {
@@ -14833,7 +15014,8 @@
             }
           }
         },
-        "summary": "Cambiar contrasena"
+        "summary": "Cambiar contrasena",
+        "description": "Cambia la contrasena del usuario autenticado. Requiere ingresar la contrasena actual como verificacion de identidad y la nueva contrasena que se desea establecer."
       }
     },
     "/api/shared/Pass/ResetPassword": {
@@ -14898,7 +15080,8 @@
             }
           }
         },
-        "summary": "Restablecer contrasena"
+        "summary": "Restablecer contrasena",
+        "description": "Establece una nueva contrasena usando el token de recuperacion recibido por correo electronico. El token es de un solo uso y expira automaticamente despues de ser utilizado o si transcurre el tiempo de vigencia."
       }
     },
     "/api/shared/TipoCambio/Valores": {
@@ -14956,7 +15139,8 @@
             }
           }
         },
-        "summary": "Obtener valores de tipo de cambio"
+        "summary": "Obtener valores de tipo de cambio",
+        "description": "Retorna el historial de valores del tipo de cambio para un rango de fechas, permitiendo analizar la evolucion de la paridad entre monedas."
       }
     },
     "/api/shared/TipoCambio/GetValoresTipoCambioAFecha": {
@@ -15006,7 +15190,8 @@
             }
           }
         },
-        "summary": "Tipo de cambio a una fecha"
+        "summary": "Tipo de cambio a una fecha",
+        "description": "Retorna los tipos de cambio vigentes para una fecha especifica. Util para valorar posiciones o convertir montos entre monedas en una fecha determinada."
       }
     },
     "/api/shared/TipoCambio/Indicador": {
@@ -15060,7 +15245,8 @@
             }
           }
         },
-        "summary": "Obtener indicador de tipo de cambio"
+        "summary": "Obtener indicador de tipo de cambio",
+        "description": "Consulta el indicador de tipo de cambio de referencia (por ejemplo, dolar observado del Banco Central de Chile) para la fecha actual o una fecha indicada."
       }
     },
     "/api/shared/TipoEstado/ByDsc/{dsc}": {
@@ -15069,7 +15255,7 @@
           "10. Tablas Maestras"
         ],
         "summary": "Obtener tipo de estado por descripcion",
-        "description": "Sample request:\r\n            \r\n    GET /api/shared/TipoEstado/ByDsc/Ordenes",
+        "description": "Busca y retorna un tipo de estado por su descripcion textual. Permite resolver el codigo interno de un estado a partir de su nombre legible.",
         "parameters": [
           {
             "name": "dsc",
@@ -33802,47 +33988,47 @@
   "tags": [
     {
       "name": "01. Autenticacion y Seguridad",
-      "description": "Endpoints para iniciar sesion, cerrar sesion, renovar tokens y gestionar la autenticacion de usuarios."
+      "description": "Endpoints para gestionar la autenticacion de usuarios en la plataforma. Incluye inicio de sesion, cierre de sesion, renovacion de tokens JWT, recuperacion de contrasena y registro de nuevos prospectos. Todos los demas endpoints de la API requieren un token valido obtenido a traves de estos endpoints."
     },
     {
       "name": "02. Clientes y Personas",
-      "description": "Endpoints para crear, consultar y actualizar clientes, personas naturales o juridicas y su proceso de enrolamiento."
+      "description": "Endpoints para crear, consultar y actualizar el registro de clientes y personas (naturales o juridicas) en el sistema. Incluye el proceso de enrolamiento, gestion de beneficiarios y validaciones de identidad como cedula y KYC."
     },
     {
       "name": "03. Datos de Contacto",
-      "description": "Endpoints para gestionar direcciones, telefonos, emails y tipos de contacto asociados a una persona."
+      "description": "Endpoints para gestionar la informacion de contacto de una persona: direcciones fisicas, numeros de telefono y correos electronicos. Permite agregar, actualizar y eliminar cada tipo de contacto de forma independiente."
     },
     {
       "name": "04. Cuentas",
-      "description": "Endpoints para administrar cuentas de inversion, cuentas corrientes, cuentas Alpaca, cajas y comisiones."
+      "description": "Endpoints para administrar cuentas de inversion, cuentas corrientes, cuentas en Alpaca (broker internacional), cajas, comisiones y grupos de cuentas. Incluye la creacion y actualizacion de cuentas, consulta de saldos y configuracion operativa."
     },
     {
       "name": "05. Activos e Instrumentos",
-      "description": "Endpoints para consultar activos financieros, instrumentos, precios, cotizaciones, barras OHLCV y datos de mercado en tiempo real."
+      "description": "Endpoints para consultar activos financieros e instrumentos disponibles para operar. Incluye precios en tiempo real, cotizaciones historicas, barras OHLCV, snapshots de mercado, tipo de cambio y el estado del reloj de mercado de Alpaca."
     },
     {
       "name": "06. Ordenes y Operaciones",
-      "description": "Endpoints para ingresar, anular y consultar ordenes de mercado, operaciones spot y operaciones de cuenta remunerada."
+      "description": "Endpoints para ingresar, anular y consultar ordenes de mercado, operaciones spot y operaciones de cuenta remunerada. Permite registrar ordenes individuales o masivas, consultar el estado de custodia intraday y enviar reportes de operaciones."
     },
     {
       "name": "07. Movimientos y Transferencias",
-      "description": "Endpoints para registrar y consultar movimientos de caja, aportes, retiros y transferencias via Shinkansen, Fintoc y Alpaca."
+      "description": "Endpoints para registrar y consultar movimientos de fondos: aportes, retiros, cambios de caja y transferencias bancarias. Integra los sistemas de transferencia Shinkansen, Fintoc y la plataforma Alpaca para movimientos internacionales."
     },
     {
       "name": "08. Cartera y Patrimonio",
-      "description": "Endpoints para consultar la cartera de inversiones, cartola de movimientos, asignaciones y certificados de custodia."
+      "description": "Endpoints para consultar la cartera de inversiones del cliente en distintos niveles de detalle: cartera actual, detallada, resumida y optimizada. Incluye cartola de movimientos (por cliente, cuenta o grupo), asignaciones y certificados de custodia."
     },
     {
       "name": "09. Documentos",
-      "description": "Endpoints para subir, consultar y sincronizar documentos tributarios y documentos de cliente."
+      "description": "Endpoints para gestionar documentos del cliente: subida de archivos, listado de documentos, sincronizacion con Alpaca y consulta de documentos tributarios electronicos (DTE) generados por Artikos."
     },
     {
       "name": "10. Tablas Maestras",
-      "description": "Endpoints de referencia: bancos, paises, regiones, comunas, monedas, tipos de cuenta, estados civiles y otros catalogos del sistema."
+      "description": "Endpoints de solo lectura para consultar los catalogos del sistema: bancos, paises, regiones, comunas, monedas, estados civiles, tipos de cuenta, tipos de sociedad, perfiles de riesgo, intermediarios de mercado y otros. Estos valores son utilizados como referencia en los demas endpoints."
     },
     {
       "name": "11. Integraciones y Sistema",
-      "description": "Endpoints de integraciones externas, webhooks, control de cierre de sistema y gestion de usuarios."
+      "description": "Endpoints para integraciones externas y control operativo del sistema. Incluye webhooks de Fintoc, actualizacion de movimientos de ordenes, eventos de journal Alpaca, gestion del cierre contable diario, cambio de roles de usuarios y consulta del entorno del sistema."
     }
   ]
 }
