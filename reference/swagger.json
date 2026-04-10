@@ -1,14 +1,14 @@
 {
   "openapi": "3.0.1",
   "info": {
-    "title": "GpiWeb",
+    "title": "GpiWeb Public API",
     "version": "publicapi"
   },
   "paths": {
     "/api/publicapi/creasys/AlpacaSweep/details": {
       "get": {
         "tags": [
-          "7. Movimientos y Transferencias"
+          "07. Movimientos y Transferencias"
         ],
         "responses": {
           "401": {
@@ -42,13 +42,13 @@
             }
           }
         },
-        "summary": "Obtiene detalles del sweep de Alpaca"
+        "summary": "Consultar detalles del sweep Alpaca"
       }
     },
     "/api/publicapi/creasys/Artikos/dte/listado": {
       "get": {
         "tags": [
-          "9. Documentos"
+          "09. Documentos"
         ],
         "parameters": [
           {
@@ -164,13 +164,13 @@
             }
           }
         },
-        "summary": "Obtiene listado de documentos tributarios electronicos"
+        "summary": "Listar documentos tributarios electronicos"
       }
     },
     "/api/publicapi/creasys/Artikos/dte/consulta/pdf": {
       "get": {
         "tags": [
-          "9. Documentos"
+          "09. Documentos"
         ],
         "parameters": [
           {
@@ -292,15 +292,15 @@
             "description": "Server Error"
           }
         },
-        "summary": "Descarga PDF de un documento tributario electronico"
+        "summary": "Descargar PDF de documento tributario"
       }
     },
     "/api/publicapi/creasys/Asesor": {
       "get": {
         "tags": [
-          "Asesor"
+          "11. Integraciones y Sistema"
         ],
-        "summary": "Obtiene la lista disponible de asesores.",
+        "summary": "Listar asesores",
         "responses": {
           "200": {
             "description": "Success",
@@ -361,9 +361,9 @@
     "/api/publicapi/creasys/Asignaciones": {
       "get": {
         "tags": [
-          "8. Cartera y Patrimonio"
+          "08. Cartera y Patrimonio"
         ],
-        "summary": "Obtiene una lista de Asignaciones en un rango de fecha determinado.",
+        "summary": "Listar asignaciones por rango de fechas",
         "parameters": [
           {
             "name": "Desde",
@@ -484,7 +484,7 @@
     "/api/publicapi/creasys/Asset": {
       "get": {
         "tags": [
-          "5. Activos e Instrumentos"
+          "05. Activos e Instrumentos"
         ],
         "parameters": [
           {
@@ -567,13 +567,13 @@
             }
           }
         },
-        "summary": "Obtiene lista de activos financieros disponibles"
+        "summary": "Listar activos financieros"
       }
     },
     "/api/publicapi/creasys/Asset/LastQuote": {
       "get": {
         "tags": [
-          "5. Activos e Instrumentos"
+          "05. Activos e Instrumentos"
         ],
         "parameters": [
           {
@@ -625,15 +625,15 @@
             }
           }
         },
-        "summary": "Obtiene la ultima cotizacion de un activo"
+        "summary": "Obtener ultima cotizacion de un activo"
       }
     },
     "/api/publicapi/creasys/Asset/stocks/auctions": {
       "get": {
         "tags": [
-          "5. Activos e Instrumentos"
+          "05. Activos e Instrumentos"
         ],
-        "summary": "Subastas (auctions) para uno o varios símbolos. Proxy al micro Alpaca.",
+        "summary": "Consultar subastas por lote de simbolos",
         "parameters": [
           {
             "name": "symbols",
@@ -754,9 +754,9 @@
     "/api/publicapi/creasys/Asset/stocks/bars": {
       "get": {
         "tags": [
-          "5. Activos e Instrumentos"
+          "05. Activos e Instrumentos"
         ],
-        "summary": "Barras históricas (OHLCV) para varios símbolos. Proxy a Alpaca GET /v2/stocks/bars.",
+        "summary": "Consultar barras OHLCV por lote de simbolos",
         "parameters": [
           {
             "name": "symbols",
@@ -869,9 +869,9 @@
     "/api/publicapi/creasys/Asset/stocks/bars/latest": {
       "get": {
         "tags": [
-          "5. Activos e Instrumentos"
+          "05. Activos e Instrumentos"
         ],
-        "summary": "Última barra por símbolo (batch). Proxy al micro Alpaca.",
+        "summary": "Consultar ultima barra OHLCV por lote de simbolos",
         "parameters": [
           {
             "name": "symbols",
@@ -943,9 +943,9 @@
     "/api/publicapi/creasys/Asset/stocks/quotes": {
       "get": {
         "tags": [
-          "5. Activos e Instrumentos"
+          "05. Activos e Instrumentos"
         ],
-        "summary": "Cotizaciones históricas para varios símbolos.",
+        "summary": "Consultar cotizaciones historicas por lote de simbolos",
         "parameters": [
           {
             "name": "symbols",
@@ -1050,9 +1050,9 @@
     "/api/publicapi/creasys/Asset/stocks/quotes/latest": {
       "get": {
         "tags": [
-          "5. Activos e Instrumentos"
+          "05. Activos e Instrumentos"
         ],
-        "summary": "Última cotización por símbolo (batch).",
+        "summary": "Consultar ultima cotizacion por lote de simbolos",
         "parameters": [
           {
             "name": "symbols",
@@ -1124,9 +1124,9 @@
     "/api/publicapi/creasys/Asset/stocks/snapshots": {
       "get": {
         "tags": [
-          "5. Activos e Instrumentos"
+          "05. Activos e Instrumentos"
         ],
-        "summary": "Snapshot actual por símbolo (batch).",
+        "summary": "Consultar snapshot actual por lote de simbolos",
         "parameters": [
           {
             "name": "symbols",
@@ -1198,9 +1198,9 @@
     "/api/publicapi/creasys/Asset/stocks/trades": {
       "get": {
         "tags": [
-          "5. Activos e Instrumentos"
+          "05. Activos e Instrumentos"
         ],
-        "summary": "Trades históricos para varios símbolos.",
+        "summary": "Consultar trades historicos por lote de simbolos",
         "parameters": [
           {
             "name": "symbols",
@@ -1305,9 +1305,9 @@
     "/api/publicapi/creasys/Asset/stocks/trades/latest": {
       "get": {
         "tags": [
-          "5. Activos e Instrumentos"
+          "05. Activos e Instrumentos"
         ],
-        "summary": "Último trade por símbolo (batch).",
+        "summary": "Consultar ultimo trade por lote de simbolos",
         "parameters": [
           {
             "name": "symbols",
@@ -1379,9 +1379,9 @@
     "/api/publicapi/creasys/Asset/stocks/meta/conditions/{tickType}": {
       "get": {
         "tags": [
-          "5. Activos e Instrumentos"
+          "05. Activos e Instrumentos"
         ],
-        "summary": "Meta: condiciones de tick por tipo.",
+        "summary": "Consultar condiciones de tick por tipo",
         "parameters": [
           {
             "name": "tickType",
@@ -1438,9 +1438,9 @@
     "/api/publicapi/creasys/Asset/stocks/meta/exchanges": {
       "get": {
         "tags": [
-          "5. Activos e Instrumentos"
+          "05. Activos e Instrumentos"
         ],
-        "summary": "Meta: listado de exchanges.",
+        "summary": "Listar exchanges disponibles",
         "responses": {
           "401": {
             "description": "Unauthorized",
@@ -1478,9 +1478,9 @@
     "/api/publicapi/creasys/Asset/stocks/{symbol}/auctions": {
       "get": {
         "tags": [
-          "5. Activos e Instrumentos"
+          "05. Activos e Instrumentos"
         ],
-        "summary": "Subastas para un símbolo en ruta.",
+        "summary": "Consultar subastas de un simbolo",
         "parameters": [
           {
             "name": "symbol",
@@ -1594,9 +1594,9 @@
     "/api/publicapi/creasys/Asset/stocks/{symbol}/bars": {
       "get": {
         "tags": [
-          "5. Activos e Instrumentos"
+          "05. Activos e Instrumentos"
         ],
-        "summary": "Barras OHLCV para un símbolo en ruta.",
+        "summary": "Consultar barras OHLCV de un simbolo",
         "parameters": [
           {
             "name": "symbol",
@@ -1702,9 +1702,9 @@
     "/api/publicapi/creasys/Asset/stocks/{symbol}/bars/latest": {
       "get": {
         "tags": [
-          "5. Activos e Instrumentos"
+          "05. Activos e Instrumentos"
         ],
-        "summary": "Última barra para un símbolo en ruta.",
+        "summary": "Consultar ultima barra OHLCV de un simbolo",
         "parameters": [
           {
             "name": "symbol",
@@ -1769,9 +1769,9 @@
     "/api/publicapi/creasys/Asset/stocks/{symbol}/quotes": {
       "get": {
         "tags": [
-          "5. Activos e Instrumentos"
+          "05. Activos e Instrumentos"
         ],
-        "summary": "Cotizaciones históricas para un símbolo en ruta.",
+        "summary": "Consultar cotizaciones historicas de un simbolo",
         "parameters": [
           {
             "name": "symbol",
@@ -1869,9 +1869,9 @@
     "/api/publicapi/creasys/Asset/stocks/{symbol}/quotes/latest": {
       "get": {
         "tags": [
-          "5. Activos e Instrumentos"
+          "05. Activos e Instrumentos"
         ],
-        "summary": "Última cotización para un símbolo en ruta.",
+        "summary": "Consultar ultima cotizacion de un simbolo",
         "parameters": [
           {
             "name": "symbol",
@@ -1936,9 +1936,9 @@
     "/api/publicapi/creasys/Asset/stocks/{symbol}/trades": {
       "get": {
         "tags": [
-          "5. Activos e Instrumentos"
+          "05. Activos e Instrumentos"
         ],
-        "summary": "Trades históricos para un símbolo en ruta.",
+        "summary": "Consultar trades historicos de un simbolo",
         "parameters": [
           {
             "name": "symbol",
@@ -2036,9 +2036,9 @@
     "/api/publicapi/creasys/Asset/stocks/{symbol}/trades/latest": {
       "get": {
         "tags": [
-          "5. Activos e Instrumentos"
+          "05. Activos e Instrumentos"
         ],
-        "summary": "Último trade para un símbolo en ruta.",
+        "summary": "Consultar ultimo trade de un simbolo",
         "parameters": [
           {
             "name": "symbol",
@@ -2103,9 +2103,9 @@
     "/api/publicapi/creasys/Asset/LogoParquet/{nemotecnico}": {
       "get": {
         "tags": [
-          "5. Activos e Instrumentos"
+          "05. Activos e Instrumentos"
         ],
-        "summary": "Obtiene el logo de un activo financiero según su nemotecnico",
+        "summary": "Obtener logo de un activo por nemotecnico",
         "parameters": [
           {
             "name": "nemotecnico",
@@ -2177,9 +2177,9 @@
     "/api/publicapi/shared/Auth/SignIn": {
       "post": {
         "tags": [
-          "1. Autenticacion y Seguridad"
+          "01. Autenticacion y Seguridad"
         ],
-        "summary": "Inicia sesión usando usuario y contraseña.",
+        "summary": "Iniciar sesion",
         "requestBody": {
           "content": {
             "application/json": {
@@ -2236,9 +2236,9 @@
     "/api/publicapi/shared/Auth/RefreshToken": {
       "get": {
         "tags": [
-          "1. Autenticacion y Seguridad"
+          "01. Autenticacion y Seguridad"
         ],
-        "summary": "Si aun se tiene una sesión vigente pero su periodo de vigencia esta próxima a vencer, se puede solicitar renovar el token por otro periodo adicional.",
+        "summary": "Renovar token de sesion",
         "responses": {
           "200": {
             "description": "Success",
@@ -2276,7 +2276,7 @@
     "/api/publicapi/shared/Auth/externallogin": {
       "get": {
         "tags": [
-          "1. Autenticacion y Seguridad"
+          "01. Autenticacion y Seguridad"
         ],
         "parameters": [
           {
@@ -2324,13 +2324,13 @@
             }
           }
         },
-        "summary": "Inicia el flujo de autenticacion externa (OAuth)"
+        "summary": "Iniciar autenticacion externa (OAuth)"
       }
     },
     "/api/publicapi/shared/Auth/externallogincallback": {
       "get": {
         "tags": [
-          "1. Autenticacion y Seguridad"
+          "01. Autenticacion y Seguridad"
         ],
         "parameters": [
           {
@@ -2364,13 +2364,13 @@
             }
           }
         },
-        "summary": "Procesa la respuesta del proveedor de autenticacion externa"
+        "summary": "Callback de autenticacion externa"
       }
     },
     "/api/publicapi/shared/Auth/auth-popup-callback": {
       "get": {
         "tags": [
-          "1. Autenticacion y Seguridad"
+          "01. Autenticacion y Seguridad"
         ],
         "parameters": [
           {
@@ -2403,15 +2403,15 @@
             }
           }
         },
-        "summary": "Callback de autenticacion en ventana emergente"
+        "summary": "Callback de autenticacion en popup"
       }
     },
     "/api/publicapi/shared/Auth/SignOut": {
       "post": {
         "tags": [
-          "1. Autenticacion y Seguridad"
+          "01. Autenticacion y Seguridad"
         ],
-        "summary": "Cierra la sesión actual expirando el cookie de autenticación.",
+        "summary": "Cerrar sesion (SignOut)",
         "responses": {
           "204": {
             "description": "No Content"
@@ -2442,9 +2442,9 @@
     "/api/publicapi/shared/Auth/Me": {
       "get": {
         "tags": [
-          "1. Autenticacion y Seguridad"
+          "01. Autenticacion y Seguridad"
         ],
-        "summary": "Obtiene datos de la sesión actual (usuario y configuración) desde el token vigente.",
+        "summary": "Obtener datos de la sesion actual",
         "responses": {
           "200": {
             "description": "Success",
@@ -2482,9 +2482,9 @@
     "/api/publicapi/shared/Auth/Logout": {
       "post": {
         "tags": [
-          "1. Autenticacion y Seguridad"
+          "01. Autenticacion y Seguridad"
         ],
-        "summary": "Cierra la sesión del usuario eliminando la cookie de autenticación.",
+        "summary": "Cerrar sesion (Logout)",
         "responses": {
           "401": {
             "description": "Unauthorized",
@@ -2514,7 +2514,7 @@
         "tags": [
           "10. Tablas Maestras"
         ],
-        "summary": "Obtiene la lista disponible de bancos de Chile.",
+        "summary": "Listar bancos",
         "responses": {
           "200": {
             "description": "Success",
@@ -2575,9 +2575,9 @@
     "/api/publicapi/creasys/Beneficiario": {
       "post": {
         "tags": [
-          "2. Gestion de Clientes"
+          "02. Clientes y Personas"
         ],
-        "summary": "Crea un nuevo Beneficiario.",
+        "summary": "Crear beneficiario",
         "requestBody": {
           "description": "Objeto Beneficiario que se guardará en la base de datos.",
           "content": {
@@ -2645,9 +2645,9 @@
     "/api/publicapi/creasys/Beneficiario/{identificador}": {
       "get": {
         "tags": [
-          "2. Gestion de Clientes"
+          "02. Clientes y Personas"
         ],
-        "summary": "Obtiene los Beneficiarios asociados a un cliente por su identificador.",
+        "summary": "Listar beneficiarios de un cliente",
         "parameters": [
           {
             "name": "identificador",
@@ -2719,9 +2719,9 @@
     "/api/publicapi/creasys/Cajas": {
       "get": {
         "tags": [
-          "4. Cuentas y Estructura Operativa"
+          "04. Cuentas"
         ],
-        "summary": "Obtiene una lista de Cajas.",
+        "summary": "Listar cajas",
         "parameters": [
           {
             "name": "Identificador",
@@ -2820,9 +2820,9 @@
       },
       "post": {
         "tags": [
-          "4. Cuentas y Estructura Operativa"
+          "04. Cuentas"
         ],
-        "summary": "Crea una Caja nueva.",
+        "summary": "Crear caja",
         "requestBody": {
           "description": "Objeto que se utilizara para crear un nuevo objeto Caja para guardar en la BD.",
           "content": {
@@ -2890,9 +2890,9 @@
     "/api/publicapi/creasys/Cajas/ConSaldo": {
       "get": {
         "tags": [
-          "4. Cuentas y Estructura Operativa"
+          "04. Cuentas"
         ],
-        "summary": "Obtiene una lista de Cajas con saldo a una fecha determinada.",
+        "summary": "Listar cajas con saldo a una fecha",
         "parameters": [
           {
             "name": "Fecha",
@@ -3003,9 +3003,9 @@
     "/api/publicapi/creasys/Cajas/ConSaldoOnline": {
       "get": {
         "tags": [
-          "4. Cuentas y Estructura Operativa"
+          "04. Cuentas"
         ],
-        "summary": "Obtiene una lista de Cajas con saldo online si no existe cierre con saldo_caja a una fecha determinada para la cuenta ingresada.",
+        "summary": "Listar cajas con saldo en tiempo real",
         "parameters": [
           {
             "name": "NumCuenta",
@@ -3098,9 +3098,9 @@
     "/api/publicapi/creasys/Cartera": {
       "get": {
         "tags": [
-          "8. Cartera y Patrimonio"
+          "08. Cartera y Patrimonio"
         ],
-        "summary": "Obtiene una lista de Cartera en una fecha, cliente o cuenta determinada.",
+        "summary": "Consultar cartera completa",
         "parameters": [
           {
             "name": "Fecha",
@@ -3239,9 +3239,9 @@
     "/api/publicapi/creasys/Cartera/CarteraActual": {
       "get": {
         "tags": [
-          "8. Cartera y Patrimonio"
+          "08. Cartera y Patrimonio"
         ],
-        "summary": "Obtiene una lista de Cartera en una fecha, cliente o cuenta determinada.",
+        "summary": "Consultar cartera actual",
         "parameters": [
           {
             "name": "Fecha",
@@ -3380,7 +3380,7 @@
     "/api/publicapi/creasys/Cartera/CarteraActualOptimizada": {
       "get": {
         "tags": [
-          "8. Cartera y Patrimonio"
+          "08. Cartera y Patrimonio"
         ],
         "parameters": [
           {
@@ -3512,15 +3512,15 @@
             }
           }
         },
-        "summary": "Obtiene la cartera actual en formato optimizado"
+        "summary": "Consultar cartera actual (formato optimizado)"
       }
     },
     "/api/publicapi/creasys/Cartera/CarteraResumida": {
       "get": {
         "tags": [
-          "8. Cartera y Patrimonio"
+          "08. Cartera y Patrimonio"
         ],
-        "summary": "Obtiene una lista de Cartera Resumida en una fecha, cliente o cuenta determinada.",
+        "summary": "Consultar cartera resumida",
         "parameters": [
           {
             "name": "Fecha",
@@ -3659,9 +3659,9 @@
     "/api/publicapi/creasys/Cartera/CarteraDetallada": {
       "get": {
         "tags": [
-          "8. Cartera y Patrimonio"
+          "08. Cartera y Patrimonio"
         ],
-        "summary": "Obtiene una lista de Cartera en una fecha, cliente o cuenta determinada.",
+        "summary": "Consultar cartera detallada",
         "parameters": [
           {
             "name": "Fecha",
@@ -3800,9 +3800,9 @@
     "/api/publicapi/creasys/Cartola/GetCartolaVoultech": {
       "get": {
         "tags": [
-          "8. Cartera y Patrimonio"
+          "08. Cartera y Patrimonio"
         ],
-        "summary": "Obtiene la cartola de Voultech de una cuenta, fecha y moneda determinada.",
+        "summary": "Consultar cartola de movimientos",
         "parameters": [
           {
             "name": "numCuenta",
@@ -3897,9 +3897,9 @@
     "/api/publicapi/creasys/Cartola/GetCartolaCompletaVoultech": {
       "get": {
         "tags": [
-          "8. Cartera y Patrimonio"
+          "08. Cartera y Patrimonio"
         ],
-        "summary": "Obtiene la cartola de Voultech de una cuenta, fecha y moneda determinada.",
+        "summary": "Consultar cartola completa",
         "parameters": [
           {
             "name": "numCuenta",
@@ -3994,9 +3994,9 @@
     "/api/publicapi/creasys/Cedula/Vigencia": {
       "get": {
         "tags": [
-          "2. Gestion de Clientes"
+          "02. Clientes y Personas"
         ],
-        "summary": "Valida el carnet RUT (Rol Único Tributario).",
+        "summary": "Verificar vigencia de cedula de identidad",
         "description": "Sample request:\r\n            \r\n    GET /api/publicapi/creasys/Cedula/Vigencia?rut=12345678-9&serie=123456789",
         "parameters": [
           {
@@ -4066,9 +4066,9 @@
     "/api/publicapi/creasys/Cedula/Riesgo": {
       "get": {
         "tags": [
-          "2. Gestion de Clientes"
+          "02. Clientes y Personas"
         ],
-        "summary": "Valida el Riesgo de una persona por RUT (Rol Único Tributario).",
+        "summary": "Consultar nivel de riesgo de cedula de identidad",
         "description": "Sample request:\r\n            \r\n    GET /api/publicapi/creasys/Cedula/Riesgo?rut=12345678-9",
         "parameters": [
           {
@@ -4130,7 +4130,7 @@
     "/api/publicapi/creasys/CertificadoCustodias": {
       "get": {
         "tags": [
-          "8. Cartera y Patrimonio"
+          "08. Cartera y Patrimonio"
         ],
         "parameters": [
           {
@@ -4189,7 +4189,7 @@
             }
           }
         },
-        "summary": "Obtiene el certificado de custodias del cliente"
+        "summary": "Obtener certificado de custodias"
       }
     },
     "/api/publicapi/shared/Cierre/DatosEnProceso": {
@@ -4197,7 +4197,7 @@
         "tags": [
           "11. Integraciones y Sistema"
         ],
-        "summary": "Muestra si hay datos en proceso, lo que significa que los datos mostrados podrian cambiar.",
+        "summary": "Consultar datos en proceso de cierre",
         "parameters": [
           {
             "name": "Fecha",
@@ -4265,7 +4265,7 @@
         "tags": [
           "11. Integraciones y Sistema"
         ],
-        "summary": "Muestra los Cierres por Cuenta.",
+        "summary": "Consultar cuentas en proceso de cierre",
         "responses": {
           "200": {
             "description": "Success",
@@ -4308,7 +4308,7 @@
         "tags": [
           "11. Integraciones y Sistema"
         ],
-        "summary": "Muestra el ultimo cierre de GPI.",
+        "summary": "Consultar estado del cierre del sistema",
         "responses": {
           "200": {
             "description": "Success",
@@ -4349,7 +4349,7 @@
         "tags": [
           "11. Integraciones y Sistema"
         ],
-        "summary": "Muestra la fecha de cierre minima comun de las cuentas que resulten del filtro.",
+        "summary": "Consultar minimo comun del cierre",
         "requestBody": {
           "content": {
             "application/json": {
@@ -4407,9 +4407,9 @@
     "/api/publicapi/creasys/Clientes": {
       "get": {
         "tags": [
-          "2. Gestion de Clientes"
+          "02. Clientes y Personas"
         ],
-        "summary": "Obtiene una lista de Clientes.",
+        "summary": "Listar clientes",
         "parameters": [
           {
             "name": "Identificador",
@@ -4507,9 +4507,9 @@
       },
       "post": {
         "tags": [
-          "2. Gestion de Clientes"
+          "02. Clientes y Personas"
         ],
-        "summary": "Crea un Cliente nuevo.\r\nCrea un nuevo cliente en el sistema.",
+        "summary": "Crear cliente",
         "description": "Este endpoint permite registrar un nuevo cliente, ya sea persona natural o jurídica.\r\nRealiza validaciones de negocio y formato de datos. Puede retornar errores si la información es inválida o si el cliente ya existe.",
         "requestBody": {
           "description": "Objeto con los datos del cliente a crear.",
@@ -4606,9 +4606,9 @@
     "/api/publicapi/creasys/Clientes/{identificador}": {
       "put": {
         "tags": [
-          "2. Gestion de Clientes"
+          "02. Clientes y Personas"
         ],
-        "summary": "Actualiza un Cliente por identificador.",
+        "summary": "Actualizar cliente",
         "parameters": [
           {
             "name": "identificador",
@@ -4690,9 +4690,9 @@
     "/api/publicapi/creasys/ClockAlpaca": {
       "get": {
         "tags": [
-          "5. Activos e Instrumentos"
+          "05. Activos e Instrumentos"
         ],
-        "summary": "Obtiene el reloj de mercado desde Alpaca (formato en español).",
+        "summary": "Consultar estado del mercado Alpaca (abierto/cerrado)",
         "responses": {
           "200": {
             "description": "Success",
@@ -4733,7 +4733,7 @@
     "/api/publicapi/creasys/ClosePrices/symbol/{symbol}/latest": {
       "get": {
         "tags": [
-          "5. Activos e Instrumentos"
+          "05. Activos e Instrumentos"
         ],
         "parameters": [
           {
@@ -4777,7 +4777,7 @@
             }
           }
         },
-        "summary": "Obtiene el precio de cierre mas reciente para un simbolo"
+        "summary": "Consultar precio de cierre mas reciente"
       }
     },
     "/api/publicapi/creasys/CodigoTipoDocumento": {
@@ -4785,7 +4785,7 @@
         "tags": [
           "10. Tablas Maestras"
         ],
-        "summary": "Obtiene la lista disponible de los codigos de tipos de documentos.",
+        "summary": "Listar codigos de tipo de documento",
         "responses": {
           "200": {
             "description": "Success",
@@ -4846,9 +4846,9 @@
     "/api/publicapi/creasys/Comision": {
       "post": {
         "tags": [
-          "4. Cuentas y Estructura Operativa"
+          "04. Cuentas"
         ],
-        "summary": "Asigna un porcentaje de comisión a una cuenta específica.",
+        "summary": "Registrar comision de operacion",
         "requestBody": {
           "description": "Objeto que contiene el número de cuenta y el porcentaje de comisión a asignar.",
           "content": {
@@ -4919,9 +4919,9 @@
     "/api/publicapi/creasys/Comision/Administracion": {
       "post": {
         "tags": [
-          "4. Cuentas y Estructura Operativa"
+          "04. Cuentas"
         ],
-        "summary": "Asigna una comisión de administración a una cuenta específica.",
+        "summary": "Registrar comision de administracion",
         "requestBody": {
           "content": {
             "application/json": {
@@ -5032,7 +5032,7 @@
         "tags": [
           "10. Tablas Maestras"
         ],
-        "summary": "Obtiene la lista disponible de comunas de Chile.",
+        "summary": "Listar comunas",
         "responses": {
           "200": {
             "description": "Success",
@@ -5093,9 +5093,9 @@
     "/api/publicapi/creasys/Contacto": {
       "get": {
         "tags": [
-          "3. Datos de Contacto"
+          "03. Datos de Contacto"
         ],
-        "summary": "Obtiene una lista de ccontactos por cliente.",
+        "summary": "Listar contactos del cliente",
         "parameters": [
           {
             "name": "identificador",
@@ -5164,9 +5164,9 @@
       },
       "post": {
         "tags": [
-          "3. Datos de Contacto"
+          "03. Datos de Contacto"
         ],
-        "summary": "Crea un registro de contacto nuevo.",
+        "summary": "Registrar contacto",
         "requestBody": {
           "description": "Objeto que se utilizara para crear un nuevo objeto de contacto y guardar en la BD.",
           "content": {
@@ -5236,7 +5236,7 @@
         "tags": [
           "10. Tablas Maestras"
         ],
-        "summary": "Obtiene la lista disponible de contrapartes.",
+        "summary": "Listar contrapartes",
         "responses": {
           "200": {
             "description": "Success",
@@ -5299,7 +5299,7 @@
         "tags": [
           "10. Tablas Maestras"
         ],
-        "summary": "Obtiene la lista disponible de contratos nupciales.",
+        "summary": "Listar tipos de contrato matrimonial",
         "responses": {
           "200": {
             "description": "Success",
@@ -5362,7 +5362,7 @@
         "tags": [
           "10. Tablas Maestras"
         ],
-        "summary": "Obtiene la lista disponible de tipos de contrato.",
+        "summary": "Listar tipos de contrato de operacion",
         "responses": {
           "200": {
             "description": "Success",
@@ -5425,7 +5425,7 @@
         "tags": [
           "10. Tablas Maestras"
         ],
-        "summary": "Obtiene la lista disponible de tipos de contrato.",
+        "summary": "Listar tipos de documento de operacion",
         "responses": {
           "200": {
             "description": "Success",
@@ -5486,9 +5486,9 @@
     "/api/publicapi/creasys/CuentaAlpaca/CrearClienteAlpaca": {
       "post": {
         "tags": [
-          "4. Cuentas y Estructura Operativa"
+          "04. Cuentas"
         ],
-        "summary": "Crea una cuenta Alpaca para el cliente especificado. Utiliza el identificador del asesor autenticado.",
+        "summary": "Crear cliente en Alpaca",
         "requestBody": {
           "description": "DTO con los datos del cliente para crear la cuenta Alpaca.",
           "content": {
@@ -5546,9 +5546,9 @@
     "/api/publicapi/creasys/CuentaAlpaca/ObtenerCuentaAlpaca/{accountNumber}": {
       "get": {
         "tags": [
-          "4. Cuentas y Estructura Operativa"
+          "04. Cuentas"
         ],
-        "summary": "Obtiene los detalles de una cuenta Alpaca específica a partir del número de cuenta.",
+        "summary": "Obtener cuenta Alpaca por numero",
         "parameters": [
           {
             "name": "accountNumber",
@@ -5597,9 +5597,9 @@
     "/api/publicapi/creasys/CuentaAlpaca/ObtenerCuentas": {
       "get": {
         "tags": [
-          "4. Cuentas y Estructura Operativa"
+          "04. Cuentas"
         ],
-        "summary": "Obtiene todas las cuentas Alpaca asociadas al asesor autenticado, contrastando con las cuentas locales.",
+        "summary": "Listar cuentas Alpaca",
         "parameters": [
           {
             "name": "Identificador",
@@ -5671,7 +5671,7 @@
     "/api/publicapi/creasys/CuentaAlpaca/SaldoAlpaca/{accountNumber}": {
       "get": {
         "tags": [
-          "4. Cuentas y Estructura Operativa"
+          "04. Cuentas"
         ],
         "parameters": [
           {
@@ -5715,13 +5715,13 @@
             }
           }
         },
-        "summary": "Obtiene el saldo de una cuenta Alpaca"
+        "summary": "Consultar saldo Alpaca"
       }
     },
     "/api/publicapi/creasys/CuentaAlpaca/ObtenerActividadCuenta": {
       "get": {
         "tags": [
-          "4. Cuentas y Estructura Operativa"
+          "04. Cuentas"
         ],
         "parameters": [
           {
@@ -5827,13 +5827,13 @@
             }
           }
         },
-        "summary": "Obtiene el historial de actividad de la cuenta Alpaca"
+        "summary": "Consultar actividad de cuenta Alpaca"
       }
     },
     "/api/publicapi/creasys/CuentaAlpaca/Custodias/{accountNumber}": {
       "get": {
         "tags": [
-          "4. Cuentas y Estructura Operativa"
+          "04. Cuentas"
         ],
         "parameters": [
           {
@@ -5877,13 +5877,13 @@
             }
           }
         },
-        "summary": "Obtiene las custodias de una cuenta Alpaca"
+        "summary": "Consultar custodias Alpaca"
       }
     },
     "/api/publicapi/creasys/CuentaAlpaca/PreviewCip/{numCuenta}": {
       "get": {
         "tags": [
-          "4. Cuentas y Estructura Operativa"
+          "04. Cuentas"
         ],
         "parameters": [
           {
@@ -5927,13 +5927,13 @@
             }
           }
         },
-        "summary": "Obtiene la vista previa del CIP de una cuenta"
+        "summary": "Vista previa del CIP"
       }
     },
     "/api/publicapi/creasys/CuentaAlpaca/ListarDocumentos": {
       "get": {
         "tags": [
-          "4. Cuentas y Estructura Operativa"
+          "04. Cuentas"
         ],
         "parameters": [
           {
@@ -6000,13 +6000,13 @@
             }
           }
         },
-        "summary": "Lista los documentos de la cuenta Alpaca"
+        "summary": "Listar documentos Alpaca"
       }
     },
     "/api/publicapi/creasys/CuentaAlpaca/DescargarDocumentos": {
       "get": {
         "tags": [
-          "4. Cuentas y Estructura Operativa"
+          "04. Cuentas"
         ],
         "parameters": [
           {
@@ -6056,13 +6056,13 @@
             }
           }
         },
-        "summary": "Descarga documentos de la cuenta Alpaca"
+        "summary": "Descargar documentos Alpaca"
       }
     },
     "/api/publicapi/creasys/CuentaAlpaca/DescargarW8": {
       "get": {
         "tags": [
-          "4. Cuentas y Estructura Operativa"
+          "04. Cuentas"
         ],
         "parameters": [
           {
@@ -6105,15 +6105,15 @@
             }
           }
         },
-        "summary": "Descarga el formulario W8 de la cuenta Alpaca"
+        "summary": "Descargar formulario W8"
       }
     },
     "/api/publicapi/creasys/CuentaCorriente": {
       "get": {
         "tags": [
-          "4. Cuentas y Estructura Operativa"
+          "04. Cuentas"
         ],
-        "summary": "Obtiene una lista de cuentas corrientes por cliente.",
+        "summary": "Listar cuentas corrientes del cliente",
         "parameters": [
           {
             "name": "identificador",
@@ -6182,9 +6182,9 @@
       },
       "post": {
         "tags": [
-          "4. Cuentas y Estructura Operativa"
+          "04. Cuentas"
         ],
-        "summary": "Crea un registro de cuenta corriente nuevo.",
+        "summary": "Registrar cuenta corriente",
         "requestBody": {
           "description": "Objeto que se utilizara para crear un nuevo objeto de cuenta corriente y guardar en la BD.",
           "content": {
@@ -6252,9 +6252,9 @@
     "/api/publicapi/creasys/Cuentas": {
       "get": {
         "tags": [
-          "4. Cuentas y Estructura Operativa"
+          "04. Cuentas"
         ],
-        "summary": "Obtiene una lista de Cuentas.",
+        "summary": "Listar cuentas",
         "parameters": [
           {
             "name": "Identificador",
@@ -6353,9 +6353,9 @@
       },
       "post": {
         "tags": [
-          "4. Cuentas y Estructura Operativa"
+          "04. Cuentas"
         ],
-        "summary": "Crea una Cuenta nueva.",
+        "summary": "Crear cuenta",
         "requestBody": {
           "description": "Objeto que se utilizara para crear un nuevo objeto Cuenta para guardar en la BD.",
           "content": {
@@ -6423,9 +6423,9 @@
     "/api/publicapi/creasys/Cuentas/{numCuenta}": {
       "put": {
         "tags": [
-          "4. Cuentas y Estructura Operativa"
+          "04. Cuentas"
         ],
-        "summary": "Actualiza una Cuenta por numero de cuenta.",
+        "summary": "Actualizar cuenta",
         "parameters": [
           {
             "name": "numCuenta",
@@ -6507,9 +6507,9 @@
     "/api/publicapi/creasys/Cuentas/kyc": {
       "get": {
         "tags": [
-          "4. Cuentas y Estructura Operativa"
+          "04. Cuentas"
         ],
-        "summary": "Obtiene los datos KYC de una cuenta.",
+        "summary": "Obtener datos KYC de la cuenta",
         "parameters": [
           {
             "name": "numCuenta",
@@ -6578,9 +6578,9 @@
     "/api/publicapi/creasys/Cuentas/identyz": {
       "post": {
         "tags": [
-          "4. Cuentas y Estructura Operativa"
+          "04. Cuentas"
         ],
-        "summary": "Consulta Identyz con los documentos de la cuenta especificada.",
+        "summary": "Validar identidad del cliente (Identyz)",
         "parameters": [
           {
             "name": "numCuenta",
@@ -6659,9 +6659,9 @@
     "/api/publicapi/creasys/DireccionPersona": {
       "get": {
         "tags": [
-          "3. Datos de Contacto"
+          "03. Datos de Contacto"
         ],
-        "summary": "Obtiene una lista de Direcciones.",
+        "summary": "Listar direcciones de una persona",
         "parameters": [
           {
             "name": "identificador",
@@ -6730,9 +6730,9 @@
       },
       "post": {
         "tags": [
-          "3. Datos de Contacto"
+          "03. Datos de Contacto"
         ],
-        "summary": "Crea una Dirección.",
+        "summary": "Registrar direccion",
         "requestBody": {
           "description": "Objeto con los datos necesarios para crear una dirección en la BD.",
           "content": {
@@ -6818,9 +6818,9 @@
       },
       "put": {
         "tags": [
-          "3. Datos de Contacto"
+          "03. Datos de Contacto"
         ],
-        "summary": "Actualiza un Dirección por id.",
+        "summary": "Actualizar direccion",
         "parameters": [
           {
             "name": "identificador",
@@ -6929,9 +6929,9 @@
       },
       "delete": {
         "tags": [
-          "3. Datos de Contacto"
+          "03. Datos de Contacto"
         ],
-        "summary": "Elimina una Dirección por id.",
+        "summary": "Eliminar direccion",
         "parameters": [
           {
             "name": "identificador",
@@ -7002,9 +7002,9 @@
     "/api/publicapi/creasys/Documentos": {
       "get": {
         "tags": [
-          "9. Documentos"
+          "09. Documentos"
         ],
-        "summary": "Obtiene una lista de Documentos.",
+        "summary": "Listar documentos del cliente",
         "parameters": [
           {
             "name": "Identificador",
@@ -7093,9 +7093,9 @@
       },
       "post": {
         "tags": [
-          "9. Documentos"
+          "09. Documentos"
         ],
-        "summary": "Ingresa los datos y contenido de un documento.",
+        "summary": "Subir documento",
         "requestBody": {
           "description": "Objeto que se utilizara para crear un nuevo registro de documento (se debe ingresar el documento convertido a byte[] y luego codificado en base64 en la variable Contenido).",
           "content": {
@@ -7156,9 +7156,9 @@
     "/publicapi/creasys/DocumentosAlpacaSync/sync": {
       "post": {
         "tags": [
-          "9. Documentos"
+          "09. Documentos"
         ],
-        "summary": "Dispara la sincronización (order-first) hacia la BD.",
+        "summary": "Sincronizar documentos con Alpaca",
         "responses": {
           "401": {
             "description": "Unauthorized",
@@ -7196,9 +7196,9 @@
     "/api/publicapi/creasys/EmailPersona": {
       "get": {
         "tags": [
-          "3. Datos de Contacto"
+          "03. Datos de Contacto"
         ],
-        "summary": "Obtiene una lista de Email.",
+        "summary": "Listar emails de una persona",
         "parameters": [
           {
             "name": "identificador",
@@ -7267,9 +7267,9 @@
       },
       "post": {
         "tags": [
-          "3. Datos de Contacto"
+          "03. Datos de Contacto"
         ],
-        "summary": "Crea un Email.",
+        "summary": "Registrar email",
         "requestBody": {
           "description": "Objeto con los datos necesarios para crear un email en la BD.",
           "content": {
@@ -7355,9 +7355,9 @@
       },
       "put": {
         "tags": [
-          "3. Datos de Contacto"
+          "03. Datos de Contacto"
         ],
-        "summary": "Actualiza un Email por id.",
+        "summary": "Actualizar email",
         "parameters": [
           {
             "name": "identificador",
@@ -7466,9 +7466,9 @@
       },
       "delete": {
         "tags": [
-          "3. Datos de Contacto"
+          "03. Datos de Contacto"
         ],
-        "summary": "Elimina un Email por id.",
+        "summary": "Eliminar email",
         "parameters": [
           {
             "name": "identificador",
@@ -7539,9 +7539,9 @@
     "/api/publicapi/creasys/Enrolamiento": {
       "post": {
         "tags": [
-          "2. Gestion de Clientes"
+          "02. Clientes y Personas"
         ],
-        "summary": "Obtiene la informacion de los prospectos y luego crea a los clientes y sus dependencias.",
+        "summary": "Iniciar enrolamiento de cliente",
         "description": "Sample request:\r\n            \r\n    POST /api/publicapi/creasys/Enrolamiento/FinalizarEnrolamiento\r\n    {\r\n        \"codPerfilRiesgo\": \"PERFBAJ\",\r\n        \"personaFulls\": [\r\n        {\r\n            \"tipoEntidad\": \"N\",\r\n            \"identificador\": \"12345678-9\",\r\n            \"tipoIdentificador\": \"R\",\r\n            \"nombre\": \"Juan\",\r\n            \"paterno\": \"Perez\",\r\n            \"materno\": \"Perez\",\r\n            \"sexo\": \"M\",\r\n            \"fechaNacimiento\": \"1990-01-01\",\r\n            \"codPais\": \"CHL\",\r\n            \"codEstadoCivil\": \"SOLTERO\",\r\n            \"codRegimenMatrimonial\": \"REGMATRIMONIAL\",\r\n            \"dscGiro\": \"Giro\",\r\n            \"codTipoSociedad\": \"Sociedad\",\r\n            \"codTipoRelacion\": \"CLINTE\",\r\n            \"telefonoFulls\": [\r\n            {\r\n                \"telefono\": \"123456789\",\r\n                \"observacion\": \"Observacion\",\r\n                \"codTipoTelefono\": \"TTELEFIJO\"\r\n            }\r\n            ],\r\n            \"direccionFulls\": [\r\n            {\r\n                \"linea1\": \"Direccion\",\r\n                \"codTipoDireccion\": \"TDIREFPART\",\r\n                \"prospComunaCiudadId\": 1\r\n            }\r\n            ],\r\n            \"emailFulls\": [\r\n            {\r\n                \"email\": \"Email\",\r\n                \"codTipoEmail\": \"TDIREECOME\"\r\n            }\r\n            ],\r\n            \"cuentaBancarioFulls\": [\r\n            {\r\n                \"numero\": \"123456789\",\r\n                \"tipo\": \"Cuenta Corriente\",\r\n                \"prospBancoId\": 1\r\n            }\r\n            ]\r\n        }\r\n        ]\r\n    }",
         "requestBody": {
           "content": {
@@ -7627,7 +7627,7 @@
         "tags": [
           "10. Tablas Maestras"
         ],
-        "summary": "Obtiene la lista disponible de tipos de estado civil.",
+        "summary": "Listar estados civiles",
         "responses": {
           "200": {
             "description": "Success",
@@ -7688,7 +7688,7 @@
     "/api/publicapi/shared/Fintoc/WebhookSuccess": {
       "post": {
         "tags": [
-          "7. Movimientos y Transferencias"
+          "07. Movimientos y Transferencias"
         ],
         "requestBody": {
           "content": {
@@ -7728,13 +7728,13 @@
             }
           }
         },
-        "summary": "Webhook de Fintoc para notificaciones de transferencias exitosas"
+        "summary": "Webhook Fintoc: transferencia exitosa"
       }
     },
     "/api/publicapi/shared/Fintoc/WebhookFailed": {
       "post": {
         "tags": [
-          "7. Movimientos y Transferencias"
+          "07. Movimientos y Transferencias"
         ],
         "requestBody": {
           "content": {
@@ -7774,7 +7774,7 @@
             }
           }
         },
-        "summary": "Webhook de Fintoc para notificaciones de transferencias fallidas"
+        "summary": "Webhook Fintoc: transferencia fallida"
       }
     },
     "/api/publicapi/creasys/FormaOperacion": {
@@ -7782,7 +7782,7 @@
         "tags": [
           "10. Tablas Maestras"
         ],
-        "summary": "Obtiene la lista disponible de formas de operacion.",
+        "summary": "Listar formas de operacion",
         "responses": {
           "200": {
             "description": "Success",
@@ -7843,9 +7843,9 @@
     "/api/publicapi/creasys/Instrumentos/GetInstrumentos": {
       "get": {
         "tags": [
-          "5. Activos e Instrumentos"
+          "05. Activos e Instrumentos"
         ],
-        "summary": "Obtiene una Lista de instrumentos del sistema.",
+        "summary": "Listar instrumentos financieros",
         "description": "Sample request:\r\n            \r\n    GET /api/publicapi/creasys/Instrumentos/GetInstrumentos?IdInstrumento=1&Nemotecnico=ACCION&IdRamaArbol=1&IdDatoAtributo=1",
         "parameters": [
           {
@@ -7934,9 +7934,9 @@
     "/api/publicapi/creasys/Instrumentos": {
       "get": {
         "tags": [
-          "5. Activos e Instrumentos"
+          "05. Activos e Instrumentos"
         ],
-        "summary": "Obtiene una Lista de instrumentos del sistema Por Perfil de Riesgo.",
+        "summary": "Buscar instrumentos financieros",
         "description": "Sample request:\r\n            \r\n    GET /api/publicapi/creasys/Instrumentos?abrPerfilRiesgo=CONSERVADOR",
         "parameters": [
           {
@@ -8059,7 +8059,7 @@
             }
           }
         },
-        "summary": "Registra eventos de journals en Alpaca"
+        "summary": "Registrar evento de journal en Alpaca"
       }
     },
     "/api/publicapi/creasys/Moneda": {
@@ -8067,7 +8067,7 @@
         "tags": [
           "10. Tablas Maestras"
         ],
-        "summary": "Obtiene la lista disponible de monedas.",
+        "summary": "Listar monedas",
         "responses": {
           "200": {
             "description": "Success",
@@ -8128,9 +8128,9 @@
     "/api/publicapi/creasys/MovimientoCaja/CambioCajaAuto": {
       "post": {
         "tags": [
-          "7. Movimientos y Transferencias"
+          "07. Movimientos y Transferencias"
         ],
-        "summary": "requi",
+        "summary": "Ejecutar cambio automatico de caja",
         "requestBody": {
           "description": "",
           "content": {
@@ -8188,9 +8188,9 @@
     "/api/publicapi/creasys/Movimientos": {
       "get": {
         "tags": [
-          "7. Movimientos y Transferencias"
+          "07. Movimientos y Transferencias"
         ],
-        "summary": "Obtiene una lista de Movimientos en un rango de fecha determinado.",
+        "summary": "Listar movimientos por rango de fechas",
         "parameters": [
           {
             "name": "Desde",
@@ -8340,9 +8340,9 @@
     "/api/publicapi/creasys/Movimientos/MovimientosShinkansen": {
       "get": {
         "tags": [
-          "7. Movimientos y Transferencias"
+          "07. Movimientos y Transferencias"
         ],
-        "summary": "Obtiene una lista de Movimientos shinkansen en un rango de fecha determinado con informacion de estado banco.",
+        "summary": "Listar movimientos via Shinkansen",
         "parameters": [
           {
             "name": "IdMovCaja",
@@ -8480,9 +8480,9 @@
     "/api/publicapi/creasys/Movimientos/MovimientosBancoSecurity": {
       "get": {
         "tags": [
-          "7. Movimientos y Transferencias"
+          "07. Movimientos y Transferencias"
         ],
-        "summary": "Obtiene una lista de Movimientos del banco Security en un rango de fecha determinado",
+        "summary": "Listar movimientos Banco Security",
         "parameters": [
           {
             "name": "Desde",
@@ -8593,9 +8593,9 @@
     "/api/publicapi/creasys/Movimientos/MovimientosBancoBice": {
       "get": {
         "tags": [
-          "7. Movimientos y Transferencias"
+          "07. Movimientos y Transferencias"
         ],
-        "summary": "Obtiene una lista de Movimientos del banco Bice en un rango de fecha determinado",
+        "summary": "Listar movimientos Banco Bice",
         "parameters": [
           {
             "name": "Desde",
@@ -8706,9 +8706,9 @@
     "/api/publicapi/creasys/Movimientos/IngresoAporteRetiro": {
       "post": {
         "tags": [
-          "7. Movimientos y Transferencias"
+          "07. Movimientos y Transferencias"
         ],
-        "summary": "Se puede hacer ingreso de Aportes o Retiros patrimoniales.",
+        "summary": "Registrar aporte o retiro",
         "requestBody": {
           "description": "Objeto con el cual se crearan los movimientos de aporte o retiro patrimonial",
           "content": {
@@ -8786,9 +8786,9 @@
     "/api/publicapi/creasys/Movimientos/NuevoIngresoAporteRetiro": {
       "post": {
         "tags": [
-          "7. Movimientos y Transferencias"
+          "07. Movimientos y Transferencias"
         ],
-        "summary": "(Nuevo) Ingreso de retiros patrimoniales vía Shinkansen.\r\nFecha de movimiento y fecha de liquidación se calculan en servidor (hora Chile, corte 14:00 y días hábiles);\r\nlos valores enviados en el cuerpo para esas fechas se ignoran.",
+        "summary": "Registrar aporte o retiro (v2)",
         "requestBody": {
           "content": {
             "application/json": {
@@ -8868,9 +8868,9 @@
     "/api/publicapi/creasys/Movimientos/IngresoAporteRetiroMasivo": {
       "post": {
         "tags": [
-          "7. Movimientos y Transferencias"
+          "07. Movimientos y Transferencias"
         ],
-        "summary": "Se puede hacer ingreso de Aportes o Retiros patrimoniales.",
+        "summary": "Registrar aportes o retiros masivos",
         "requestBody": {
           "description": "Objeto con el cual se crearan los movimientos de aporte o retiro patrimonial. Cada objeto debe incluir los siguientes campos:\r\n- `CodMoneda`: Código de la moneda (requerido, longitud máxima de 3 caracteres).\r\n- `DscMedioPagoCobro`: Descripción del medio de pago o cobro (longitud máxima de 20 caracteres).\r\n- `Banco`: Nombre del banco (longitud máxima de 60 caracteres).\r\n- `NumeroCuenta`: Número de la cuenta (longitud máxima de 20 caracteres).\r\n- `TipoCuenta`: Tipo de la cuenta (longitud máxima de 20 caracteres).\r\n- `Uuid`: Identificador único universal (UUID) para el registro (longitud máxima de 36 caracteres, puede ser nulo).",
           "content": {
@@ -8963,9 +8963,9 @@
     "/api/publicapi/creasys/MovimientosAlpaca/MovimientoInternacionalAlpaca": {
       "post": {
         "tags": [
-          "7. Movimientos y Transferencias"
+          "07. Movimientos y Transferencias"
         ],
-        "summary": "Registra un movimiento internacional de tipo retiro o aporte patrimonial\r\nentre cuentas locales y cuentas Alpaca, según el tipo de movimiento especificado.",
+        "summary": "Registrar movimiento internacional Alpaca",
         "requestBody": {
           "content": {
             "application/json": {
@@ -9025,7 +9025,7 @@
     "/api/publicapi/creasys/MovimientosAlpaca/patrimoniales/{numCuenta}": {
       "get": {
         "tags": [
-          "7. Movimientos y Transferencias"
+          "07. Movimientos y Transferencias"
         ],
         "parameters": [
           {
@@ -9121,7 +9121,7 @@
             }
           }
         },
-        "summary": "Obtiene los movimientos patrimoniales de una cuenta Alpaca"
+        "summary": "Listar movimientos patrimoniales Alpaca"
       }
     },
     "/api/publicapi/creasys/MxMesa": {
@@ -9129,7 +9129,7 @@
         "tags": [
           "11. Integraciones y Sistema"
         ],
-        "summary": "Obtiene la lista disponible de mesa de distribucion spot.",
+        "summary": "Consultar mesa de operaciones",
         "responses": {
           "200": {
             "description": "Success",
@@ -9190,9 +9190,9 @@
     "/api/publicapi/creasys/Operaciones": {
       "get": {
         "tags": [
-          "6. Ordenes y Operaciones"
+          "06. Ordenes y Operaciones"
         ],
-        "summary": "Obtiene una lista de Operaciones en un rango de fecha determinado.",
+        "summary": "Listar operaciones",
         "parameters": [
           {
             "name": "Desde",
@@ -9327,9 +9327,9 @@
     "/api/publicapi/creasys/Operaciones/IngresoOperacionCuentaRemunerada": {
       "post": {
         "tags": [
-          "6. Ordenes y Operaciones"
+          "06. Ordenes y Operaciones"
         ],
-        "summary": "Se puede hacer ingreso de una lista de operaciones.",
+        "summary": "Registrar operacion de cuenta remunerada",
         "requestBody": {
           "description": "Lista de objetos OperacionTranApi con la cual se crearán las operaciones. Cada objeto debe incluir los siguientes campos:\r\n- `Uuid`: UUID de la operación (requerido (Idempotencia), longitud máxima de 36 caracteres).\r\n- `NumCuenta`: Número de cuenta asociada a la operación (requerido, longitud máxima de 50 caracteres).\r\n- `CodTipoOperacion`: Código del tipo de operación (requerido, longitud máxima de 10 caracteres).\r\n- `Nemotecnico`: Nemotécnico del instrumento financiero (longitud máxima de 50 caracteres).\r\n- `FechaOperacion`: Fecha de la operación (requerido).\r\n- `Monto`: Monto total de la operación (requerido).",
           "content": {
@@ -9432,9 +9432,9 @@
     "/api/publicapi/creasys/Operaciones/IngresoOperacionSpot": {
       "post": {
         "tags": [
-          "6. Ordenes y Operaciones"
+          "06. Ordenes y Operaciones"
         ],
-        "summary": "Se puede hacer ingreso de una lista de Operaciones Spot.",
+        "summary": "Registrar operacion spot",
         "requestBody": {
           "description": "Lista de Objeto OperacionSpotApi con el cual se crearan las operaciones Spot",
           "content": {
@@ -9524,7 +9524,7 @@
     "/api/publicapi/creasys/Operaciones/OrdenSpot": {
       "post": {
         "tags": [
-          "6. Ordenes y Operaciones"
+          "06. Ordenes y Operaciones"
         ],
         "requestBody": {
           "content": {
@@ -9603,15 +9603,15 @@
             }
           }
         },
-        "summary": "Ingresa una orden spot al sistema"
+        "summary": "Ingresar orden spot"
       }
     },
     "/api/operaciones/reporte/enviar": {
       "post": {
         "tags": [
-          "6. Ordenes y Operaciones"
+          "06. Ordenes y Operaciones"
         ],
-        "summary": "Envía el reporte diario de operaciones (inversiones/rescates) del día actual.\r\n- Notifica al cliente (si tiene mail)\r\n- Siempre envía copia a soporte@voultech.com\r\n- Marca operaciones como enviadas para evitar duplicados",
+        "summary": "Enviar reporte de operaciones",
         "parameters": [
           {
             "name": "fecha",
@@ -9659,9 +9659,9 @@
     "/api/publicapi/creasys/Ordenes": {
       "get": {
         "tags": [
-          "6. Ordenes y Operaciones"
+          "06. Ordenes y Operaciones"
         ],
-        "summary": "Obtiene una lista de Ordenes Ingresdas via api a mercado en un rango de fecha determinado.",
+        "summary": "Listar ordenes",
         "parameters": [
           {
             "name": "Desde",
@@ -9786,9 +9786,9 @@
     "/api/publicapi/creasys/Ordenes/IngresoOrdenes": {
       "post": {
         "tags": [
-          "6. Ordenes y Operaciones"
+          "06. Ordenes y Operaciones"
         ],
-        "summary": "Se puede hacer ingreso de Ordenes.",
+        "summary": "Ingresar ordenes (v1)",
         "parameters": [
           {
             "name": "Ingresar",
@@ -9889,9 +9889,9 @@
     "/api/publicapi/creasys/Ordenes/IngresarOrdenesMercado": {
       "post": {
         "tags": [
-          "6. Ordenes y Operaciones"
+          "06. Ordenes y Operaciones"
         ],
-        "summary": "Ingreso de órdenes directo a mercado OMS.",
+        "summary": "Ingresar ordenes a mercado",
         "description": "Este endpoint permite ingresar órdenes al mercado basándose en los parámetros especificados en la solicitud.\r\nSe realiza una serie de validaciones para asegurar que la orden pueda ser procesada:\r\n<list type=\"bullet\"><item><description>Validación de que se proporcionaron órdenes y que su cantidad no exceda el límite permitido.</description></item><item><description>Verificación de que no haya UUIDs duplicados en la lista de órdenes.</description></item><item><description>Validación de la existencia de la cuenta asociada con la orden.</description></item><item><description>Comprobación de la existencia del instrumento financiero especificado.</description></item><item><description>Verificación de que el UUID proporcionado no haya sido utilizado previamente para evitar duplicaciones.</description></item></list>",
         "requestBody": {
           "description": "Lista de objetos que representan las órdenes a ingresar, con detalles como cuenta, instrumento, cantidad, y precio.",
@@ -9992,9 +9992,9 @@
     "/api/publicapi/creasys/Ordenes/IngresarOrdenesMercadoAuto": {
       "post": {
         "tags": [
-          "6. Ordenes y Operaciones"
+          "06. Ordenes y Operaciones"
         ],
-        "summary": "Ingreso de órdenes directo a mercado OMS (versión automática con modalidades).",
+        "summary": "Ingresar ordenes a mercado (modo automatico)",
         "description": "Este endpoint permite ingresar órdenes al mercado basándose en los parámetros especificados en la solicitud.\r\nSe realiza una serie de validaciones para asegurar que la orden pueda ser procesada:\r\n<list type=\"bullet\"><item><description>Validación de que se proporcionaron órdenes y que su cantidad no exceda el límite permitido.</description></item><item><description>Verificación de que no haya UUIDs duplicados en la lista de órdenes.</description></item><item><description>Validación de la existencia de la cuenta asociada con la orden.</description></item><item><description>Comprobación de la existencia del instrumento financiero especificado.</description></item><item><description>Verificación de que el UUID proporcionado no haya sido utilizado previamente para evitar duplicaciones.</description></item></list>",
         "requestBody": {
           "description": "Lista de objetos que representan las órdenes a ingresar, con detalles como cuenta, instrumento, cantidad, y precio.",
@@ -10095,7 +10095,7 @@
     "/api/publicapi/creasys/Ordenes/AnularOrden": {
       "post": {
         "tags": [
-          "6. Ordenes y Operaciones"
+          "06. Ordenes y Operaciones"
         ],
         "requestBody": {
           "content": {
@@ -10150,15 +10150,16 @@
               }
             }
           }
-        }
+        },
+        "summary": "Anular orden"
       }
     },
     "/api/publicapi/creasys/Ordenes/RegistroOrdenesExterno": {
       "post": {
         "tags": [
-          "6. Ordenes y Operaciones"
+          "06. Ordenes y Operaciones"
         ],
-        "summary": "Se puede hacer ingreso de Ordenes particulares(externas).",
+        "summary": "Registrar ordenes externas",
         "parameters": [
           {
             "name": "Ingresar",
@@ -10258,9 +10259,9 @@
     "/api/publicapi/creasys/Ordenes/IngresoOrdenesIntraDay": {
       "post": {
         "tags": [
-          "6. Ordenes y Operaciones"
+          "06. Ordenes y Operaciones"
         ],
-        "summary": "Ingreso de órdenes v2 con funcionalidad completa del frontoffice.",
+        "summary": "Ingresar ordenes intraday",
         "description": "Este endpoint permite ingresar órdenes con todas las funcionalidades del frontoffice, incluyendo:\r\n<list type=\"bullet\"><item><description>Validación de cuenta y permisos</description></item><item><description>Validación de fechas de liquidación</description></item><item><description>Registro de logs</description></item></list>",
         "requestBody": {
           "description": "Lista de órdenes a ingresar",
@@ -10344,9 +10345,9 @@
     "/api/publicapi/creasys/Ordenes/SaldoCustodiaIntraDay": {
       "get": {
         "tags": [
-          "6. Ordenes y Operaciones"
+          "06. Ordenes y Operaciones"
         ],
-        "summary": "Consulta de saldo de custodia intradía para una cuenta.",
+        "summary": "Consultar saldo de custodia intraday",
         "description": "Este endpoint permite consultar el saldo de custodia intradía, considerando:\r\n<list type=\"bullet\"><item><description>Validación de cuenta</description></item><item><description>Cálculo de fecha de liquidación según tipo</description></item><item><description>Evaluación del saldo disponible en custodia</description></item></list>",
         "parameters": [
           {
@@ -10557,7 +10558,7 @@
             }
           }
         },
-        "summary": "Actualiza el estado de un movimiento de orden"
+        "summary": "Actualizar estado de movimiento de orden"
       }
     },
     "/api/publicapi/shared/OrderMovement/UpdateMovementBufferProtocol": {
@@ -10603,7 +10604,7 @@
             }
           }
         },
-        "summary": "Actualiza movimiento de orden con protocolo de buffer"
+        "summary": "Actualizar movimiento de orden (protocolo buffer)"
       }
     },
     "/api/publicapi/creasys/Pais": {
@@ -10611,7 +10612,7 @@
         "tags": [
           "10. Tablas Maestras"
         ],
-        "summary": "Obtiene la lista disponible de paises.",
+        "summary": "Listar paises",
         "responses": {
           "200": {
             "description": "Success",
@@ -10674,7 +10675,7 @@
         "tags": [
           "10. Tablas Maestras"
         ],
-        "summary": "Obtiene la lista disponible de tipos de perfil de riesgo.",
+        "summary": "Listar perfiles de riesgo",
         "responses": {
           "200": {
             "description": "Success",
@@ -10735,9 +10736,9 @@
     "/api/publicapi/creasys/Personas": {
       "get": {
         "tags": [
-          "2. Gestion de Clientes"
+          "02. Clientes y Personas"
         ],
-        "summary": "Obtiene una lista de Personas.",
+        "summary": "Listar personas",
         "parameters": [
           {
             "name": "Identificador",
@@ -10835,9 +10836,9 @@
       },
       "post": {
         "tags": [
-          "2. Gestion de Clientes"
+          "02. Clientes y Personas"
         ],
-        "summary": "Crea un Persona nuevo.",
+        "summary": "Crear persona",
         "requestBody": {
           "description": "Objeto Persona que se guardará en la BD.",
           "content": {
@@ -10905,9 +10906,9 @@
     "/api/publicapi/creasys/Personas/{identificador}": {
       "put": {
         "tags": [
-          "2. Gestion de Clientes"
+          "02. Clientes y Personas"
         ],
-        "summary": "Actualiza un Persona por id.",
+        "summary": "Actualizar persona",
         "parameters": [
           {
             "name": "identificador",
@@ -10999,9 +11000,9 @@
     "/api/publicapi/creasys/PublicadorPrecio/GetPreciosInstrumento": {
       "get": {
         "tags": [
-          "5. Activos e Instrumentos"
+          "05. Activos e Instrumentos"
         ],
-        "summary": "Devuelve los precios historicos de un instrumento",
+        "summary": "Consultar precios actuales de un instrumento",
         "description": "Sample request:\r\n            \r\n    GET api/publicapi/creasys/PublicadorPrecio/GetPreciosInstrumento?nemotecnico=COPEC",
         "parameters": [
           {
@@ -11104,7 +11105,7 @@
         "tags": [
           "10. Tablas Maestras"
         ],
-        "summary": "Obtiene la lista disponible de regiones de Chile.",
+        "summary": "Listar regiones",
         "responses": {
           "200": {
             "description": "Success",
@@ -11167,7 +11168,7 @@
         "tags": [
           "10. Tablas Maestras"
         ],
-        "summary": "Obtiene la lista disponible de relacion de corredora.",
+        "summary": "Consultar relacion cliente-banco",
         "responses": {
           "200": {
             "description": "Success",
@@ -11228,7 +11229,7 @@
     "/api/Shinkansen": {
       "post": {
         "tags": [
-          "7. Movimientos y Transferencias"
+          "07. Movimientos y Transferencias"
         ],
         "requestBody": {
           "content": {
@@ -11271,15 +11272,15 @@
             }
           }
         },
-        "summary": "Procesa una transferencia via Shinkansen"
+        "summary": "Procesar transferencia via Shinkansen"
       }
     },
     "/api/publicapi/creasys/TelefonoPersona": {
       "get": {
         "tags": [
-          "3. Datos de Contacto"
+          "03. Datos de Contacto"
         ],
-        "summary": "Obtiene una lista de Teléfonos.",
+        "summary": "Listar telefonos de una persona",
         "parameters": [
           {
             "name": "identificador",
@@ -11348,9 +11349,9 @@
       },
       "post": {
         "tags": [
-          "3. Datos de Contacto"
+          "03. Datos de Contacto"
         ],
-        "summary": "Crea un Teléfono.",
+        "summary": "Registrar telefono",
         "requestBody": {
           "description": "Objeto con los datos necesarios para crear un telefono en la BD.",
           "content": {
@@ -11436,9 +11437,9 @@
       },
       "put": {
         "tags": [
-          "3. Datos de Contacto"
+          "03. Datos de Contacto"
         ],
-        "summary": "Actualiza un Teléfono por identificador y telefono.",
+        "summary": "Actualizar telefono",
         "parameters": [
           {
             "name": "identificador",
@@ -11547,9 +11548,9 @@
       },
       "delete": {
         "tags": [
-          "3. Datos de Contacto"
+          "03. Datos de Contacto"
         ],
-        "summary": "Elimina un Teléfono por id.",
+        "summary": "Eliminar telefono",
         "parameters": [
           {
             "name": "identificador",
@@ -11620,9 +11621,9 @@
     "/api/publicapi/creasys/TipoAdministracion": {
       "get": {
         "tags": [
-          "4. Cuentas y Estructura Operativa"
+          "04. Cuentas"
         ],
-        "summary": "Obtiene la lista disponible de tipos de administracion.",
+        "summary": "Listar tipos de administracion",
         "responses": {
           "200": {
             "description": "Success",
@@ -11683,9 +11684,9 @@
     "/api/publicapi/creasys/TipoContacto": {
       "get": {
         "tags": [
-          "3. Datos de Contacto"
+          "03. Datos de Contacto"
         ],
-        "summary": "Obtiene la lista disponible de tipos de contacto.",
+        "summary": "Listar tipos de contacto",
         "responses": {
           "200": {
             "description": "Success",
@@ -11746,9 +11747,9 @@
     "/api/publicapi/creasys/TipoCuenta": {
       "get": {
         "tags": [
-          "4. Cuentas y Estructura Operativa"
+          "04. Cuentas"
         ],
-        "summary": "Obtiene la lista disponible de tipos de cuenta.",
+        "summary": "Listar tipos de cuenta",
         "responses": {
           "200": {
             "description": "Success",
@@ -11809,9 +11810,9 @@
     "/api/publicapi/creasys/TipoCuentaBanco": {
       "get": {
         "tags": [
-          "4. Cuentas y Estructura Operativa"
+          "04. Cuentas"
         ],
-        "summary": "Obtiene la lista disponible de tipos de cuenta Banco.",
+        "summary": "Listar tipos de cuenta bancaria",
         "responses": {
           "200": {
             "description": "Success",
@@ -11872,9 +11873,9 @@
     "/api/publicapi/creasys/TipoDireccion/GetTipoDireccion": {
       "get": {
         "tags": [
-          "3. Datos de Contacto"
+          "03. Datos de Contacto"
         ],
-        "summary": "Obtiene la lista disponible de tipos de direccion.",
+        "summary": "Listar tipos de direccion",
         "responses": {
           "200": {
             "description": "Success",
@@ -11935,9 +11936,9 @@
     "/api/publicapi/creasys/TipoDireccion/GetTipoTelefono": {
       "get": {
         "tags": [
-          "3. Datos de Contacto"
+          "03. Datos de Contacto"
         ],
-        "summary": "Obtiene la lista disponible de tipos de telefonos.",
+        "summary": "Listar tipos de telefono",
         "responses": {
           "200": {
             "description": "Success",
@@ -11998,9 +11999,9 @@
     "/api/publicapi/creasys/TipoDireccion/GetTipoMail": {
       "get": {
         "tags": [
-          "3. Datos de Contacto"
+          "03. Datos de Contacto"
         ],
-        "summary": "Obtiene la lista disponible de tipos de mails.",
+        "summary": "Listar tipos de email",
         "responses": {
           "200": {
             "description": "Success",
@@ -12063,7 +12064,7 @@
         "tags": [
           "10. Tablas Maestras"
         ],
-        "summary": "Obtiene la lista disponible de tipos de entidad.",
+        "summary": "Listar tipos de entidad",
         "responses": {
           "200": {
             "description": "Success",
@@ -12126,7 +12127,7 @@
         "tags": [
           "10. Tablas Maestras"
         ],
-        "summary": "Obtiene la lista disponible de tipos de identificacion.",
+        "summary": "Listar tipos de identificacion",
         "responses": {
           "200": {
             "description": "Success",
@@ -12189,7 +12190,7 @@
         "tags": [
           "10. Tablas Maestras"
         ],
-        "summary": "Obtiene la lista disponible de tipos de medios de pago o cobro.",
+        "summary": "Listar medios de pago y cobro",
         "responses": {
           "200": {
             "description": "Success",
@@ -12252,7 +12253,7 @@
         "tags": [
           "10. Tablas Maestras"
         ],
-        "summary": "Obtiene la lista disponible de tipos de movimientos de caja.",
+        "summary": "Listar tipos de movimiento de caja",
         "responses": {
           "200": {
             "description": "Success",
@@ -12315,7 +12316,7 @@
         "tags": [
           "10. Tablas Maestras"
         ],
-        "summary": "Obtiene la lista disponible de tipos de sociedad.",
+        "summary": "Listar tipos de sociedad",
         "responses": {
           "200": {
             "description": "Success",
@@ -12376,9 +12377,9 @@
     "/api/publicapi/creasys/Usuario/CambioRolProspecto": {
       "put": {
         "tags": [
-          "2. Gestion de Clientes"
+          "11. Integraciones y Sistema"
         ],
-        "summary": "Intercambia el rol del usuario .",
+        "summary": "Cambiar rol de usuario prospecto a cliente",
         "description": "Sample request:\r\n            \r\n    PUT /api/publicapi/creasys/Usuario/CambioRolProspecto\r\n    {\r\n         \"idUsuario\": \"066074xx-8734-4060-9004-757fc593d7b7\"\r\n    }",
         "requestBody": {
           "description": "Objeto con el id usuario para cambiar el rol",
@@ -12460,9 +12461,9 @@
     "/api/publicapi/creasys/Usuario/RelacionUsuarioCliente": {
       "put": {
         "tags": [
-          "2. Gestion de Clientes"
+          "11. Integraciones y Sistema"
         ],
-        "summary": "Intercambia el rol del usuario .",
+        "summary": "Asociar usuario a cliente",
         "description": "Sample request:\r\n            \r\n    PUT /api/publicapi/creasys/Usuario/RelacionUsuarioCliente\r\n    {\r\n         \"idUsuario\": \"066074xx-8734-4060-9004-757fc593d7b7\",\r\n         \"identificador\":\"1-9\",\r\n         \"ContenidoBase64\":\"https://storage.blob.core.windows.net/container/category/name.pdf?sig=....\"\r\n    }",
         "requestBody": {
           "content": {
@@ -17886,52 +17887,48 @@
   ],
   "tags": [
     {
-      "name": "1. Autenticacion y Seguridad",
-      "description": ""
+      "name": "01. Autenticacion y Seguridad",
+      "description": "Endpoints para iniciar sesion, cerrar sesion, renovar tokens y gestionar la autenticacion de usuarios."
+    },
+    {
+      "name": "02. Clientes y Personas",
+      "description": "Endpoints para crear, consultar y actualizar clientes, personas naturales, juridicas y su proceso de enrolamiento."
+    },
+    {
+      "name": "03. Datos de Contacto",
+      "description": "Endpoints para gestionar direcciones, telefonos, emails y tipos de contacto asociados a una persona."
+    },
+    {
+      "name": "04. Cuentas",
+      "description": "Endpoints para administrar cuentas de inversion, cuentas corrientes, cuentas Alpaca, cajas y comisiones."
+    },
+    {
+      "name": "05. Activos e Instrumentos",
+      "description": "Endpoints para consultar activos financieros, instrumentos, precios, cotizaciones, barras OHLCV y datos de mercado."
+    },
+    {
+      "name": "06. Ordenes y Operaciones",
+      "description": "Endpoints para ingresar, anular y consultar ordenes de mercado, operaciones spot y operaciones de cuenta remunerada."
+    },
+    {
+      "name": "07. Movimientos y Transferencias",
+      "description": "Endpoints para registrar y consultar movimientos de caja, aportes, retiros, transferencias via Shinkansen y Fintoc."
+    },
+    {
+      "name": "08. Cartera y Patrimonio",
+      "description": "Endpoints para consultar la cartera de inversiones, cartola de movimientos, asignaciones y certificados de custodia."
+    },
+    {
+      "name": "09. Documentos",
+      "description": "Endpoints para subir, consultar y sincronizar documentos tributarios y documentos de cliente."
     },
     {
       "name": "10. Tablas Maestras",
-      "description": ""
+      "description": "Endpoints de referencia: bancos, paises, regiones, comunas, monedas, tipos de cuenta, estados civiles y otros catalogos."
     },
     {
       "name": "11. Integraciones y Sistema",
-      "description": ""
-    },
-    {
-      "name": "2. Gestion de Clientes",
-      "description": ""
-    },
-    {
-      "name": "3. Datos de Contacto",
-      "description": ""
-    },
-    {
-      "name": "4. Cuentas y Estructura Operativa",
-      "description": ""
-    },
-    {
-      "name": "5. Activos e Instrumentos",
-      "description": ""
-    },
-    {
-      "name": "6. Ordenes y Operaciones",
-      "description": ""
-    },
-    {
-      "name": "7. Movimientos y Transferencias",
-      "description": ""
-    },
-    {
-      "name": "8. Cartera y Patrimonio",
-      "description": ""
-    },
-    {
-      "name": "9. Documentos",
-      "description": ""
-    },
-    {
-      "name": "Asesor",
-      "description": ""
+      "description": "Endpoints de integraciones externas, webhooks, control de cierre de sistema y gestion de usuarios del sistema."
     }
   ]
 }
