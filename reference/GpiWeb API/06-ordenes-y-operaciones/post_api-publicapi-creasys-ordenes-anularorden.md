@@ -1,0 +1,7 @@
+---
+title: Anular orden
+api:
+  file: public-api.json
+  operationId: post_api-publicapi-creasys-ordenes-anularorden
+hidden: false
+---

@@ -1,0 +1,16 @@
+- post_api-publicapi-creasys-beneficiario
+- get_api-publicapi-creasys-beneficiario-identificador
+- get_api-publicapi-creasys-cedula-vigencia
+- get_api-publicapi-creasys-cedula-riesgo
+- get_api-publicapi-creasys-clientes
+- post_api-publicapi-creasys-clientes
+- put_api-publicapi-creasys-clientes-identificador
+- post_api-publicapi-creasys-enrolamiento
+- get_api-publicapi-creasys-personas
+- post_api-publicapi-creasys-personas
+- put_api-publicapi-creasys-personas-identificador
+- get_api-shared-clientes-perfilusuariocliente
+- get_api-shared-clientes-detallecliente
+- get_api-shared-clientes-filtroclientesfilter
+- get_api-shared-clientes-clientesvigentes
+- get_api-shared-clientes-clientesvigentesvalidaapv

@@ -1,0 +1,14 @@
+- get_api-publicapi-creasys-alpacasweep-details
+- post_api-publicapi-shared-fintoc-webhooksuccess
+- post_api-publicapi-shared-fintoc-webhookfailed
+- post_api-publicapi-creasys-movimientocaja-cambiocajaauto
+- get_api-publicapi-creasys-movimientos
+- get_api-publicapi-creasys-movimientos-movimientosshinkansen
+- get_api-publicapi-creasys-movimientos-movimientosbancosecurity
+- get_api-publicapi-creasys-movimientos-movimientosbancobice
+- post_api-publicapi-creasys-movimientos-ingresoaporteretiro
+- post_api-publicapi-creasys-movimientos-nuevoingresoaporteretiro
+- post_api-publicapi-creasys-movimientos-ingresoaporteretiromasivo
+- post_api-publicapi-creasys-movimientosalpaca-movimientointernacionalalpaca
+- get_api-publicapi-creasys-movimientosalpaca-patrimoniales-numcuenta
+- post_api-shinkansen

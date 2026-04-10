@@ -1,0 +1,5 @@
+- get_api-publicapi-creasys-artikos-dte-listado
+- get_api-publicapi-creasys-artikos-dte-consulta-pdf
+- get_api-publicapi-creasys-documentos
+- post_api-publicapi-creasys-documentos
+- post_publicapi-creasys-documentosalpacasync-sync

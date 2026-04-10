@@ -1,0 +1,13 @@
+- get_api-publicapi-creasys-operaciones
+- post_api-publicapi-creasys-operaciones-ingresooperacioncuentaremunerada
+- post_api-publicapi-creasys-operaciones-ingresooperacionspot
+- post_api-publicapi-creasys-operaciones-ordenspot
+- post_api-operaciones-reporte-enviar
+- get_api-publicapi-creasys-ordenes
+- post_api-publicapi-creasys-ordenes-ingresoordenes
+- post_api-publicapi-creasys-ordenes-ingresarordenesmercado
+- post_api-publicapi-creasys-ordenes-ingresarordenesmercadoauto
+- post_api-publicapi-creasys-ordenes-anularorden
+- post_api-publicapi-creasys-ordenes-registroordenesexterno
+- post_api-publicapi-creasys-ordenes-ingresoordenesintraday
+- get_api-publicapi-creasys-ordenes-saldocustodiaintraday

@@ -1,0 +1,17 @@
+- post_api-publicapi-shared-auth-signin
+- get_api-publicapi-shared-auth-refreshtoken
+- get_api-publicapi-shared-auth-externallogin
+- get_api-publicapi-shared-auth-externallogincallback
+- get_api-publicapi-shared-auth-auth-popup-callback
+- post_api-publicapi-shared-auth-signout
+- get_api-publicapi-shared-auth-me
+- post_api-publicapi-shared-auth-logout
+- post_api-shared-account-signupprospecto
+- post_api-shared-account-confirmemail
+- get_api-shared-account-resendemail
+- post_api-shared-account-changetheme
+- post_api-shared-account-signupprospectosimple
+- post_api-shared-pass-changepasswordgpimas
+- post_api-shared-pass-requestresetpassword
+- post_api-shared-pass-changepassword
+- post_api-shared-pass-resetpassword

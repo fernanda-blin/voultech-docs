@@ -1,0 +1,7 @@
+---
+title: Listar monedas
+api:
+  file: public-api.json
+  operationId: get_api-publicapi-creasys-moneda
+hidden: false
+---
