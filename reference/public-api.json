@@ -1,8 +1,9 @@
 {
   "openapi": "3.0.1",
   "info": {
-    "title": "GpiWeb Public API",
-    "version": "publicapi"
+    "title": "GpiWeb API",
+    "version": "publicapi",
+    "description": "API publica de Voultech para integracion con sistemas externos. Incluye endpoints de autenticacion, gestion de clientes, cuentas, ordenes, movimientos y mas."
   },
   "paths": {
     "/api/publicapi/creasys/AlpacaSweep/details": {
@@ -42,7 +43,7 @@
             }
           }
         },
-        "summary": "Consultar detalles del sweep Alpaca"
+        "summary": "Detalles del sweep Alpaca"
       }
     },
     "/api/publicapi/creasys/Artikos/dte/listado": {
@@ -363,7 +364,7 @@
         "tags": [
           "08. Cartera y Patrimonio"
         ],
-        "summary": "Listar asignaciones por rango de fechas",
+        "summary": "Listar asignaciones",
         "parameters": [
           {
             "name": "Desde",
@@ -625,7 +626,7 @@
             }
           }
         },
-        "summary": "Obtener ultima cotizacion de un activo"
+        "summary": "Obtener ultima cotizacion"
       }
     },
     "/api/publicapi/creasys/Asset/stocks/auctions": {
@@ -633,7 +634,7 @@
         "tags": [
           "05. Activos e Instrumentos"
         ],
-        "summary": "Consultar subastas por lote de simbolos",
+        "summary": "Subastas por lote de simbolos",
         "parameters": [
           {
             "name": "symbols",
@@ -756,7 +757,7 @@
         "tags": [
           "05. Activos e Instrumentos"
         ],
-        "summary": "Consultar barras OHLCV por lote de simbolos",
+        "summary": "Barras OHLCV por lote de simbolos",
         "parameters": [
           {
             "name": "symbols",
@@ -871,7 +872,7 @@
         "tags": [
           "05. Activos e Instrumentos"
         ],
-        "summary": "Consultar ultima barra OHLCV por lote de simbolos",
+        "summary": "Ultima barra OHLCV por lote de simbolos",
         "parameters": [
           {
             "name": "symbols",
@@ -945,7 +946,7 @@
         "tags": [
           "05. Activos e Instrumentos"
         ],
-        "summary": "Consultar cotizaciones historicas por lote de simbolos",
+        "summary": "Cotizaciones historicas por lote de simbolos",
         "parameters": [
           {
             "name": "symbols",
@@ -1052,7 +1053,7 @@
         "tags": [
           "05. Activos e Instrumentos"
         ],
-        "summary": "Consultar ultima cotizacion por lote de simbolos",
+        "summary": "Ultima cotizacion por lote de simbolos",
         "parameters": [
           {
             "name": "symbols",
@@ -1126,7 +1127,7 @@
         "tags": [
           "05. Activos e Instrumentos"
         ],
-        "summary": "Consultar snapshot actual por lote de simbolos",
+        "summary": "Snapshot actual por lote de simbolos",
         "parameters": [
           {
             "name": "symbols",
@@ -1200,7 +1201,7 @@
         "tags": [
           "05. Activos e Instrumentos"
         ],
-        "summary": "Consultar trades historicos por lote de simbolos",
+        "summary": "Trades historicos por lote de simbolos",
         "parameters": [
           {
             "name": "symbols",
@@ -1307,7 +1308,7 @@
         "tags": [
           "05. Activos e Instrumentos"
         ],
-        "summary": "Consultar ultimo trade por lote de simbolos",
+        "summary": "Ultimo trade por lote de simbolos",
         "parameters": [
           {
             "name": "symbols",
@@ -1381,7 +1382,7 @@
         "tags": [
           "05. Activos e Instrumentos"
         ],
-        "summary": "Consultar condiciones de tick por tipo",
+        "summary": "Condiciones de tick por tipo",
         "parameters": [
           {
             "name": "tickType",
@@ -1440,7 +1441,7 @@
         "tags": [
           "05. Activos e Instrumentos"
         ],
-        "summary": "Listar exchanges disponibles",
+        "summary": "Listar exchanges",
         "responses": {
           "401": {
             "description": "Unauthorized",
@@ -1480,7 +1481,7 @@
         "tags": [
           "05. Activos e Instrumentos"
         ],
-        "summary": "Consultar subastas de un simbolo",
+        "summary": "Subastas de un simbolo",
         "parameters": [
           {
             "name": "symbol",
@@ -1596,7 +1597,7 @@
         "tags": [
           "05. Activos e Instrumentos"
         ],
-        "summary": "Consultar barras OHLCV de un simbolo",
+        "summary": "Barras OHLCV de un simbolo",
         "parameters": [
           {
             "name": "symbol",
@@ -1704,7 +1705,7 @@
         "tags": [
           "05. Activos e Instrumentos"
         ],
-        "summary": "Consultar ultima barra OHLCV de un simbolo",
+        "summary": "Ultima barra OHLCV de un simbolo",
         "parameters": [
           {
             "name": "symbol",
@@ -1771,7 +1772,7 @@
         "tags": [
           "05. Activos e Instrumentos"
         ],
-        "summary": "Consultar cotizaciones historicas de un simbolo",
+        "summary": "Cotizaciones historicas de un simbolo",
         "parameters": [
           {
             "name": "symbol",
@@ -1871,7 +1872,7 @@
         "tags": [
           "05. Activos e Instrumentos"
         ],
-        "summary": "Consultar ultima cotizacion de un simbolo",
+        "summary": "Ultima cotizacion de un simbolo",
         "parameters": [
           {
             "name": "symbol",
@@ -1938,7 +1939,7 @@
         "tags": [
           "05. Activos e Instrumentos"
         ],
-        "summary": "Consultar trades historicos de un simbolo",
+        "summary": "Trades historicos de un simbolo",
         "parameters": [
           {
             "name": "symbol",
@@ -2038,7 +2039,7 @@
         "tags": [
           "05. Activos e Instrumentos"
         ],
-        "summary": "Consultar ultimo trade de un simbolo",
+        "summary": "Ultimo trade de un simbolo",
         "parameters": [
           {
             "name": "symbol",
@@ -2105,7 +2106,7 @@
         "tags": [
           "05. Activos e Instrumentos"
         ],
-        "summary": "Obtener logo de un activo por nemotecnico",
+        "summary": "Logo de un activo por nemotecnico",
         "parameters": [
           {
             "name": "nemotecnico",
@@ -2324,7 +2325,7 @@
             }
           }
         },
-        "summary": "Iniciar autenticacion externa (OAuth)"
+        "summary": "Iniciar autenticacion externa"
       }
     },
     "/api/publicapi/shared/Auth/externallogincallback": {
@@ -2411,7 +2412,7 @@
         "tags": [
           "01. Autenticacion y Seguridad"
         ],
-        "summary": "Cerrar sesion (SignOut)",
+        "summary": "Cerrar sesion",
         "responses": {
           "401": {
             "description": "Unauthorized",
@@ -2892,7 +2893,7 @@
         "tags": [
           "04. Cuentas"
         ],
-        "summary": "Listar cajas con saldo a una fecha",
+        "summary": "Listar cajas con saldo",
         "parameters": [
           {
             "name": "Fecha",
@@ -3512,7 +3513,7 @@
             }
           }
         },
-        "summary": "Consultar cartera actual (formato optimizado)"
+        "summary": "Consultar cartera actual (optimizada)"
       }
     },
     "/api/publicapi/creasys/Cartera/CarteraResumida": {
@@ -3802,7 +3803,7 @@
         "tags": [
           "08. Cartera y Patrimonio"
         ],
-        "summary": "Consultar cartola de movimientos",
+        "summary": "Consultar cartola",
         "parameters": [
           {
             "name": "numCuenta",
@@ -3996,7 +3997,7 @@
         "tags": [
           "02. Clientes y Personas"
         ],
-        "summary": "Verificar vigencia de cedula de identidad",
+        "summary": "Verificar vigencia de cedula",
         "description": "Sample request:\r\n            \r\n    GET /api/publicapi/creasys/Cedula/Vigencia?rut=12345678-9&serie=123456789",
         "parameters": [
           {
@@ -4068,7 +4069,7 @@
         "tags": [
           "02. Clientes y Personas"
         ],
-        "summary": "Consultar nivel de riesgo de cedula de identidad",
+        "summary": "Consultar riesgo de cedula",
         "description": "Sample request:\r\n            \r\n    GET /api/publicapi/creasys/Cedula/Riesgo?rut=12345678-9",
         "parameters": [
           {
@@ -4197,7 +4198,7 @@
         "tags": [
           "11. Integraciones y Sistema"
         ],
-        "summary": "Consultar datos en proceso de cierre",
+        "summary": "Datos en proceso de cierre",
         "parameters": [
           {
             "name": "Fecha",
@@ -4265,7 +4266,7 @@
         "tags": [
           "11. Integraciones y Sistema"
         ],
-        "summary": "Consultar cuentas en proceso de cierre",
+        "summary": "Cuentas en proceso de cierre",
         "responses": {
           "401": {
             "description": "Unauthorized",
@@ -4308,7 +4309,7 @@
         "tags": [
           "11. Integraciones y Sistema"
         ],
-        "summary": "Consultar estado del cierre del sistema",
+        "summary": "Estado del cierre del sistema",
         "responses": {
           "401": {
             "description": "Unauthorized",
@@ -4349,7 +4350,7 @@
         "tags": [
           "11. Integraciones y Sistema"
         ],
-        "summary": "Consultar minimo comun del cierre",
+        "summary": "Minimo comun del cierre",
         "requestBody": {
           "content": {
             "application/json": {
@@ -4692,7 +4693,7 @@
         "tags": [
           "05. Activos e Instrumentos"
         ],
-        "summary": "Consultar estado del mercado Alpaca (abierto/cerrado)",
+        "summary": "Estado del mercado Alpaca",
         "responses": {
           "401": {
             "description": "Unauthorized",
@@ -4777,7 +4778,7 @@
             }
           }
         },
-        "summary": "Consultar precio de cierre mas reciente"
+        "summary": "Precio de cierre mas reciente"
       }
     },
     "/api/publicapi/creasys/CodigoTipoDocumento": {
@@ -5095,7 +5096,7 @@
         "tags": [
           "03. Datos de Contacto"
         ],
-        "summary": "Listar contactos del cliente",
+        "summary": "Listar contactos",
         "parameters": [
           {
             "name": "identificador",
@@ -5362,7 +5363,7 @@
         "tags": [
           "10. Tablas Maestras"
         ],
-        "summary": "Listar tipos de contrato de operacion",
+        "summary": "Listar tipos de contrato",
         "responses": {
           "401": {
             "description": "Unauthorized",
@@ -5425,7 +5426,7 @@
         "tags": [
           "10. Tablas Maestras"
         ],
-        "summary": "Listar tipos de documento de operacion",
+        "summary": "Listar tipos de documento",
         "responses": {
           "401": {
             "description": "Unauthorized",
@@ -5548,7 +5549,7 @@
         "tags": [
           "04. Cuentas"
         ],
-        "summary": "Obtener cuenta Alpaca por numero",
+        "summary": "Obtener cuenta Alpaca",
         "parameters": [
           {
             "name": "accountNumber",
@@ -5827,7 +5828,7 @@
             }
           }
         },
-        "summary": "Consultar actividad de cuenta Alpaca"
+        "summary": "Consultar actividad Alpaca"
       }
     },
     "/api/publicapi/creasys/CuentaAlpaca/Custodias/{accountNumber}": {
@@ -5927,7 +5928,7 @@
             }
           }
         },
-        "summary": "Vista previa del CIP"
+        "summary": "Vista previa CIP"
       }
     },
     "/api/publicapi/creasys/CuentaAlpaca/ListarDocumentos": {
@@ -6113,7 +6114,7 @@
         "tags": [
           "04. Cuentas"
         ],
-        "summary": "Listar cuentas corrientes del cliente",
+        "summary": "Listar cuentas corrientes",
         "parameters": [
           {
             "name": "identificador",
@@ -6509,7 +6510,7 @@
         "tags": [
           "04. Cuentas"
         ],
-        "summary": "Obtener datos KYC de la cuenta",
+        "summary": "Obtener datos KYC",
         "parameters": [
           {
             "name": "numCuenta",
@@ -6580,7 +6581,7 @@
         "tags": [
           "04. Cuentas"
         ],
-        "summary": "Validar identidad del cliente (Identyz)",
+        "summary": "Validar identidad (Identyz)",
         "parameters": [
           {
             "name": "numCuenta",
@@ -6661,7 +6662,7 @@
         "tags": [
           "03. Datos de Contacto"
         ],
-        "summary": "Listar direcciones de una persona",
+        "summary": "Listar direcciones",
         "parameters": [
           {
             "name": "identificador",
@@ -7004,7 +7005,7 @@
         "tags": [
           "09. Documentos"
         ],
-        "summary": "Listar documentos del cliente",
+        "summary": "Listar documentos",
         "parameters": [
           {
             "name": "Identificador",
@@ -7198,7 +7199,7 @@
         "tags": [
           "03. Datos de Contacto"
         ],
-        "summary": "Listar emails de una persona",
+        "summary": "Listar emails",
         "parameters": [
           {
             "name": "identificador",
@@ -8059,7 +8060,7 @@
             }
           }
         },
-        "summary": "Registrar evento de journal en Alpaca"
+        "summary": "Registrar evento de journal Alpaca"
       }
     },
     "/api/publicapi/creasys/Moneda": {
@@ -8130,7 +8131,7 @@
         "tags": [
           "07. Movimientos y Transferencias"
         ],
-        "summary": "Ejecutar cambio automatico de caja",
+        "summary": "Cambio automatico de caja",
         "requestBody": {
           "description": "",
           "content": {
@@ -8190,7 +8191,7 @@
         "tags": [
           "07. Movimientos y Transferencias"
         ],
-        "summary": "Listar movimientos por rango de fechas",
+        "summary": "Listar movimientos",
         "parameters": [
           {
             "name": "Desde",
@@ -8342,7 +8343,7 @@
         "tags": [
           "07. Movimientos y Transferencias"
         ],
-        "summary": "Listar movimientos via Shinkansen",
+        "summary": "Movimientos via Shinkansen",
         "parameters": [
           {
             "name": "IdMovCaja",
@@ -8482,7 +8483,7 @@
         "tags": [
           "07. Movimientos y Transferencias"
         ],
-        "summary": "Listar movimientos Banco Security",
+        "summary": "Movimientos Banco Security",
         "parameters": [
           {
             "name": "Desde",
@@ -8595,7 +8596,7 @@
         "tags": [
           "07. Movimientos y Transferencias"
         ],
-        "summary": "Listar movimientos Banco Bice",
+        "summary": "Movimientos Banco Bice",
         "parameters": [
           {
             "name": "Desde",
@@ -8870,7 +8871,7 @@
         "tags": [
           "07. Movimientos y Transferencias"
         ],
-        "summary": "Registrar aportes o retiros masivos",
+        "summary": "Registrar aportes/retiros masivos",
         "requestBody": {
           "description": "Objeto con el cual se crearan los movimientos de aporte o retiro patrimonial. Cada objeto debe incluir los siguientes campos:\r\n- `CodMoneda`: Código de la moneda (requerido, longitud máxima de 3 caracteres).\r\n- `DscMedioPagoCobro`: Descripción del medio de pago o cobro (longitud máxima de 20 caracteres).\r\n- `Banco`: Nombre del banco (longitud máxima de 60 caracteres).\r\n- `NumeroCuenta`: Número de la cuenta (longitud máxima de 20 caracteres).\r\n- `TipoCuenta`: Tipo de la cuenta (longitud máxima de 20 caracteres).\r\n- `Uuid`: Identificador único universal (UUID) para el registro (longitud máxima de 36 caracteres, puede ser nulo).",
           "content": {
@@ -8965,7 +8966,7 @@
         "tags": [
           "07. Movimientos y Transferencias"
         ],
-        "summary": "Registrar movimiento internacional Alpaca",
+        "summary": "Movimiento internacional Alpaca",
         "requestBody": {
           "content": {
             "application/json": {
@@ -9121,7 +9122,7 @@
             }
           }
         },
-        "summary": "Listar movimientos patrimoniales Alpaca"
+        "summary": "Movimientos patrimoniales Alpaca"
       }
     },
     "/api/publicapi/creasys/MxMesa": {
@@ -9329,7 +9330,7 @@
         "tags": [
           "06. Ordenes y Operaciones"
         ],
-        "summary": "Registrar operacion de cuenta remunerada",
+        "summary": "Registrar operacion cuenta remunerada",
         "requestBody": {
           "description": "Lista de objetos OperacionTranApi con la cual se crearán las operaciones. Cada objeto debe incluir los siguientes campos:\r\n- `Uuid`: UUID de la operación (requerido (Idempotencia), longitud máxima de 36 caracteres).\r\n- `NumCuenta`: Número de cuenta asociada a la operación (requerido, longitud máxima de 50 caracteres).\r\n- `CodTipoOperacion`: Código del tipo de operación (requerido, longitud máxima de 10 caracteres).\r\n- `Nemotecnico`: Nemotécnico del instrumento financiero (longitud máxima de 50 caracteres).\r\n- `FechaOperacion`: Fecha de la operación (requerido).\r\n- `Monto`: Monto total de la operación (requerido).",
           "content": {
@@ -9994,7 +9995,7 @@
         "tags": [
           "06. Ordenes y Operaciones"
         ],
-        "summary": "Ingresar ordenes a mercado (modo automatico)",
+        "summary": "Ingresar ordenes a mercado (automatico)",
         "description": "Este endpoint permite ingresar órdenes al mercado basándose en los parámetros especificados en la solicitud.\r\nSe realiza una serie de validaciones para asegurar que la orden pueda ser procesada:\r\n<list type=\"bullet\"><item><description>Validación de que se proporcionaron órdenes y que su cantidad no exceda el límite permitido.</description></item><item><description>Verificación de que no haya UUIDs duplicados en la lista de órdenes.</description></item><item><description>Validación de la existencia de la cuenta asociada con la orden.</description></item><item><description>Comprobación de la existencia del instrumento financiero especificado.</description></item><item><description>Verificación de que el UUID proporcionado no haya sido utilizado previamente para evitar duplicaciones.</description></item></list>",
         "requestBody": {
           "description": "Lista de objetos que representan las órdenes a ingresar, con detalles como cuenta, instrumento, cantidad, y precio.",
@@ -10604,7 +10605,7 @@
             "description": "Success"
           }
         },
-        "summary": "Actualizar movimiento de orden (protocolo buffer)"
+        "summary": "Actualizar movimiento (protocolo buffer)"
       }
     },
     "/api/publicapi/creasys/Pais": {
@@ -11002,7 +11003,7 @@
         "tags": [
           "05. Activos e Instrumentos"
         ],
-        "summary": "Consultar precios actuales de un instrumento",
+        "summary": "Precios actuales de un instrumento",
         "description": "Sample request:\r\n            \r\n    GET api/publicapi/creasys/PublicadorPrecio/GetPreciosInstrumento?nemotecnico=COPEC",
         "parameters": [
           {
@@ -11272,7 +11273,7 @@
             }
           }
         },
-        "summary": "Procesar transferencia via Shinkansen"
+        "summary": "Procesar transferencia Shinkansen"
       }
     },
     "/api/publicapi/creasys/TelefonoPersona": {
@@ -11280,7 +11281,7 @@
         "tags": [
           "03. Datos de Contacto"
         ],
-        "summary": "Listar telefonos de una persona",
+        "summary": "Listar telefonos",
         "parameters": [
           {
             "name": "identificador",
@@ -12379,7 +12380,7 @@
         "tags": [
           "11. Integraciones y Sistema"
         ],
-        "summary": "Cambiar rol de usuario prospecto a cliente",
+        "summary": "Cambiar rol de prospecto a cliente",
         "description": "Sample request:\r\n            \r\n    PUT /api/publicapi/creasys/Usuario/CambioRolProspecto\r\n    {\r\n         \"idUsuario\": \"066074xx-8734-4060-9004-757fc593d7b7\"\r\n    }",
         "requestBody": {
           "description": "Objeto con el id usuario para cambiar el rol",
@@ -12527,6 +12528,2595 @@
                 }
               }
             }
+          }
+        }
+      }
+    },
+    "/api/shared/Account/SignUpProspecto": {
+      "post": {
+        "tags": [
+          "01. Autenticacion y Seguridad"
+        ],
+        "summary": "Registrar prospecto",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SignupParameters"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SignupParameters"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SignupParameters"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/IdentityError"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/shared/Account/ConfirmEmail": {
+      "post": {
+        "tags": [
+          "01. Autenticacion y Seguridad"
+        ],
+        "summary": "Confirmar email de registro",
+        "requestBody": {
+          "description": "Parámetros de confirmación.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ConfirmParameters"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ConfirmParameters"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ConfirmParameters"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/RError"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/RError"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/shared/Account/ResendEmail": {
+      "get": {
+        "tags": [
+          "01. Autenticacion y Seguridad"
+        ],
+        "parameters": [
+          {
+            "name": "BaseUrl",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/RError"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/RError"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "summary": "Reenviar email de confirmacion"
+      }
+    },
+    "/api/shared/Account/ChangeTheme": {
+      "post": {
+        "tags": [
+          "01. Autenticacion y Seguridad"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ClsUser"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ClsUser"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ClsUser"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/RError"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/RError"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "summary": "Cambiar tema de la interfaz"
+      }
+    },
+    "/api/shared/Account/SignUpProspectoSimple": {
+      "post": {
+        "tags": [
+          "01. Autenticacion y Seguridad"
+        ],
+        "summary": "Registrar prospecto (simplificado)",
+        "description": "Sample request:\r\n            \r\n    POST: api/shared/Account/SignUpProspectoSimple\r\n    {\r\n      \"Email\": \"ejemplo@ejemplo\",\r\n      \"Nombre\": \"Ejemplo\",\r\n      \"Identificador\": \"12345678-9\",\r\n      \"Password\": \"Ejemplo123\",\r\n      \"CodTheme\": \"L\"\r\n      \"EsApp\": true,\r\n      \"EsEnrolador\": false\r\n    }",
+        "requestBody": {
+          "description": "Los datos del prospecto a registrar.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SignupParametersSimple"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SignupParametersSimple"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SignupParametersSimple"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Si el prospecto se registró correctamente.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Si el prospecto no se pudo registrar.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/shared/Cartola/RangoFechaCartolaGrupo": {
+      "get": {
+        "tags": [
+          "08. Cartera y Patrimonio"
+        ],
+        "parameters": [
+          {
+            "name": "idGrupo",
+            "in": "query",
+            "schema": {
+              "type": "number",
+              "format": "double"
+            }
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RangoFecha"
+                }
+              }
+            }
+          }
+        },
+        "summary": "Cartola por grupo en rango de fechas"
+      }
+    },
+    "/api/shared/Cartola/RangoFechaCartolaCliente": {
+      "get": {
+        "tags": [
+          "08. Cartera y Patrimonio"
+        ],
+        "parameters": [
+          {
+            "name": "idCliente",
+            "in": "query",
+            "schema": {
+              "type": "number",
+              "format": "double"
+            }
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RangoFecha"
+                }
+              }
+            }
+          }
+        },
+        "summary": "Cartola por cliente en rango de fechas"
+      }
+    },
+    "/api/shared/Cartola/RangoFechaCartolaCuenta": {
+      "get": {
+        "tags": [
+          "08. Cartera y Patrimonio"
+        ],
+        "parameters": [
+          {
+            "name": "idCuenta",
+            "in": "query",
+            "schema": {
+              "type": "number",
+              "format": "double"
+            }
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RangoFecha"
+                }
+              }
+            }
+          }
+        },
+        "summary": "Cartola por cuenta en rango de fechas"
+      }
+    },
+    "/api/shared/Cartola/ConsultaCartola": {
+      "post": {
+        "tags": [
+          "08. Cartera y Patrimonio"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FiltroCartola"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FiltroCartola"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/FiltroCartola"
+              }
+            }
+          }
+        },
+        "responses": {
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "summary": "Consultar cartola"
+      }
+    },
+    "/api/shared/Cartola/ConsultaCartolaCuenta": {
+      "get": {
+        "tags": [
+          "08. Cartera y Patrimonio"
+        ],
+        "parameters": [
+          {
+            "name": "idCuenta",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "fecha",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "summary": "Consultar cartola por cuenta"
+      }
+    },
+    "/api/shared/Cartola/ConsultaCartolaCliente": {
+      "get": {
+        "tags": [
+          "08. Cartera y Patrimonio"
+        ],
+        "parameters": [
+          {
+            "name": "idCliente",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "fecha",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "summary": "Consultar cartola por cliente"
+      }
+    },
+    "/api/shared/Cartola/ConsultaCartolaGrupo": {
+      "get": {
+        "tags": [
+          "08. Cartera y Patrimonio"
+        ],
+        "parameters": [
+          {
+            "name": "idGrupo",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "fecha",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "summary": "Consultar cartola por grupo"
+      }
+    },
+    "/api/shared/Cartola/NombreCartolaPorCuenta": {
+      "get": {
+        "tags": [
+          "08. Cartera y Patrimonio"
+        ],
+        "parameters": [
+          {
+            "name": "idCuenta",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "fecha",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "idNegocio",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "idUsuarioGpi",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "summary": "Nombre de cartola por cuenta"
+      }
+    },
+    "/api/shared/Cartola/GetCartolaDemo": {
+      "get": {
+        "tags": [
+          "08. Cartera y Patrimonio"
+        ],
+        "responses": {
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/pdf": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/pdf": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/pdf": {
+                "schema": {
+                  "$ref": "#/components/schemas/FileResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FileResponse"
+                }
+              }
+            }
+          }
+        },
+        "summary": "Obtener cartola demo"
+      }
+    },
+    "/api/shared/Cartola/GetCartolaCron": {
+      "get": {
+        "tags": [
+          "08. Cartera y Patrimonio"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "tipo",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "fecha",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "codMonedaSld",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "idNegocio",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "idUsuarioGpi",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/pdf": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/pdf": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/pdf": {
+                "schema": {
+                  "$ref": "#/components/schemas/FileResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FileResponse"
+                }
+              }
+            }
+          }
+        },
+        "summary": "Obtener cartola cron"
+      }
+    },
+    "/api/shared/Cartola/GetCartolaVoultech": {
+      "get": {
+        "tags": [
+          "08. Cartera y Patrimonio"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "tipo",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "fecha",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "codMonedaSld",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "idNegocio",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "idUsuarioGpi",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/pdf": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/pdf": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/pdf": {
+                "schema": {
+                  "$ref": "#/components/schemas/FileResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FileResponse"
+                }
+              }
+            }
+          }
+        },
+        "summary": "Cartola Voultech"
+      }
+    },
+    "/api/shared/Cartola/GetCartolaPrudential": {
+      "get": {
+        "tags": [
+          "08. Cartera y Patrimonio"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "tipo",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "fecha",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "codMonedaSld",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "idNegocio",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "idUsuarioGpi",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "esApv",
+            "in": "query",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/pdf": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/pdf": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/pdf": {
+                "schema": {
+                  "$ref": "#/components/schemas/FileResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FileResponse"
+                }
+              }
+            }
+          }
+        },
+        "summary": "Cartola Prudential"
+      }
+    },
+    "/api/shared/Cartola/GetCartolaNevasa": {
+      "get": {
+        "tags": [
+          "08. Cartera y Patrimonio"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "tipo",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "fecha",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "codMonedaSld",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "idNegocio",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "idUsuarioGpi",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "esApv",
+            "in": "query",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/pdf": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/pdf": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/pdf": {
+                "schema": {
+                  "$ref": "#/components/schemas/FileResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FileResponse"
+                }
+              }
+            }
+          }
+        },
+        "summary": "Cartola Getcartolanevasa"
+      }
+    },
+    "/api/shared/Clientes/PerfilUsuarioCliente": {
+      "get": {
+        "tags": [
+          "02. Clientes y Personas"
+        ],
+        "responses": {
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "summary": "Obtener perfil de usuario cliente"
+      }
+    },
+    "/api/shared/Clientes/DetalleCliente": {
+      "get": {
+        "tags": [
+          "02. Clientes y Personas"
+        ],
+        "parameters": [
+          {
+            "name": "IdCliente",
+            "in": "query",
+            "schema": {
+              "type": "number",
+              "format": "double"
+            }
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Clientes"
+                }
+              }
+            }
+          }
+        },
+        "summary": "Obtener detalle de cliente"
+      }
+    },
+    "/api/shared/Clientes/FiltroClientesFilter": {
+      "get": {
+        "tags": [
+          "02. Clientes y Personas"
+        ],
+        "parameters": [
+          {
+            "name": "filtroCliente",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "idNegocio",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "idUsuarioGpi",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ClienteVigente"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "summary": "Buscar clientes con filtros"
+      }
+    },
+    "/api/shared/Clientes/ClientesVigentes": {
+      "get": {
+        "tags": [
+          "02. Clientes y Personas"
+        ],
+        "parameters": [
+          {
+            "name": "idNegocio",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "idUsuarioGpi",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Clientes"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "summary": "Listar clientes vigentes"
+      }
+    },
+    "/api/shared/Clientes/ClientesVigentesValidaApv": {
+      "get": {
+        "tags": [
+          "02. Clientes y Personas"
+        ],
+        "parameters": [
+          {
+            "name": "idNegocio",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "idUsuarioGpi",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "esApv",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Clientes"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "summary": "Listar clientes vigentes con validacion APV"
+      }
+    },
+    "/api/shared/Comisiones/GetComisionTransaccionalCuenta": {
+      "get": {
+        "tags": [
+          "04. Cuentas"
+        ],
+        "parameters": [
+          {
+            "name": "tipoOperacion",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "codClaseInstrumento",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "codFamilia",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "IdCuenta",
+            "in": "query",
+            "schema": {
+              "type": "number",
+              "format": "double"
+            }
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ComisionCuenta"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "summary": "Consultar comision transaccional por cuenta"
+      }
+    },
+    "/api/shared/Comisiones/GetComisionCorredora": {
+      "get": {
+        "tags": [
+          "04. Cuentas"
+        ],
+        "responses": {
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "summary": "Consultar comision de corredora"
+      }
+    },
+    "/api/shared/Environment": {
+      "get": {
+        "tags": [
+          "11. Integraciones y Sistema"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "summary": "Consultar entorno del sistema"
+      }
+    },
+    "/api/shared/GruposCuentas/GetGrupo": {
+      "get": {
+        "tags": [
+          "04. Cuentas"
+        ],
+        "parameters": [
+          {
+            "name": "idGrupo",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "idNegocio",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "idUsuarioGpi",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GrupoCuentaSm"
+                }
+              }
+            }
+          }
+        },
+        "summary": "Obtener grupo de cuentas"
+      }
+    },
+    "/api/shared/GruposCuentas/GruposCuentasVigentes": {
+      "get": {
+        "tags": [
+          "04. Cuentas"
+        ],
+        "parameters": [
+          {
+            "name": "idNegocio",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "idUsuarioGpi",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/GrupoCuentaSm"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "summary": "Listar grupos de cuentas vigentes"
+      }
+    },
+    "/api/shared/GruposCuentas/GruposCuentasVigentesFilter": {
+      "get": {
+        "tags": [
+          "04. Cuentas"
+        ],
+        "parameters": [
+          {
+            "name": "filtroGrupo",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "idNegocio",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "idUsuarioGpi",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/GrupoCuentaSm"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "summary": "Buscar grupos de cuentas con filtros"
+      }
+    },
+    "/api/shared/Instrumentos": {
+      "get": {
+        "tags": [
+          "05. Activos e Instrumentos"
+        ],
+        "summary": "Listar instrumentos (Shared)",
+        "description": "Sample request:\r\n            \r\n    GET /api/shared/Instrumentos?codSubclaseInstrumento=CFI&codMoneda=CLP&esApv=false",
+        "parameters": [
+          {
+            "name": "codSubclaseInstrumento",
+            "in": "query",
+            "description": "Código de la subclase del instrumento",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "codMoneda",
+            "in": "query",
+            "description": "Código de la moneda",
+            "schema": {
+              "type": "string",
+              "default": ""
+            }
+          },
+          {
+            "name": "esApv",
+            "in": "query",
+            "description": "Indica si es APV o no",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "Si el usuario no esta autenticado.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Lista de instrumentos",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Instrumento"
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Ocurrió un error al procesar la solicitud."
+          }
+        }
+      }
+    },
+    "/api/shared/Instrumentos/FiltrarInstrumentos": {
+      "get": {
+        "tags": [
+          "05. Activos e Instrumentos"
+        ],
+        "parameters": [
+          {
+            "name": "codSubclaseInstrumentos",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "codMoneda",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "default": ""
+            }
+          },
+          {
+            "name": "esApv",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "filterNemotecnico",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "default": ""
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 0
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 0
+            }
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseInstrumento"
+                }
+              }
+            }
+          }
+        },
+        "summary": "Buscar instrumentos con filtros"
+      }
+    },
+    "/api/shared/Instrumentos/InstrumentosxFamilia": {
+      "get": {
+        "tags": [
+          "05. Activos e Instrumentos"
+        ],
+        "parameters": [
+          {
+            "name": "codfamilia",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Instrumento"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "summary": "Instrumentos Instrumentosxfamilia"
+      }
+    },
+    "/api/shared/Instrumentos/InstrumentosxClase": {
+      "get": {
+        "tags": [
+          "05. Activos e Instrumentos"
+        ],
+        "parameters": [
+          {
+            "name": "codClase",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Instrumento"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "summary": "Instrumentos Instrumentosxclase"
+      }
+    },
+    "/api/shared/intermediarios-mercado": {
+      "get": {
+        "tags": [
+          "10. Tablas Maestras"
+        ],
+        "summary": "Devuelve la lista de orígenes/destinos disponibles para traspasos (corredoras de bolsa y asesores)",
+        "description": "Sample request:\r\n            \r\n    GET /api/shared/intermediarios-mercado",
+        "responses": {
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Lista de orígenes/destinos",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/OrigenDestinoDto"
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Ocurrió un error al procesar la solicitud."
+          }
+        }
+      }
+    },
+    "/api/shared/Moneda/GetMonedasTiposCambio": {
+      "get": {
+        "tags": [
+          "10. Tablas Maestras"
+        ],
+        "responses": {
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/MonedaSalida"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "summary": "Listar monedas con tipo de cambio"
+      }
+    },
+    "/api/shared/Moneda/GetMonedas": {
+      "get": {
+        "tags": [
+          "10. Tablas Maestras"
+        ],
+        "summary": "Listar monedas (Shared)",
+        "description": "Sample request:\r\n            \r\n    GET /api/shared/Moneda/GetMonedas",
+        "responses": {
+          "401": {
+            "description": "Si el usuario no esta autenticado.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Lista de monedas",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/MonedaDTO"
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Ocurrió un error al procesar la solicitud."
+          }
+        }
+      }
+    },
+    "/api/shared/Negocios": {
+      "get": {
+        "tags": [
+          "04. Cuentas"
+        ],
+        "responses": {
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/NegocioDTO"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "summary": "Listar negocios"
+      }
+    },
+    "/api/shared/Pass/ChangePasswordGpiMas": {
+      "post": {
+        "tags": [
+          "01. Autenticacion y Seguridad"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ChangePasswordGpiMasParameters"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ChangePasswordGpiMasParameters"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ChangePasswordGpiMasParameters"
+              }
+            }
+          }
+        },
+        "responses": {
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "summary": "Cambiar contrasena (GpiMas)"
+      }
+    },
+    "/api/shared/Pass/RequestResetPassword": {
+      "post": {
+        "tags": [
+          "01. Autenticacion y Seguridad"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DatoUsuario"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DatoUsuario"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DatoUsuario"
+              }
+            }
+          }
+        },
+        "responses": {
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/RError"
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/RError"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "summary": "Solicitar restablecimiento de contrasena"
+      }
+    },
+    "/api/shared/Pass/ChangePassword": {
+      "post": {
+        "tags": [
+          "01. Autenticacion y Seguridad"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ChangePasswordParameters"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ChangePasswordParameters"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ChangePasswordParameters"
+              }
+            }
+          }
+        },
+        "responses": {
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/RError"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/RError"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "summary": "Cambiar contrasena"
+      }
+    },
+    "/api/shared/Pass/ResetPassword": {
+      "post": {
+        "tags": [
+          "01. Autenticacion y Seguridad"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResetPasswordParameters"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResetPasswordParameters"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResetPasswordParameters"
+              }
+            }
+          }
+        },
+        "responses": {
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/RError"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/RError"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "summary": "Restablecer contrasena"
+      }
+    },
+    "/api/shared/TipoCambio/Valores": {
+      "get": {
+        "tags": [
+          "05. Activos e Instrumentos"
+        ],
+        "parameters": [
+          {
+            "name": "fecha",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "idTipoCambio",
+            "in": "query",
+            "schema": {
+              "type": "number",
+              "format": "double"
+            }
+          },
+          {
+            "name": "codMonedaDflt",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ValoresHistoricos"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "summary": "Obtener valores de tipo de cambio"
+      }
+    },
+    "/api/shared/TipoCambio/GetValoresTipoCambioAFecha": {
+      "get": {
+        "tags": [
+          "05. Activos e Instrumentos"
+        ],
+        "parameters": [
+          {
+            "name": "fecha",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "codMonedaDflt",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ValorCodMonedaFull"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "summary": "Tipo de cambio a una fecha"
+      }
+    },
+    "/api/shared/TipoCambio/Indicador": {
+      "get": {
+        "tags": [
+          "05. Activos e Instrumentos"
+        ],
+        "parameters": [
+          {
+            "name": "fecha",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "codMonedaFuente",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "codMonedaDestino",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Indicador"
+                }
+              }
+            }
+          }
+        },
+        "summary": "Obtener indicador de tipo de cambio"
+      }
+    },
+    "/api/shared/TipoEstado/ByDsc/{dsc}": {
+      "get": {
+        "tags": [
+          "10. Tablas Maestras"
+        ],
+        "summary": "Obtener tipo de estado por descripcion",
+        "description": "Sample request:\r\n            \r\n    GET /api/shared/TipoEstado/ByDsc/Ordenes",
+        "parameters": [
+          {
+            "name": "dsc",
+            "in": "path",
+            "description": "Descripción del TipoEstado por el cual consultar",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "Si el usuario no esta autenticado.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Lista de tipos de estado",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Estado"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Si el usuario no tiene permiso de consultar."
+          },
+          "500": {
+            "description": "Ocurrió un error al procesar la solicitud."
           }
         }
       }
@@ -17892,7 +20482,7 @@
     },
     {
       "name": "02. Clientes y Personas",
-      "description": "Endpoints para crear, consultar y actualizar clientes, personas naturales, juridicas y su proceso de enrolamiento."
+      "description": "Endpoints para crear, consultar y actualizar clientes, personas naturales o juridicas y su proceso de enrolamiento."
     },
     {
       "name": "03. Datos de Contacto",
@@ -17904,7 +20494,7 @@
     },
     {
       "name": "05. Activos e Instrumentos",
-      "description": "Endpoints para consultar activos financieros, instrumentos, precios, cotizaciones, barras OHLCV y datos de mercado."
+      "description": "Endpoints para consultar activos financieros, instrumentos, precios, cotizaciones, barras OHLCV y datos de mercado en tiempo real."
     },
     {
       "name": "06. Ordenes y Operaciones",
@@ -17912,7 +20502,7 @@
     },
     {
       "name": "07. Movimientos y Transferencias",
-      "description": "Endpoints para registrar y consultar movimientos de caja, aportes, retiros, transferencias via Shinkansen y Fintoc."
+      "description": "Endpoints para registrar y consultar movimientos de caja, aportes, retiros y transferencias via Shinkansen, Fintoc y Alpaca."
     },
     {
       "name": "08. Cartera y Patrimonio",
@@ -17924,11 +20514,11 @@
     },
     {
       "name": "10. Tablas Maestras",
-      "description": "Endpoints de referencia: bancos, paises, regiones, comunas, monedas, tipos de cuenta, estados civiles y otros catalogos."
+      "description": "Endpoints de referencia: bancos, paises, regiones, comunas, monedas, tipos de cuenta, estados civiles y otros catalogos del sistema."
     },
     {
       "name": "11. Integraciones y Sistema",
-      "description": "Endpoints de integraciones externas, webhooks, control de cierre de sistema y gestion de usuarios del sistema."
+      "description": "Endpoints de integraciones externas, webhooks, control de cierre de sistema y gestion de usuarios."
     }
   ]
 }
