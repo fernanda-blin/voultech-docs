@@ -1,7 +1,7 @@
 {
   "openapi": "3.0.1",
   "info": {
-    "title": "GpiWeb",
+    "title": "GpiWeb Shared",
     "version": "shared"
   },
   "paths": {
