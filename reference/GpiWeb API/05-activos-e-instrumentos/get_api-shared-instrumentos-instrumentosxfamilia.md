@@ -1,8 +1,8 @@
 ---
 title: Instrumentos Instrumentosxfamilia
 excerpt: >-
-  Lista los instrumentos agrupados por familia de instrumento, para facilitar la
-  navegacion y seleccion.
+  **Lista instrumentos agrupados por familia**, para fácilitar la navegacion y
+  selección en interfaces de usuario.
 api:
   file: public-api.json
   operationId: get_api-shared-instrumentos-instrumentosxfamilia

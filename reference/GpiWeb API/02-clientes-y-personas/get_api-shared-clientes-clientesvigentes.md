@@ -1,7 +1,8 @@
 ---
 title: Listar clientes vigentes
-excerpt: >-
-  Retorna el listado de todos los clientes con estado vigente en el sistema.
+excerpt: |-
+  **Lista todos los clientes vigentes** en el sistema.
+
   Excluye clientes inactivos, bloqueados o en proceso de cierre.
 api:
   file: public-api.json

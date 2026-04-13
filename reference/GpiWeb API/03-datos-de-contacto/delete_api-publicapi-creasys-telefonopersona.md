@@ -1,6 +1,9 @@
 ---
 title: Eliminar telefono
-excerpt: Elimina un numero de telefono registrado de la persona.
+excerpt: |-
+  **Elimina un telefono** registrado de la persona.
+
+  > Esta operación es irreversible.
 api:
   file: public-api.json
   operationId: delete_api-publicapi-creasys-telefonopersona

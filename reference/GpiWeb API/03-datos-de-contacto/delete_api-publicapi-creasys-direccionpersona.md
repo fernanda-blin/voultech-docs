@@ -1,8 +1,9 @@
 ---
 title: Eliminar direccion
-excerpt: >-
-  Elimina una direccion registrada de la persona. La operacion es irreversible,
-  por lo que debe confirmarse antes de ejecutarse.
+excerpt: |-
+  **Elimina una dirección** registrada de la persona.
+
+  > Esta operación es irreversible.
 api:
   file: public-api.json
   operationId: delete_api-publicapi-creasys-direccionpersona

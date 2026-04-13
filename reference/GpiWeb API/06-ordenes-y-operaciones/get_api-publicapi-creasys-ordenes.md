@@ -1,8 +1,12 @@
 ---
 title: Listar ordenes
-excerpt: >-
-  Lista las ordenes de mercado registradas para un cliente o cuenta, con filtros
-  por estado (vigente, anulada, ejecutada), instrumento y rango de fechas.
+excerpt: |-
+  **Lista las ordenes de mercado** registradas.
+
+  Filtros disponibles:
+  - Estado: vigente, anulada, ejecutada
+  - Instrumento
+  - Rango de fechas
 api:
   file: public-api.json
   operationId: get_api-publicapi-creasys-ordenes

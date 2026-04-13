@@ -1,8 +1,11 @@
 ---
 title: Listar tipos de email
 excerpt: >-
-  Lista los tipos de correo electronico disponibles (personal, laboral, otro)
-  para clasificar los emails de una persona.
+  **Lista los tipos de correo electrónico** disponibles para clasificar los
+  emails de una persona.
+
+
+  Ejemplos: personal, laboral, otro.
 api:
   file: public-api.json
   operationId: get_api-publicapi-creasys-tipodireccion-gettipomail

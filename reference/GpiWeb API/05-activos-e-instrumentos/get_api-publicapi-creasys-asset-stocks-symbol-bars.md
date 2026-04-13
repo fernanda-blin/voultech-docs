@@ -1,7 +1,7 @@
 ---
 title: Barras OHLCV de un simbolo
 excerpt: >-
-  Retorna barras OHLCV para un simbolo especifico en el rango de tiempo y
+  **Retorna barras OHLCV** para un simbolo específico en el rango de tiempo y
   frecuencia indicados.
 api:
   file: public-api.json

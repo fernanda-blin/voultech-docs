@@ -1,8 +1,9 @@
 ---
 title: Listar formas de operacion
-excerpt: >-
-  Lista las formas de operacion disponibles para registrar como se realizo una
-  transaccion (presencial, electronica, telefonica, etc.).
+excerpt: |-
+  **Lista las formas de operación** disponibles.
+
+  Ejemplos: presencial, electronica, telefonica.
 api:
   file: public-api.json
   operationId: get_api-publicapi-creasys-formaoperacion

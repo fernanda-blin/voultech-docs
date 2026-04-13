@@ -1,9 +1,13 @@
 ---
 title: Consultar cartera detallada
-excerpt: >-
-  Retorna la cartera del cliente con el maximo nivel de detalle: historial de
-  compras por posicion, comisiones acumuladas, rendimiento y datos de
-  liquidacion.
+excerpt: |-
+  **Retorna la cartera con el máximo nivel de detalle.**
+
+  Incluye:
+  - Historial de compras por posición
+  - Comisiones acumuladas
+  - Rendimiento
+  - Datos de liquidación
 api:
   file: public-api.json
   operationId: get_api-publicapi-creasys-cartera-carteradetallada

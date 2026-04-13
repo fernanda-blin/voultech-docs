@@ -1,8 +1,8 @@
 ---
 title: Asociar usuario a cliente
 excerpt: >-
-  Establece o actualiza la relacion entre un usuario del sistema y un cliente
-  especifico, definiendo el nivel de acceso del usuario a la informacion del
+  **Establece la relación** entre un usuario del sistema y un cliente
+  específico, definiendo el nivel de acceso del usuario a la información del
   cliente.
 api:
   file: public-api.json

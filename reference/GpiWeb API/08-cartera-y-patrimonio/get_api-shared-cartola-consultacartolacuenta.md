@@ -1,7 +1,7 @@
 ---
 title: Consultar cartola por cuenta
 excerpt: >-
-  Consulta la cartola de movimientos de una cuenta especifica en el rango de
+  **Consulta la cartola de movimientos** de una cuenta específica en el rango de
   fechas indicado.
 api:
   file: public-api.json

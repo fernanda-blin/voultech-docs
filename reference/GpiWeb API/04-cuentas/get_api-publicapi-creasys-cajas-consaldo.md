@@ -1,7 +1,7 @@
 ---
 title: Listar cajas con saldo
 excerpt: >-
-  Lista las cajas que tienen saldo disponible, calculado a partir de los
+  **Lista las cajas con saldo disponible**, calculado a partir de los
   movimientos registrados.
 api:
   file: public-api.json

@@ -1,8 +1,10 @@
 ---
 title: Barras OHLCV por lote de simbolos
 excerpt: >-
-  Retorna barras OHLCV (Apertura, Maximo, Minimo, Cierre, Volumen) para un lote
-  de simbolos en el rango de tiempo y frecuencia indicados. Util para graficar
+  **Retorna barras OHLCV** para un lote de simbolos.
+
+
+  Datos por barra: Apertura, Máximo, Mínimo, Cierre, Volumen. Útil para graficar
   velas japonesas.
 api:
   file: public-api.json

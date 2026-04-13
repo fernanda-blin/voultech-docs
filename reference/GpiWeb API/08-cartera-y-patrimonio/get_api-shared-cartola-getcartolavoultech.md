@@ -1,7 +1,7 @@
 ---
 title: Cartola Voultech
 excerpt: >-
-  Genera la cartola en el formato estandar de Voultech desde el modulo
+  **Genera la cartola** en el formato estandar de Voultech desde el modulo
   compartido.
 api:
   file: public-api.json

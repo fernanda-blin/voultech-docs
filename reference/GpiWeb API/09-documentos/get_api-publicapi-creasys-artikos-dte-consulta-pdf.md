@@ -1,7 +1,7 @@
 ---
 title: Descargar PDF de documento tributario
 excerpt: >-
-  Descarga el PDF de un documento tributario electronico (DTE) especifico
+  **Descarga el PDF** de un documento tributario electrónico (DTE) específico
   generado por Artikos.
 api:
   file: public-api.json

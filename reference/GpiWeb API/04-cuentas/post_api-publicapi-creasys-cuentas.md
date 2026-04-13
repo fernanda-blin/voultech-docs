@@ -1,8 +1,12 @@
 ---
 title: Crear cuenta
-excerpt: >-
-  Crea una nueva cuenta de inversion para un cliente existente. Se debe
-  especificar el tipo de cuenta, moneda base y configuracion operativa inicial.
+excerpt: |-
+  **Crea una nueva cuenta de inversión** para un cliente existente.
+
+  Campos requeridos:
+  - Tipo de cuenta
+  - Moneda base
+  - Configuración operativa inicial
 api:
   file: public-api.json
   operationId: post_api-publicapi-creasys-cuentas

@@ -1,7 +1,7 @@
 ---
 title: Ultimo trade de un simbolo
 excerpt: >-
-  Retorna el ultimo trade ejecutado para un simbolo especifico, con precio,
+  **Retorna el último trade** ejecutado para un simbolo específico, con precio,
   volumen y timestamp.
 api:
   file: public-api.json
