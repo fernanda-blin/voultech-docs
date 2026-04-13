@@ -3,7 +3,8 @@
   "info": {
     "title": "GpiWeb API",
     "version": "publicapi",
-    "description": "API pública de Voultech para integración con sistemas externos."
+    "description": "API pública de Voultech para integración con sistemas externos.",
+    "x-last-updated": "2026-04-13"
   },
   "paths": {
     "/api/publicapi/creasys/AlpacaSweep/details": {
