@@ -1,8 +1,4 @@
 ---
-title: Listar clientes vigentes con validacion APV
-excerpt: >-
-  **Lista los clientes vigentes** que tienen validación de **APV** (Ahorro
-  Previsiónal Voluntario) activa y habilitada en su perfil.
 api:
   file: public-api.json
   operationId: get_api-shared-clientes-clientesvigentesvalidaapv

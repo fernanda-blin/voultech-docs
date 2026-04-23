@@ -1,9 +1,4 @@
 ---
-title: Precio de cierre mas reciente
-excerpt: |-
-  **Retorna el precio de cierre mas reciente** de un instrumento.
-
-  Útilizado para valorar posiciónes al precio oficial de cierre del mercado.
 api:
   file: public-api.json
   operationId: get_api-publicapi-creasys-closeprices-symbol-symbol-latest
