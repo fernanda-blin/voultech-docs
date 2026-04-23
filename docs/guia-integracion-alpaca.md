@@ -1,96 +1,98 @@
 ---
 title: "Guía de Integración con Alpaca Markets"
-excerpt: "Documentación técnica para fintechs que deseen integrar operaciones bursátiles internacionales a través de Voultech."
+excerpt: "Cómo integrar operaciones bursátiles internacionales a través de Voultech: onboarding, apertura de cuenta, fondeo y trading."
 ---
 
 # 🦙 Guía de Integración con Alpaca Markets
 
-Documentación técnica para fintechs que deseen integrar operaciones bursátiles internacionales.
+Esta guía explica el flujo completo para que una fintech integre operaciones bursátiles internacionales a través de Voultech. Los detalles técnicos de cada endpoint están disponibles en el **API Reference**.
 
 ---
 
-## 🎯 Visión General
+## Visión General
 
-La integración permite a fintechs ofrecer a sus usuarios la compra y venta de instrumentos bursátiles extranjeros a través de **Alpaca Markets**. La arquitectura es **multi-tenant**: los usuarios se crean primero en el ecosistema de Voultech y luego se replican a Alpaca Markets.
+La arquitectura es **multi-tenant**: los usuarios se crean primero en el ecosistema de Voultech y luego se replican a Alpaca Markets.
 
 ```
-Tu aplicación → Endpoints Voultech → Alpaca Markets (EE.UU.)
+Tu aplicación → API Voultech → Alpaca Markets (EE.UU.)
 ```
 
-> ℹ️ Las confirmaciones de ejecución llegan de forma **asíncrona** vía **Service Bus / Webhook**.
+> Las confirmaciones de ejecución llegan de forma **asíncrona** vía **Service Bus / Webhook**.
 
 ---
 
-## 👥 Tipos de Cliente
+## Tipos de Cliente
 
-Antes del kickoff, identificar el tipo de fintech para determinar el flujo correcto:
+Antes del kickoff, identificar el tipo de fintech para determinar el flujo:
 
 | Tipo | Descripción |
 |------|-------------|
-| **Fintech con mercado nacional** | Ya opera con Voultech en bolsa chilena. Solo necesita ejecutar el paso de `CrearClienteAlpaca` para usuarios que deseen operar internacionalmente. |
-| **Fintech solo Alpaca** | Nueva o extranjera. Requiere creación completa de usuarios en el sistema Voultech (flujo de 3 pasos). |
+| **Fintech con mercado nacional** | Ya opera con Voultech en bolsa chilena. Solo necesita ejecutar `CrearClienteAlpaca` para usuarios que deseen operar internacionalmente. |
+| **Fintech solo Alpaca** | Nueva o extranjera. Requiere creación completa en Voultech (flujo de 3 pasos). |
 
 ---
 
-## 🚀 Onboarding
+## Onboarding
 
 ### Reunión de Kickoff
 
-Se debe realizar una reunión de kickoff para que el equipo técnico de la fintech conozca el flujo completo.
+Instancia obligatoria antes de cualquier integración. El objetivo es que el equipo técnico de la fintech conozca el flujo completo.
 
-**Preguntas clave a definir:**
+**Preguntas clave a definir en el kickoff:**
 - ¿Ya están integrados con mercado local (Voultech)?
-- ¿Qué proveedor de KYC van a usar? *(Rillis / Identyz — se sugiere Rillis)*
+- ¿Qué proveedor de KYC usarán? *(Rillis recomendado / Identyz)*
 - ¿Qué nacionalidades tendrán sus usuarios?
 - ¿Necesitan WebSocket de precios en tiempo real?
 
-### Configuración Previa
+> ⚠️ La documentación técnica y acceso a endpoints se entrega **después** del kickoff, no antes.
 
-1. **Solicitud de asesor** — La fintech solicita la creación de un asesor en el sistema. Este asesor agrupa a todos los usuarios de esa fintech.
-2. **Asignación de secuencia / numCuenta** — Se asigna la secuencia y `numCuenta`.
-3. **Creación de usuario API** — La fintech debe proveer un correo electrónico de contacto técnico. Con esto se generan las credenciales de API.
+### Configuración Previa (a cargo de Voultech)
 
-> ⚠️ La documentación técnica y acceso a endpoints se entrega **después** del kickoff y configuración, no antes.
+1. **Asesor** — Se crea un asesor en el sistema que agrupa a todos los usuarios de la fintech.
+2. **Secuencia / numCuenta** — Se asigna la secuencia y el formato de `numCuenta` para esa fintech.
+3. **Credenciales API** — La fintech provee un correo de contacto técnico y se generan las credenciales.
 
 ---
 
-## 🔐 KYC y Validación de Identidad
+## KYC y Validación de Identidad
 
 Alpaca exige el cumplimiento del **CIP (Customer Identification Program)** para todos los usuarios en producción.
 
-### Proveedores Disponibles
+### Proveedores disponibles
 
 | Proveedor | Descripción |
 |-----------|-------------|
-| **Rillis** | Proveedor principal integrado. *(Solo nuevos)* |
+| **Rillis** | Proveedor principal integrado. *(Recomendado para nuevas integraciones)* |
 | **Identyz** | Proveedor alternativo. *(Para quienes ya lo tienen integrado)* |
 
 ### Webhook de Rillis
 
-Payload esperado:
+Cuando un usuario completa el flujo de validación, Rillis envía un webhook con este payload:
 
 ```json
 {
-  "type": "aprobado" | "rechazado",
+  "type": "aprobado",
   "id": "<id_flujo_rillis>"
 }
 ```
 
-> 🚨 **Crítico:** Usar el campo `id` para parear con el usuario. **NO usar** `data.flow_instance_id`.
+> 🚨 Usar el campo `id` para identificar al usuario. **No usar** `data.flow_instance_id`.
 
-> 🚨 **Crítico para producción:** El campo `codIdentificacion` (código Rillis) es **obligatorio en producción**. Su ausencia hará fallar las activaciones aunque funcionen en QA. No omitirlo en el POST de creación de cliente.
+### Puntos críticos
 
-> ℹ️ **KYC en QA:** El flujo de validación KYC no es solicitado por Alpaca en el ambiente QA. Esto es esperado y no es necesario para abrir cuentas en QA.
+- El campo `codIdentificacion` (código Rillis) es **obligatorio en producción**. Su ausencia hará fallar las activaciones aunque todo funcione en QA.
+- En QA, Alpaca **no solicita** validación KYC. Es esperado y no impide abrir cuentas de prueba.
 
 ---
 
-## 👤 Flujo de Apertura de Cuenta
+## Flujo de Apertura de Cuenta
 
 Se ejecutan **3 llamadas en secuencia**. Si la fintech ya tiene al cliente en Voultech (mercado local), **solo ejecutar el Paso 3**.
 
 ```
-POST /Clientes  →  POST /Cuentas  →  POST /CrearClienteAlpaca
-  (Voultech)         (Voultech)            (Alpaca)
+Paso 1            Paso 2           Paso 3
+POST /Clientes → POST /Cuentas → POST /CrearClienteAlpaca
+ (Voultech)       (Voultech)         (Alpaca)
 ```
 
 ### Paso 1: Crear Cliente en Voultech
@@ -110,26 +112,25 @@ POST /Clientes  →  POST /Cuentas  →  POST /CrearClienteAlpaca
     "fechaNacimiento": "2000-11-29",
     "empleador": "Empresa",
     "cargo": "Desarrollador",
-    "profesion": "Desarrollador",
     "dscEstadoCivil": "CASADO",
     "dscPais": "URUGUAY",
     "direccionPersona": [
       {
         "direccion": "Av. 18 de Julio",
         "numero": "1234",
-        "adicional": "Piso 5, Oficina 502",
         "idComunaCiudadNavigation": {
           "dscComunaCiudad": "URUGUAY"
         }
       }
     ]
   },
-  "codIdentificacion": "Código Rillis",
-  "asesor": [{ "abrNombre": "fintech" }]
+  "codIdentificacion": "codigo-rillis-del-usuario",
+  "asesor": [{ "abrNombre": "abreviatura-fintech" }]
 }
 ```
 
-> 📌 `dscComunaCiudad` se usa para mapear comunas extranjeras. `codIdentificacion` es obligatorio en producción.
+> `dscComunaCiudad` se usa para mapear comunas de países extranjeros.
+> `codIdentificacion` es obligatorio en producción.
 
 ### Paso 2: Crear Cuenta en Voultech
 
@@ -144,11 +145,11 @@ POST /Clientes  →  POST /Cuentas  →  POST /CrearClienteAlpaca
   "codTipoAdministracion": "NF",
   "dscPerfilRiesgo": "Moderado",
   "dscTipoCuenta": "EXTRANJERA",
-  "abrAsesor": "fintech"
+  "abrAsesor": "abreviatura-fintech"
 }
 ```
 
-### Paso 3: Crear Cliente en Alpaca
+### Paso 3: Crear Cuenta en Alpaca
 
 `POST /api/publicapi/creasys/CuentaAlpaca/CrearClienteAlpaca`
 
@@ -160,137 +161,148 @@ POST /Clientes  →  POST /Cuentas  →  POST /CrearClienteAlpaca
 }
 ```
 
+**Valores válidos para `fundingSource`:** `employment_income`, `savings`, `investments`, `inheritance`, `business_income`, `family`.
+
 ---
 
-## 💰 Fondeo de Cuenta
+## Fondeo de Cuenta
 
-El fondeo en USD considera que los movimientos `APO_PAT_LI` y `RET_PAT_LI` se ejecutan vía APIs de Voultech (no directo a la caja). El movimiento hacia/desde Alpaca se realiza con el endpoint de **MovimientosAlpaca**.
+Los movimientos de fondos entre la fintech, la caja USD de Voultech y Alpaca siguen este esquema:
 
-### Aportes (FINTECH → Caja USD Voultech → Cliente Alpaca)
+### Aportes
 
-**Paso 1: Registrar Aporte**
+```
+FINTECH → Registrar aporte (Voultech) → Enviar a Alpaca
+```
 
+**1. Registrar el aporte en Voultech**
 `POST /api/publicapi/creasys/Movimientos/IngresoAporteRetiro`
 
 ```json
 {
   "codTipoMovimiento": "APO_PAT_LI",
   "numCuenta": "123456789/0",
-  "obsMovimiento": "Aporte cliente",
-  "fechaMovimiento": "2026-01-27T00:00:00.000Z",
-  "fechaLiquidacion": "2026-01-27T00:00:00.000Z",
   "monto": 1000,
   "codMoneda": "USD",
+  "fechaMovimiento": "2026-01-27T00:00:00.000Z",
+  "fechaLiquidacion": "2026-01-27T00:00:00.000Z",
   "dscMedioPagoCobro": "TRANSFERENCIA",
   "banco": "Banco XYZ",
   "numeroCuenta": "12345678",
   "tipoCuenta": "CORRIENTE",
-  "uuid": "550e8400-e29b-41d4-a716-446655440000"
+  "uuid": "uuid-unico-del-movimiento"
 }
 ```
 
-**Paso 2: Enviar Dinero a Alpaca**
-
+**2. Enviar los fondos a Alpaca**
 `POST /api/publicapi/creasys/MovimientosAlpaca/MovimientoInternacionalAlpaca`
 
 ```json
 {
   "codTipoMovimiento": "APO_PAT_LI",
   "numCuenta": "123456789/0",
-  "obsMovimiento": "Envío a Alpaca",
   "monto": 1000,
   "codMoneda": "USD",
   "dscMedioPagoCobro": "TRANSFERENCIA"
 }
 ```
 
-### Retiros (Cliente Alpaca → Caja USD Voultech → FINTECH)
+### Retiros
 
-**Paso 1: Retirar desde Alpaca** — Mismo endpoint `MovimientoInternacionalAlpaca` con `codTipoMovimiento` de retiro (`RET_PAT_LI`).
+```
+Alpaca → Retirar desde Alpaca → Registrar retiro (Voultech) → FINTECH
+```
 
-**Paso 2: Registrar Retiro**
+**1. Retirar desde Alpaca** — mismo endpoint `MovimientoInternacionalAlpaca` con `codTipoMovimiento` de retiro (`RET_PAT_LI`).
 
+**2. Registrar el retiro en Voultech**
 `POST /api/publicapi/creasys/Movimientos/NuevoIngresoAporteRetiro`
 
 ```json
 {
   "numCuenta": "123456789/0",
-  "obsMovimiento": "Retiro cliente",
-  "fechaMovimiento": "2026-01-27T00:00:00.000Z",
-  "fechaLiquidacion": "2026-01-27T00:00:00.000Z",
+  "codTipoMovimiento": "RET_PAT_LI",
   "monto": 500,
   "codMoneda": "USD",
-  "codTipoMovimiento": "RET_PAT_LI",
+  "fechaMovimiento": "2026-01-27T00:00:00.000Z",
+  "fechaLiquidacion": "2026-01-27T00:00:00.000Z",
   "banco": "Banco XYZ",
   "numeroCuenta": "12345678",
   "tipoCuenta": "CORRIENTE",
-  "uuid": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+  "uuid": "uuid-unico-del-movimiento"
 }
 ```
 
-### Consultas de Movimientos y Saldo
+---
 
-| Endpoint | Descripción |
-|----------|-------------|
-| `GET /api/publicapi/creasys/Movimientos` | Historial de movimientos por cuenta y fecha |
-| `GET /api/publicapi/creasys/Cajas/ConSaldoOnline` | Saldo online de cajas (parámetros: `NumCuenta`, `Fecha`, `CodMoneda`) |
+## Trading
+
+Las órdenes se ingresan con `POST /api/publicapi/creasys/Ordenes/IngresarOrdenesMercado`.
+
+Para cuentas internacionales usar:
+- `codBolsa`: `ALPACA`
+- `tipoSeguridad`: `CS`
+- `tipoLiquidacion`: `T2`
+
+```json
+[{
+  "uuid": "uuid-unico-de-la-orden",
+  "numCuenta": "123456789/0",
+  "nemotecnico": "AMZN",
+  "cantidad": 1,
+  "precio": 180,
+  "tipoPrecio": "LIMIT",
+  "tipoOperacion": "C",
+  "tipoSeguridad": "CS",
+  "tipoLiquidacion": "T2",
+  "codBolsa": "ALPACA"
+}]
+```
+
+> ⚠️ La ejecución **no es inmediata**. La confirmación llega de forma asíncrona vía **Service Bus**.
+
+Para consultar precios usar `GET /api/publicapi/creasys/Asset/LastQuote` con el parámetro `nemo` (ej: `AMZN`).
 
 ---
 
-## 📈 Operaciones de Trading
+## WebSocket y Precios en Tiempo Real
 
-Para ingresar órdenes de compra/venta internacionales, ver la sección **Endpoints Alpaca — Referencia Completa**.
-
-| Endpoint | Descripción |
-|----------|-------------|
-| `POST /api/publicapi/creasys/Ordenes/IngresarOrdenesMercado` | Ingresa órdenes nacionales (XSGO) o internacionales (ALPACA) |
-| `GET /api/publicapi/creasys/Asset/LastQuote` | Última cotización de un instrumento |
-| `GET /api/publicapi/creasys/CuentaAlpaca/SaldoAlpaca/{accountNumber}` | Saldo y equity de la cuenta Alpaca |
-
-> ⚠️ La ejecución de órdenes **no es inmediata**. La confirmación llega de forma asíncrona vía **Service Bus**.
+| Canal | Estado |
+|-------|--------|
+| Precios de instrumentos | ⚙️ Requiere coordinación con el equipo de Voultech |
+| Saldo de caja (cash) | ✅ Disponible |
+| Equity total | ❌ No disponible — usar polling a `SaldoAlpaca` |
 
 ---
 
-## 🔌 WebSocket y Precios en Tiempo Real
-
-| Canal | Disponibilidad | Alternativa |
-|-------|---------------|-------------|
-| Precios de instrumentos | ⚙️ Requiere configuración | Endpoint `LastQuote` |
-| Saldo de caja (cash) | ✅ Disponible | — |
-| Equity total | ❌ No disponible | Polling a `SaldoAlpaca` |
-
-> Si la fintech requiere precios en tiempo real vía WebSocket, debe coordinarse con el equipo para la habilitación del puerto correspondiente.
-
----
-
-## 🧪 Ambiente de Pruebas (QA)
+## Ambiente de Pruebas (QA)
 
 **Swagger QA:**
 ```
 https://apiwebcbvoultechcertificacion.azurewebsites.net/swagger/index.html?urls.primaryName=Public%20API
 ```
 
-**Flujo recomendado en QA:**
+**Flujo recomendado:**
 1. Crear usuarios de prueba con el flujo completo (Paso 1 → 2 → 3)
 2. Probar aportes, retiros, órdenes y consultas
 3. Validar recepción de confirmaciones por Service Bus
-4. Revisión con equipo fintech antes del go-live
+4. Revisión con equipo Voultech antes del go-live
 
-> ⚠️ Hacer pruebas en QA con un **número reducido de usuarios** antes del go-live en producción.
+> ⚠️ Hacer pruebas con un **número reducido de usuarios** antes del go-live en producción.
 
 ---
 
-## ✅ Checklist de Go-Live
+## Checklist de Go-Live
 
 - [ ] Kickoff realizado y flujo validado
 - [ ] Tipo de cliente identificado (local / solo Alpaca)
 - [ ] Proveedor KYC definido (Rillis / Identyz)
 - [ ] Webhook de Rillis configurado y probado
-- [ ] Asesor creado en sistema
-- [ ] `sys_usuario` y credenciales API entregadas
+- [ ] Asesor creado en sistema Voultech
+- [ ] Credenciales API entregadas
 - [ ] Secuencia / `numCuenta` asignados
-- [ ] Flujo completo probado en QA
-- [ ] Revisión de procesos aprobada por equipo
+- [ ] Flujo completo probado en QA (Paso 1 → 2 → 3)
 - [ ] `codIdentificacion` incluido en POST Clientes
 - [ ] Service Bus configurado para recibir confirmaciones
 - [ ] WebSocket de precios solicitado (si aplica)
+- [ ] Aprobación del equipo Voultech para pase a producción
