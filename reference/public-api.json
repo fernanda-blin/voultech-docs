@@ -491,7 +491,7 @@
     "/api/publicapi/creasys/Asset": {
       "get": {
         "tags": [
-          "05. Activos e Instrumentos"
+          "12. Mercado Internacional (Alpaca)"
         ],
         "parameters": [
           {
@@ -10009,7 +10009,8 @@
     "/api/publicapi/creasys/Ordenes/IngresarOrdenesMercado": {
       "post": {
         "tags": [
-          "06. Órdenes y Operaciones"
+          "06. Órdenes y Operaciones",
+          "12. Mercado Internacional (Alpaca)"
         ],
         "summary": "Ingresar ordenes a mercado",
         "description": "**Ingresa ordenes directamente al mercado bursatil** para su ejecución inmediata o segun las condiciónes de precio indicadas.",
