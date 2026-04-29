@@ -10,7 +10,7 @@
     "/api/publicapi/creasys/AlpacaSweep/details": {
       "get": {
         "tags": [
-          "07. Movimientos y Transferencias"
+          "12. Mercado Internacional (Alpaca)"
         ],
         "responses": {
           "401": {
@@ -581,7 +581,7 @@
     "/api/publicapi/creasys/Asset/LastQuote": {
       "get": {
         "tags": [
-          "05. Activos e Instrumentos"
+          "12. Mercado Internacional (Alpaca)"
         ],
         "parameters": [
           {
@@ -640,7 +640,7 @@
     "/api/publicapi/creasys/Asset/stocks/auctions": {
       "get": {
         "tags": [
-          "05. Activos e Instrumentos"
+          "12. Mercado Internacional (Alpaca)"
         ],
         "summary": "Subastas por lote de simbolos",
         "parameters": [
@@ -764,7 +764,7 @@
     "/api/publicapi/creasys/Asset/stocks/bars": {
       "get": {
         "tags": [
-          "05. Activos e Instrumentos"
+          "12. Mercado Internacional (Alpaca)"
         ],
         "summary": "Barras OHLCV por lote de simbolos",
         "parameters": [
@@ -880,7 +880,7 @@
     "/api/publicapi/creasys/Asset/stocks/bars/latest": {
       "get": {
         "tags": [
-          "05. Activos e Instrumentos"
+          "12. Mercado Internacional (Alpaca)"
         ],
         "summary": "Ultima barra OHLCV por lote de simbolos",
         "parameters": [
@@ -955,7 +955,7 @@
     "/api/publicapi/creasys/Asset/stocks/quotes": {
       "get": {
         "tags": [
-          "05. Activos e Instrumentos"
+          "12. Mercado Internacional (Alpaca)"
         ],
         "summary": "Cotizaciónes históricas por lote de simbolos",
         "parameters": [
@@ -1063,7 +1063,7 @@
     "/api/publicapi/creasys/Asset/stocks/quotes/latest": {
       "get": {
         "tags": [
-          "05. Activos e Instrumentos"
+          "12. Mercado Internacional (Alpaca)"
         ],
         "summary": "Ultima cotización por lote de simbolos",
         "parameters": [
@@ -1138,7 +1138,7 @@
     "/api/publicapi/creasys/Asset/stocks/snapshots": {
       "get": {
         "tags": [
-          "05. Activos e Instrumentos"
+          "12. Mercado Internacional (Alpaca)"
         ],
         "summary": "Snapshot actual por lote de simbolos",
         "parameters": [
@@ -1213,7 +1213,7 @@
     "/api/publicapi/creasys/Asset/stocks/trades": {
       "get": {
         "tags": [
-          "05. Activos e Instrumentos"
+          "12. Mercado Internacional (Alpaca)"
         ],
         "summary": "Trades históricos por lote de simbolos",
         "parameters": [
@@ -1321,7 +1321,7 @@
     "/api/publicapi/creasys/Asset/stocks/trades/latest": {
       "get": {
         "tags": [
-          "05. Activos e Instrumentos"
+          "12. Mercado Internacional (Alpaca)"
         ],
         "summary": "Último trade por lote de simbolos",
         "parameters": [
@@ -1396,7 +1396,7 @@
     "/api/publicapi/creasys/Asset/stocks/meta/conditions/{tickType}": {
       "get": {
         "tags": [
-          "05. Activos e Instrumentos"
+          "12. Mercado Internacional (Alpaca)"
         ],
         "summary": "Condiciónes de tick por tipo",
         "parameters": [
@@ -1456,7 +1456,7 @@
     "/api/publicapi/creasys/Asset/stocks/meta/exchanges": {
       "get": {
         "tags": [
-          "05. Activos e Instrumentos"
+          "12. Mercado Internacional (Alpaca)"
         ],
         "summary": "Listar exchanges",
         "responses": {
@@ -1497,7 +1497,7 @@
     "/api/publicapi/creasys/Asset/stocks/{symbol}/auctions": {
       "get": {
         "tags": [
-          "05. Activos e Instrumentos"
+          "12. Mercado Internacional (Alpaca)"
         ],
         "summary": "Subastas de un simbolo",
         "parameters": [
@@ -1614,7 +1614,7 @@
     "/api/publicapi/creasys/Asset/stocks/{symbol}/bars": {
       "get": {
         "tags": [
-          "05. Activos e Instrumentos"
+          "12. Mercado Internacional (Alpaca)"
         ],
         "summary": "Barras OHLCV de un simbolo",
         "parameters": [
@@ -1723,7 +1723,7 @@
     "/api/publicapi/creasys/Asset/stocks/{symbol}/bars/latest": {
       "get": {
         "tags": [
-          "05. Activos e Instrumentos"
+          "12. Mercado Internacional (Alpaca)"
         ],
         "summary": "Ultima barra OHLCV de un simbolo",
         "parameters": [
@@ -1791,7 +1791,7 @@
     "/api/publicapi/creasys/Asset/stocks/{symbol}/quotes": {
       "get": {
         "tags": [
-          "05. Activos e Instrumentos"
+          "12. Mercado Internacional (Alpaca)"
         ],
         "summary": "Cotizaciónes históricas de un simbolo",
         "parameters": [
@@ -1892,7 +1892,7 @@
     "/api/publicapi/creasys/Asset/stocks/{symbol}/quotes/latest": {
       "get": {
         "tags": [
-          "05. Activos e Instrumentos"
+          "12. Mercado Internacional (Alpaca)"
         ],
         "summary": "Ultima cotización de un simbolo",
         "parameters": [
@@ -1960,7 +1960,7 @@
     "/api/publicapi/creasys/Asset/stocks/{symbol}/trades": {
       "get": {
         "tags": [
-          "05. Activos e Instrumentos"
+          "12. Mercado Internacional (Alpaca)"
         ],
         "summary": "Trades históricos de un simbolo",
         "parameters": [
@@ -2061,7 +2061,7 @@
     "/api/publicapi/creasys/Asset/stocks/{symbol}/trades/latest": {
       "get": {
         "tags": [
-          "05. Activos e Instrumentos"
+          "12. Mercado Internacional (Alpaca)"
         ],
         "summary": "Último trade de un simbolo",
         "parameters": [
@@ -2129,7 +2129,7 @@
     "/api/publicapi/creasys/Asset/LogoParquet/{nemotecnico}": {
       "get": {
         "tags": [
-          "05. Activos e Instrumentos"
+          "12. Mercado Internacional (Alpaca)"
         ],
         "summary": "Logo de un activo por nemotécnico",
         "parameters": [
@@ -4746,7 +4746,7 @@
     "/api/publicapi/creasys/ClockAlpaca": {
       "get": {
         "tags": [
-          "05. Activos e Instrumentos"
+          "12. Mercado Internacional (Alpaca)"
         ],
         "summary": "Estado del mercado Alpaca",
         "responses": {
@@ -4790,7 +4790,7 @@
     "/api/publicapi/creasys/ClosePrices/symbol/{symbol}/latest": {
       "get": {
         "tags": [
-          "05. Activos e Instrumentos"
+          "12. Mercado Internacional (Alpaca)"
         ],
         "parameters": [
           {
@@ -5554,7 +5554,7 @@
     "/api/publicapi/creasys/CuentaAlpaca/CrearClienteAlpaca": {
       "post": {
         "tags": [
-          "04. Cuentas"
+          "12. Mercado Internacional (Alpaca)"
         ],
         "summary": "Crear cliente en Alpaca",
         "requestBody": {
@@ -5615,7 +5615,7 @@
     "/api/publicapi/creasys/CuentaAlpaca/ObtenerCuentaAlpaca/{accountNumber}": {
       "get": {
         "tags": [
-          "04. Cuentas"
+          "12. Mercado Internacional (Alpaca)"
         ],
         "summary": "Obtener cuenta Alpaca",
         "parameters": [
@@ -5667,7 +5667,7 @@
     "/api/publicapi/creasys/CuentaAlpaca/ObtenerCuentas": {
       "get": {
         "tags": [
-          "04. Cuentas"
+          "12. Mercado Internacional (Alpaca)"
         ],
         "summary": "Listar cuentas Alpaca",
         "parameters": [
@@ -5742,7 +5742,7 @@
     "/api/publicapi/creasys/CuentaAlpaca/SaldoAlpaca/{accountNumber}": {
       "get": {
         "tags": [
-          "04. Cuentas"
+          "12. Mercado Internacional (Alpaca)"
         ],
         "parameters": [
           {
@@ -5793,7 +5793,7 @@
     "/api/publicapi/creasys/CuentaAlpaca/ObtenerActividadCuenta": {
       "get": {
         "tags": [
-          "04. Cuentas"
+          "12. Mercado Internacional (Alpaca)"
         ],
         "parameters": [
           {
@@ -5906,7 +5906,7 @@
     "/api/publicapi/creasys/CuentaAlpaca/Custodias/{accountNumber}": {
       "get": {
         "tags": [
-          "04. Cuentas"
+          "12. Mercado Internacional (Alpaca)"
         ],
         "parameters": [
           {
@@ -5957,7 +5957,7 @@
     "/api/publicapi/creasys/CuentaAlpaca/PreviewCip/{numCuenta}": {
       "get": {
         "tags": [
-          "04. Cuentas"
+          "12. Mercado Internacional (Alpaca)"
         ],
         "parameters": [
           {
@@ -6008,7 +6008,7 @@
     "/api/publicapi/creasys/CuentaAlpaca/ListarDocumentos": {
       "get": {
         "tags": [
-          "04. Cuentas"
+          "12. Mercado Internacional (Alpaca)"
         ],
         "parameters": [
           {
@@ -6082,7 +6082,7 @@
     "/api/publicapi/creasys/CuentaAlpaca/DescargarDocumentos": {
       "get": {
         "tags": [
-          "04. Cuentas"
+          "12. Mercado Internacional (Alpaca)"
         ],
         "parameters": [
           {
@@ -6139,7 +6139,7 @@
     "/api/publicapi/creasys/CuentaAlpaca/DescargarW8": {
       "get": {
         "tags": [
-          "04. Cuentas"
+          "12. Mercado Internacional (Alpaca)"
         ],
         "parameters": [
           {
@@ -8106,7 +8106,7 @@
     "/api/alpaca/journals/events": {
       "post": {
         "tags": [
-          "11. Integraciones y Sistema"
+          "12. Mercado Internacional (Alpaca)"
         ],
         "requestBody": {
           "content": {
@@ -9073,7 +9073,7 @@
     "/api/publicapi/creasys/MovimientosAlpaca/MovimientoInternacionalAlpaca": {
       "post": {
         "tags": [
-          "07. Movimientos y Transferencias"
+          "12. Mercado Internacional (Alpaca)"
         ],
         "summary": "Movimiento internacional Alpaca",
         "requestBody": {
@@ -9136,7 +9136,7 @@
     "/api/publicapi/creasys/MovimientosAlpaca/patrimoniales/{numCuenta}": {
       "get": {
         "tags": [
-          "07. Movimientos y Transferencias"
+          "12. Mercado Internacional (Alpaca)"
         ],
         "parameters": [
           {
@@ -34036,6 +34036,10 @@
     {
       "name": "11. Integraciones y Sistema",
       "description": "Endpoints para integraciones externas y control operativo del sistema.\n\nIncluyendo webhooks de **Fintoc**, actualización de movimientos de órdenes, eventos de journal **Alpaca**, gestión del cierre contable diario y consulta del entorno del sistema."
+    },
+    {
+      "name": "12. Mercado Internacional (Alpaca)",
+      "description": "Endpoints para operar en **mercados internacionales** a través de Alpaca Markets.\n\n## Cuentas\nCrear, consultar y gestionar cuentas Alpaca vinculadas a cuentas locales.\n\n## Saldos y Actividad\nConsultar saldo disponible, actividad de cuenta y custodias.\n\n## Movimientos Internacionales\nRegistrar aportes y retiros patrimoniales hacia/desde Alpaca.\n\n## Market Data\nPrecios en tiempo real, cotizaciones históricas, barras OHLCV, trades y snapshots de instrumentos en EE.UU.\n\n## Horario de Mercado\nConsultar si el mercado americano está abierto o cerrado.\n\n> ⚠️ Las confirmaciones de órdenes llegan de forma **asíncrona** vía Service Bus.\n> Los dos identificadores clave son `numCuenta` (cuenta local) y `accountNumber` (cuenta Alpaca)."
     }
   ]
 }
